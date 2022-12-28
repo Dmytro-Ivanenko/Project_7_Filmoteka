@@ -30,7 +30,7 @@
   font-style: normal;
   font-size: 1em;
   line-height: 30px;
-  color: #fff;
+  color: $to-top-after-color;
 }
 
 @media screen and (min-width: 768px) {
@@ -42,11 +42,11 @@
 
 #back-to-top:hover {
   cursor: pointer;
-  background-color: rgba(0, 150, 136, 0.8);
+  background-color: $to-top-bcg-color;
 }
 
 #back-to-top:active {
-  background-color: rgba(0, 150, 136, 0.8);
+  background-color: $to-top-bcg-color;
 }
 
 #back-to-top.show {
