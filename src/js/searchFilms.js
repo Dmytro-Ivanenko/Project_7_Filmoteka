@@ -1,19 +1,21 @@
 import { galleryList, fetchApi, searchResult } from '../index';
 import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
+import { addPagination } from './pagination';
 
+let searchValue = '';
 export async function searchFilms(e) {
-  const { value } = e.target;
+  searchValue = e.target.value;
 
   try {
-    if (value.trim() === '') {
+    if (searchValue.trim() === '') {
       renderTrendingFilms();
       return;
     }
 
     galleryList.innerHTML = '';
-    fetchApi.page = 1;
-    const { data } = await fetchApi.fetchSearchFilms(value.trim());
+
+    const { data } = await fetchApi.fetchSearchFilms(searchValue.trim());
 
     if (data.total_results === 0) {
       searchResult.innerHTML =
@@ -25,9 +27,20 @@ export async function searchFilms(e) {
     if (data.total_results > 0) {
       searchResult.innerHTML = '';
       renderGallery(data.results);
+
+      searchPagination = addPagination(data);
+      searchPagination.on('beforeMove', loadMoreSearch);
     }
   } catch (error) {
     console.log(error);
-    console.log('hello');
   }
+}
+
+async function loadMoreSearch(e) {
+  const currentPage = e.page;
+  const { data } = await fetchApi.fetchSearchFilms(
+    searchValue.trim(),
+    currentPage
+  );
+  renderGallery(data.results);
 }
