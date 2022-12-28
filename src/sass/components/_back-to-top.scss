@@ -1,0 +1,55 @@
+#back-to-top {
+  display: inline-block;
+  background-color: $accent-font-color;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+@media screen and (min-width: 768px) {
+  #back-to-top {
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 30px;
+  }
+}
+
+#back-to-top::after {
+  content: '\f077';
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  line-height: 30px;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  #back-to-top::after {
+    font-size: 2em;
+    line-height: 50px;
+  }
+}
+
+#back-to-top:hover {
+  cursor: pointer;
+  background-color: rgba(0, 150, 136, 0.8);
+}
+
+#back-to-top:active {
+  background-color: rgba(0, 150, 136, 0.8);
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}

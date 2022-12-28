@@ -1,0 +1,129 @@
+.modal {
+  display: flex;
+  background-color: $primary-background-color;
+  border-radius: 5px;
+  width: 806px;
+  height: auto;
+  padding: 40px 12px;
+}
+
+.modal-card {
+  display: flex;
+  flex: 1 0 100%;
+}
+.modal-card__images {
+  flex: 1 0 50%;
+  align-self: center;
+}
+.modal-card__description {
+  flex: 1 0 50%;
+}
+.modal-card__image {
+  width: 375px;
+  height: 478px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.modal-card__title {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.166;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.modal-card__table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.modal-card__table-row {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8c8c8c;
+}
+.modal-card__table-data {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $primary-font-color;
+
+  &--grey {
+    color: #8c8c8c;
+  }
+
+  & span {
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    height: 16px;
+    background-color: #ff6b01;
+    border-radius: 5px;
+  }
+}
+.modal-card__about {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: #000000;
+}
+.modal-card__about-description {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.modal-card__btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  align-items: center;
+  text-align: center;
+}
+.modal-card__btn-watched {
+  width: 136px;
+  height: 44px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: $accent-font-color;
+  cursor: pointer;
+}
+.modal-card__btn-queue {
+  width: 136px;
+  height: 44px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: $primary-font-color;
+  background-color: transparent;
+  cursor: pointer;
+}
+.modal-btn-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    color: #ff6b01;
+    transform: scale(1.2);
+  }
+}
