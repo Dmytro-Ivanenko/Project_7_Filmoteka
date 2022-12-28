@@ -1,10 +1,42 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(88, 73, 73);
+  background-image: url(../images/background/1.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  opacity: 1;
+  transition: opacity $transition-duration, visability $transition-duration;
+  z-index: 50;
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  & .modal {
+    transform: translate(-50%, -50%) scale(1.2);
+    transition: visibility $transition-duration, transform $transition-duration;
+  }
+}
+
 .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   background-color: $primary-background-color;
   border-radius: 5px;
   width: 806px;
   height: auto;
   padding: 40px 12px;
+  transition: transform $transition-duration;
 }
 
 .modal-card {
@@ -114,16 +146,36 @@
   background-color: transparent;
   cursor: pointer;
 }
-.modal-btn-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
 
+.modal__btn-close {
+  color: $primary-font-color;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid $primary-font-color;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: $transition-duration;
+
+  &:active {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+
+  &:focus,
   &:hover {
-    color: $accent-font-color;
-    transform: scale(1.2);
+    border-color: $accent-font-color;
+  }
+
+  &:focus .modal__icon-close,
+  &:hover .modal__icon-close {
+    fill: $accent-font-color;
   }
 }
