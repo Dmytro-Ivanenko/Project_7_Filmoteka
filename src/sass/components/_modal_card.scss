@@ -11,7 +11,7 @@
   background-position: center;
   opacity: 1;
   transition: opacity $transition-duration, visability $transition-duration;
-  z-index: 15;
+  z-index: 50;
 }
 
 .is-hidden {
