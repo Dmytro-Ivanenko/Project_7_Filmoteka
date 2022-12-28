@@ -4,7 +4,7 @@ import { fetchApi } from '../index.js';
 import { getTrailerYouTube } from './api';
 
 export async function getTrailerFilm(e) {
-  id = e.path[1].dataset.id;
+  const id = e.path[1].dataset.id;
   const { value } = e.target.classList;
 
   if (value !== 'gallery-item-trailer') {
