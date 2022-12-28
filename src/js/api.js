@@ -10,17 +10,14 @@ const GANRE_LIST_URL = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 // https://api.themoviedb.org/3/movie/76600/videos?api_key=53f2c47317a563cd2628c68ceb6a6673&language=en-US
 
 export class FetchAPI {
-  constructor() {
-    this.page = 1;
+  // trends
+  async fetchTrendingFilms(page = 1) {
+    return await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
   }
 
-  async fetchTrendingFilms() {
-    return await axios.get(`${TREND_URL}?api_key=${API_KEY}`);
-  }
-
-  async fetchSearchFilms(searchQuery) {
+  async fetchSearchFilms(searchQuery, page = 1) {
     return await axios.get(
-      `${SEARCH_URL}?api_key=${API_KEY}&query=${searchQuery}`
+      `${SEARCH_URL}?api_key=${API_KEY}&query=${searchQuery}&page=${page}`
     );
   }
 

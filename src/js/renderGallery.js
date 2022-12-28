@@ -5,5 +5,5 @@ export function renderGallery(galleryEl) {
   const galleryElements = galleryEl.map(elem =>
     createMarkupElemetsGallery(elem, fetchApi)
   );
-  galleryList.insertAdjacentHTML('beforeend', galleryElements.join(''));
+  galleryList.innerHTML = galleryElements.join('');
 }
