@@ -37,7 +37,7 @@
   top: 15px;
   left: 15px;
   width: 160px;
-  color: #fff;
+  color: $primary-background-color;
   font-size: 15px;
   background-color: $accent-font-color;
   cursor: pointer;
@@ -48,7 +48,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   row-gap: 10px;
-  background-color: #fff;
+  background-color: $primary-background-color;
   padding: 20px 10px;
 }
 

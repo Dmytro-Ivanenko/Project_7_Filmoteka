@@ -59,5 +59,3 @@ export async function getTrailerYouTube(key) {
   return await axios.get(`${YOUTUBE_URl_BY_ID}${key}&key=${YOUTUBE_API_KEY}`);
   // return await axios.get(`https://www.youtube.com/watch?v=${key}`);
 }
-
-//

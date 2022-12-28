@@ -30,7 +30,7 @@
   font-weight: 500;
   font-size: 30px;
   line-height: 1.166;
-  color: #000000;
+  color: $primary-font-color;
   margin-bottom: 20px;
 }
 .modal-card__table {
@@ -43,7 +43,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  color: #8c8c8c;
+  color: $modal-card-font-color;
 }
 .modal-card__table-data {
   font-family: $primary-font;
@@ -54,7 +54,7 @@
   color: $primary-font-color;
 
   &--grey {
-    color: #8c8c8c;
+    color: $modal-card-font-color;
   }
 
   & span {
@@ -62,7 +62,7 @@
     text-align: center;
     width: 36px;
     height: 16px;
-    background-color: #ff6b01;
+    background-color: $accent-font-color;
     border-radius: 5px;
   }
 }
@@ -73,7 +73,7 @@
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
-  color: #000000;
+  color: $primary-font-color;
 }
 .modal-card__about-description {
   font-family: $primary-font;
@@ -81,7 +81,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
-  color: #000000;
+  color: $primary-font-color;
   margin-bottom: 20px;
 }
 .modal-card__btn {
@@ -101,7 +101,7 @@
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $primary-background-color;
   background-color: $accent-font-color;
   cursor: pointer;
 }
@@ -123,7 +123,7 @@
   cursor: pointer;
 
   &:hover {
-    color: #ff6b01;
+    color: $accent-font-color;
     transform: scale(1.2);
   }
 }

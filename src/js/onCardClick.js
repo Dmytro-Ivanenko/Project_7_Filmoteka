@@ -7,7 +7,7 @@ export async function onCardClick(e) {
   }
 
   if (e.path[2].className === 'photo-card') {
-    id = e.path[2].dataset.id;
+    const id = e.path[2].dataset.id;
     const { data } = await fetchApi.getFilmToId(id);
     createModalCardMarkup(data).show();
   }
