@@ -4,7 +4,7 @@ export function createMarkupElemetsGallery(
 ) {
   const dateYear = new Date(release_date).getFullYear();
   let images = '';
-  genres = getGenresForMarkup(genre_ids, fetchApi);
+  const genres = getGenresForMarkup(genre_ids, fetchApi);
 
   if (!poster_path) {
     images =
