@@ -4,6 +4,7 @@ import { renderGallery } from './renderGallery';
 import { addPagination } from './pagination';
 
 let searchValue = '';
+let searchPagination = null;
 export async function searchFilms(e) {
   searchValue = e.target.value;
 
