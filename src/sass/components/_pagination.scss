@@ -25,28 +25,26 @@
   display: inline-block;
   position: relative;
   width: 28px;
-  padding: 8px 0 6px;
+  padding: 8px 0;
   margin-left: 0;
-  color: #333;
+  color: $primary-font-color;
   font-size: 12px;
   font-weight: normal;
   line-height: 1;
   text-decoration: none;
   vertical-align: middle;
-  border: 1px solid #ddd;
-  border-width: 1px 0;
   border-radius: 5px;
 }
 
 .tui-pagination .tui-page-btn:hover {
-  background-color: #f4f4f4;
+  background-color: $hover-color;
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-  color: #fff;
+  color: $active-font-color;
   background: $accent-font-color;
-  border-color: $accent-font-color;
+
   cursor: default;
 }
 
@@ -59,51 +57,19 @@
   margin-left: 0;
 }
 
-.tui-pagination .tui-first-child,
-.tui-pagination .tui-prev-is-ellip {
-  border-left: 1px solid #ddd;
-}
-
-.tui-pagination .tui-last-child,
-.tui-pagination .tui-next-is-ellip {
-  border-right: 1px solid #ddd;
-}
-
-.tui-pagination .tui-first-child.tui-is-selected {
-  border-left: 1px solid $accent-font-color;
-}
-
-.tui-pagination .tui-last-child.tui-is-selected {
-  border-right: 1px solid $accent-font-color;
-}
-
 .tui-pagination .tui-first,
 .tui-pagination .tui-prev,
 .tui-pagination .tui-next,
 .tui-pagination .tui-last,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
-  overflow: hidden;
-  height: 26px;
+  height: 28px;
+  white-space: nowrap;
   padding: 0;
   font-size: 0;
-  line-height: 26px;
-  white-space: nowrap;
   font-weight: normal;
-  border: 1px solid #ddd;
-}
-
-.tui-pagination .tui-prev-is-ellip {
-  border-right: 0;
-}
-
-.tui-pagination .tui-next-is-ellip {
-  border-left: 0;
-}
-
-.tui-pagination .tui-first + .tui-prev,
-.tui-pagination .tui-next + .tui-last {
-  border-left: 0;
+  line-height: 28px;
+  overflow: hidden;
 }
 
 .tui-pagination .tui-ico-first,
@@ -165,7 +131,7 @@
 }
 
 .tui-pagination .tui-is-disabled:hover {
-  background: #fff;
+  background: $disabled-hover-color;
   cursor: default;
 }
 
@@ -188,18 +154,6 @@
 .tui-page-inputs {
   display: inline-block;
   vertical-align: top;
-}
-
-.tui-page-inputs .tui-page-input {
-  display: inline-block;
-  width: 10px;
-  height: 12px;
-  padding: 8px 0 6px;
-  font-size: 12px;
-  text-align: center;
-  color: #333;
-  border: 0;
-  outline: none;
 }
 
 .tui-page-inputs .tui-page-current {
