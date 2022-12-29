@@ -1,32 +1,62 @@
 .gallery {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  column-gap: 16px;
-  row-gap: 32px;
-  padding: 60px 32px;
+  flex-direction: column;
+  column-gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 60px 32px;
+    gap: 32px;
+    padding: 60px 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    column-gap: 16px;
+    row-gap: 32px;
+    padding: 60px 32px;
+  }
 }
 
 .photo-card {
-  width: 394px;
-  height: 634px;
+  width: 280px;
+  height: 443px;
   border-radius: 5px;
   cursor: pointer;
   position: relative;
-
   transition: transform $transition-duration;
 
   &:hover,
   &:focus {
     transform: scale(1.05);
   }
+
+  @media screen and (min-width: 768px) {
+    width: 275px;
+    height: 494px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 394px;
+    height: 634px;
+  }
 }
 
 .gallery__image {
-  width: 395px;
-  height: 574px;
+  width: 280px;
+  height: 402px;
   border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 574px;
+  }
 }
 
 .gallery__item {

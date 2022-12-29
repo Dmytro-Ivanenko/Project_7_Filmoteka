@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filmoteka</title>
 
-  <!-- Favicoт -->
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./images/icon/favico-2.png" />
 
   <!-- Normalize -->
@@ -33,32 +33,10 @@
 </head>
 
 <body>
+  <!-- ================================================================================================ -->
   <!-- Header -->
-  <header class="page-header">
-    <div class="container">
-      <div class="header">
-        <nav class="main-nav">
-          <a class="logo link animate__animated animate__bounceInDown" href="./index.html">
-            <svg class="logo__icon animate__animated animate__pulse animate__infinite" width="24" height="24">
-              <use href="./images/icon/sprite.svg#icon-logo"></use>
-            </svg>
-            <span class="cssanimation lePushReleaseFrom sequence">Filmoteka</span></a>
-          <div>
-            <ul class="site-nav">
-              <li class="site-nav__item">
-                <a class="site-nav__link" href="./index.html">home</a>
-              </li>
-              <li class="site-nav__item">
-                <a class="site-nav__link" href="./library.html">my library</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+  <include src="./partials/library-header.html"></include>
 
-
-      </div>
-    </div>
-  </header>
 
   <!-- Main -->
   <main class="main">
@@ -72,27 +50,15 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <ul class="footer-nav">
-        <li class="footer-nav__item">© 2020</li>
-        <li class="footer-nav__item">All Rights Reserved</li>
-        <li class="footer-nav__item">
-          Developed with by
-          <svg class="logo__icon animate__animated animate__heartBeat animate__infinite" width="14" height="14">
-            <use href="./images/icon/sprite.svg#icon-heart"></use>
-          </svg>
-          <span><a href="./index.html">GoIT Students</a></span>
-        </li>
-      </ul>
-    </div>
-  </footer>
+  <include src="./partials/footer.html"></include>
+
 
   <!-- Modal -->
   <div class="backdrop is-hidden" data-modal></div>
 
   <!-- Back to top button -->
   <a id="back-to-top"></a>
+  <!-- ======================================================================================================== -->
 
   <!-- cssanimation.io -->
   <script type="text/javascript"
