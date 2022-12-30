@@ -57,12 +57,12 @@ header {
   font-weight: 500;
   font-size: 30px;
   line-height: 1.166;
-  color: $primary-background-color;
-  transition: color $transition-duration;
+  color: var(--primary-background-color);
+  transition: color var(--transition-duration);
 
   &:hover,
   &:focus {
-    color: $accent-font-color;
+    color: var(--accent-font-color);
   }
 }
 
@@ -99,8 +99,8 @@ header {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
-  color: $primary-background-color;
-  transition: color $transition-duration;
+  color: var(--primary-background-color);
+  transition: color var(--transition-duration);
   position: relative;
 
   &::after {
@@ -110,7 +110,7 @@ header {
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color: $primary-background-color;
+    background-color: var(--primary-background-color);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.5s;
@@ -123,7 +123,7 @@ header {
 
   &:focus,
   &:hover {
-    color: $accent-font-color;
+    color: var(--accent-font-color);
   }
 }
 
@@ -147,7 +147,7 @@ header {
   width: 280px;
   padding: 0.5em 1em 0.5em 2.5em;
   margin-bottom: 0px;
-  transition: transform $transition-duration;
+  transition: transform var(--transition-duration);
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -159,7 +159,7 @@ header {
 }
 
 .search-form-input::placeholder {
-  color: $primary-background-color;
+  color: var(--primary-background-color);
 }
 
 .search-form-input:active,
@@ -187,7 +187,7 @@ header {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.142;
-  color: $search-result-color;
+  color: var(--search-result-color);
   padding-top: 10px;
   padding-bottom: 60px;
 

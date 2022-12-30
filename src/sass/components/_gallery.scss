@@ -23,10 +23,11 @@
 .photo-card {
   width: 280px;
   border-radius: 5px;
-  background-color: $primary-background-color;
+  background-color: var(--primary-background-color);
   cursor: pointer;
   position: relative;
-  transition: transform $transition-duration;
+
+  transition: transform var(--transition-duration);
 
   &:hover,
   &:focus {
@@ -61,9 +62,9 @@
   top: 15px;
   left: 15px;
   width: 160px;
-  color: $primary-background-color;
+  color: var(--primary-background-color);
   font-size: 15px;
-  background-color: $accent-font-color;
+  background-color: var(--accent-font-color);
   cursor: pointer;
 }
 
@@ -72,7 +73,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 6px 2px 2px 2px;
-
+  background-color: var(--primary-background-color);
   @media screen and (min-width: 1280px) {
     row-gap: 4px;
     padding: 8px 2px 2px 2px;
@@ -84,7 +85,7 @@
   line-height: 1.1666;
   font-weight: 500;
   text-transform: uppercase;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
 
   @media screen and (min-width: 768px) {
     line-height: 1.333;
@@ -106,7 +107,7 @@
   font-size: 12px;
   line-height: 1.333;
   font-weight: 500;
-  color: $accent-font-color;
+  color: var(--accent-font-color);
 
   &:not(:last-child)::after {
     content: '';

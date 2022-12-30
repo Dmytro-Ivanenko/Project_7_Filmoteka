@@ -6,7 +6,8 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.863);
   opacity: 1;
-  transition: opacity $transition-duration, visability $transition-duration;
+  transition: opacity var(--transition-duration),
+    visability var(--transition-duration);
   z-index: 50;
 }
 
@@ -17,7 +18,8 @@
 
   & .modal {
     transform: translate(-50%, -50%) scale(1.2);
-    transition: visibility $transition-duration, transform $transition-duration;
+    transition: visibility var(--transition-duration),
+      transform var(--transition-duration);
   }
 }
 
@@ -27,12 +29,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  background-color: $primary-background-color;
+  background-color: var(--primary-background-color);
   border-radius: 5px;
   width: 806px;
   height: auto;
   padding: 40px 12px;
-  transition: transform $transition-duration;
+  transition: transform var(--transition-duration);
 }
 
 .modal-card {
@@ -53,12 +55,12 @@
   border-radius: 5px;
 }
 .modal-card__title {
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
   line-height: 1.166;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
   margin-bottom: 20px;
 }
 .modal-card__table {
@@ -66,23 +68,23 @@
   margin-bottom: 20px;
 }
 .modal-card__table-row {
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  color: $modal-card-font-color;
+  color: var(--modal-card-font-color);
 }
 .modal-card__table-data {
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
 
   &--grey {
-    color: $modal-card-font-color;
+    color: var(--modal-card-font-color);
   }
 
   & span {
@@ -90,33 +92,33 @@
     text-align: center;
     width: 36px;
     height: 16px;
-    background-color: $accent-font-color;
+    background-color: var(--accent-font-color);
     border-radius: 5px;
   }
 }
 .modal-card__about {
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
 }
 .modal-card__about-description {
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
   margin-bottom: 20px;
 }
 .modal-card__btn {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  font-family: $primary-font;
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -129,8 +131,8 @@
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
-  color: $primary-background-color;
-  background-color: $accent-font-color;
+  color: var(--primary-background-color);
+  background-color: var(--accent-font-color);
   cursor: pointer;
 }
 .modal-card__btn-queue {
@@ -138,13 +140,13 @@
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
   background-color: transparent;
   cursor: pointer;
 }
 
 .modal__btn-close {
-  color: $primary-font-color;
+  color: var(--primary-font-color);
   position: absolute;
   top: 8px;
   right: 8px;
@@ -154,11 +156,11 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid $primary-font-color;
+  border: 1px solid var(--primary-font-color);
   background-color: transparent;
   cursor: pointer;
   outline: none;
-  transition: $transition-duration;
+  transition: var(--transition-duration);
 
   &:active {
     opacity: 0.8;
@@ -167,11 +169,11 @@
 
   &:focus,
   &:hover {
-    border-color: $accent-font-color;
+    border-color: var(--accent-font-color);
   }
 
   &:focus .modal__icon-close,
   &:hover .modal__icon-close {
-    fill: $accent-font-color;
+    fill: var(--accent-font-color);
   }
 }
