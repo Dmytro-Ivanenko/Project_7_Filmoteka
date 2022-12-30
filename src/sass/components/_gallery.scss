@@ -1,17 +1,29 @@
 .gallery {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  column-gap: 16px;
-  row-gap: 32px;
-  padding: 60px 32px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    padding: 60px 32px;
+    gap: 32px;
+    padding: 60px 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    column-gap: 16px;
+    row-gap: 32px;
+    padding: 60px 32px;
+  }
 }
 
 .photo-card {
-  width: 394px;
-  height: 634px;
+  width: 280px;
   border-radius: 5px;
+  background-color: $primary-background-color;
   cursor: pointer;
   position: relative;
 
@@ -21,15 +33,28 @@
   &:focus {
     transform: scale(1.05);
   }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 394px;
+  }
 }
 
 .gallery__image {
-  width: 395px;
-  height: 574px;
+  width: 100%;
+  height: 402px;
   border-radius: 5px;
-}
 
-.gallery__item {
+  @media screen and (min-width: 768px) {
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 574px;
+  }
 }
 
 .gallery-item-trailer {
@@ -47,16 +72,29 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  row-gap: 10px;
+  padding: 6px 2px 2px 2px;
   background-color: var(--primary-background-color);
-  padding: 20px 10px;
+  @media screen and (min-width: 1280px) {
+    row-gap: 4px;
+    padding: 8px 2px 2px 2px;
+  }
 }
 
 .info-title {
-  font-size: 15px;
-  line-height: 0.7;
+  font-size: 12px;
+  line-height: 1.1666;
+  font-weight: 500;
   text-transform: uppercase;
   color: var(--primary-font-color);
+
+  @media screen and (min-width: 768px) {
+    line-height: 1.333;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.09;
+  }
 }
 
 .info-other {
@@ -66,8 +104,9 @@
 }
 
 .info-item {
-  font-size: 15px;
-  line-height: 0.7;
+  font-size: 12px;
+  line-height: 1.333;
+  font-weight: 500;
   color: var(--accent-font-color);
 
   &:not(:last-child)::after {
@@ -76,5 +115,10 @@
     margin-right: 10px;
     border: 1px solid currentColor;
     transform: rotate(90deg);
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 1.09;
   }
 }
