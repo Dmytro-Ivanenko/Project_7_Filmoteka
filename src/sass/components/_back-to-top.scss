@@ -1,6 +1,6 @@
 #back-to-top {
   display: inline-block;
-  background-color: $accent-font-color;
+  background-color: var(--accent-font-color);
   width: 30px;
   height: 30px;
   text-align: center;
@@ -30,7 +30,7 @@
   font-style: normal;
   font-size: 1em;
   line-height: 30px;
-  color: $to-top-after-color;
+  color: var(--to-top-after-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -42,11 +42,11 @@
 
 #back-to-top:hover {
   cursor: pointer;
-  background-color: $to-top-bcg-color;
+  background-color: var(--to-top-bcg-color);
 }
 
 #back-to-top:active {
-  background-color: $to-top-bcg-color;
+  background-color: var(--to-top-bcg-color);
 }
 
 #back-to-top.show {

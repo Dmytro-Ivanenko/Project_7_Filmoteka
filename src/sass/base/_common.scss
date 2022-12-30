@@ -3,9 +3,9 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-color: $primary-background-color;
-  color: $primary-font-color;
-  font-family: $primary-font;
+  // background-color: var(--primary-background-color);
+  // color: var(--primary-font-color);
+  // font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -37,6 +37,7 @@ ol {
 }
 
 .container {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
 

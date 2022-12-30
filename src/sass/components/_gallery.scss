@@ -15,7 +15,7 @@
   cursor: pointer;
   position: relative;
 
-  transition: transform $transition-duration;
+  transition: transform var(--transition-duration);
 
   &:hover,
   &:focus {
@@ -37,9 +37,9 @@
   top: 15px;
   left: 15px;
   width: 160px;
-  color: $primary-background-color;
+  color: var(--primary-background-color);
   font-size: 15px;
-  background-color: $accent-font-color;
+  background-color: var(--accent-font-color);
   cursor: pointer;
 }
 
@@ -48,7 +48,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   row-gap: 10px;
-  background-color: $primary-background-color;
+  background-color: var(--primary-background-color);
   padding: 20px 10px;
 }
 
@@ -56,7 +56,7 @@
   font-size: 15px;
   line-height: 0.7;
   text-transform: uppercase;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
 }
 
 .info-other {
@@ -68,7 +68,7 @@
 .info-item {
   font-size: 15px;
   line-height: 0.7;
-  color: $accent-font-color;
+  color: var(--accent-font-color);
 
   &:not(:last-child)::after {
     content: '';
