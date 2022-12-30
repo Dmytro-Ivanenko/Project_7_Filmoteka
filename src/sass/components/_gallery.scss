@@ -23,7 +23,7 @@
 .photo-card {
   width: 280px;
   border-radius: 5px;
-  background-color: $primary-background-color;
+  background-color: var(--primary-background-color);
   cursor: pointer;
   position: relative;
 
