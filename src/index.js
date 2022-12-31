@@ -5,6 +5,7 @@ import { searchFilms } from './js/searchFilms';
 import { onCardClick } from './js/onCardClick';
 import { getTrailerFilm } from './js/getTrailerFilm';
 import { backToTop } from './js/backToTop';
+import {createGenresFilter} from './js/genresFilter';
 
 // Variables
 const debounce = require('lodash.debounce');
@@ -22,3 +23,5 @@ document.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());
 document.addEventListener('click', getTrailerFilm);
 searchForm.addEventListener('input', debounce(searchFilms, DEBOUNCE_DELAY));
+
+createGenresFilter();
