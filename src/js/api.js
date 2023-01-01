@@ -51,8 +51,6 @@ export class FetchAPI {
 
     return genre[0].name;
   }
-
-
 }
 
 const YOUTUBE_URl_BY_ID =
