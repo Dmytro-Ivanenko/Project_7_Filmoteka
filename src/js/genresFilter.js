@@ -1,4 +1,9 @@
-import { fetchApi } from '../index.js';
+import { galleryList, fetchApi } from '../index.js';
+import { renderGallery } from './renderGallery.js';
+import { addPagination } from './pagination.js';
+
+let filteredFilmsPagination;
+let CheckedGenreNames = [];
 
 export async function createGenresFilter() {
   const choiceBtn = document.querySelector('.choose-genre-btn');
@@ -9,13 +14,13 @@ export async function createGenresFilter() {
   choiceBtn.addEventListener('click', openChoiceForm);
   
 
-  function createChoiceElement({name}) {
+  function createChoiceElement({id, name}) {
     return `<div> <input class="choice-form__item"
     type="checkbox"
-    id="genreType"
-    name="genreName"
+    id="${id}"
+    name="${name}"
      />
-    <label for="genreType">${name}</label>
+    <label for="${id}">${name}</label>
     </div>`
   }
 
@@ -30,8 +35,17 @@ export async function createGenresFilter() {
     createFormMarkup();
   }
 
-  function searchFilmsToGenres() {
+  const searchFilmsToGenres = async() => {
     createFormMarkup();
+    CheckedGenreNames = findCheckedGenres();
+    const { data } = await fetchApi.fetchFilmsWithGenres(CheckedGenreNames.join(','));
+    galleryList.innerHTML = '';
+    fetchApi.page = 1;
+    renderGallery(data.results);
+
+    filteredFilmsPagination = addPagination(data);
+    filteredFilmsPagination.on('beforeMove', loadMoreFilms);
+
     choiseFormWrapper.classList.add('visually-hidden');
   }
 
@@ -48,5 +62,18 @@ export async function createGenresFilter() {
 
   function clearFormMurkup() {
     choiceFormWrapperElement.innerHTML = '';
+  }
+
+  function findCheckedGenres() {
+    const genres = document.querySelectorAll('.choice-form__item');
+    const checkedGenres = Array.from(genres).filter(genre => genre.checked);
+    const checkedGenreNames = checkedGenres.map(genre => genre.id);
+    return checkedGenreNames;
+  }
+
+  async function loadMoreFilms(e) {
+    const currentPage = e.page;
+    const { data } = await fetchApi.fetchFilmsWithGenres(CheckedGenreNames.join(','), currentPage);
+    renderGallery(data.results);
   }
 }
