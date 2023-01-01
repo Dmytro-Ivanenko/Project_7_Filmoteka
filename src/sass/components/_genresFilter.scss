@@ -1,10 +1,16 @@
 .choice-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   position: absolute;
-  transform: translateY(50%);
+  transform: translateY(10%);
   z-index: 1000;
-  border: 1px solid;
+  border: none;
+  border-radius: 5px;
   padding: 5px;
   background-color: $modal-card-font-color;
+  opacity: 90%;
 }
 
 .choice-form-wrapper__element{
@@ -32,4 +38,9 @@
   border-radius: 5px;
   width: 183px;
   align-content: center;
+
+  &:focus,
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+  }
 }
