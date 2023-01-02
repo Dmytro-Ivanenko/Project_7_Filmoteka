@@ -27,7 +27,7 @@
   width: 28px;
   padding: 8px 0;
   margin-left: 0;
-  color: $primary-font-color;
+  color: var(--primary-font-color);
   font-size: 12px;
   font-weight: normal;
   line-height: 1;
@@ -37,19 +37,19 @@
 }
 
 .tui-pagination .tui-page-btn:hover {
-  background-color: $hover-color;
+  background-color: #f4f4f4;
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-  color: $active-font-color;
-  background: $accent-font-color;
+  color: #fff;
+  background: var(--accent-font-color);
 
   cursor: default;
 }
 
 .tui-pagination .tui-is-selected:hover {
-  background-color: $accent-font-color;
+  background-color: var(--accent-font-color);
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
@@ -131,7 +131,7 @@
 }
 
 .tui-pagination .tui-is-disabled:hover {
-  background: $disabled-hover-color;
+  background: #fff;
   cursor: default;
 }
 
@@ -157,7 +157,7 @@
 }
 
 .tui-page-inputs .tui-page-current {
-  color: $accent-font-color;
+  color: var(--accent-font-color);
 }
 
 .tui-page-separator {

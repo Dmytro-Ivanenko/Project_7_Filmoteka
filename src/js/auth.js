@@ -1,14 +1,13 @@
-// import { initializeApp } from 'firebase/app';
-// import { getFirestore, doc, setDoc } from 'firebase/firestore';
-// // import { refs } from './refs';
-// import {
-//   getAuth,
-//   signOut,
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-//   onAuthStateChanged,
-// } from 'firebase/auth';
-// import Notiflix from 'notiflix';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import {
+  getAuth,
+  signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
+import Notiflix from 'notiflix';
 
 // =============== Ініціалізація firebase ================
 
@@ -22,11 +21,14 @@ const firebaseConfig = {
   measurementId: 'G-CW2YT3SCBD',
 };
 
-// export const app = initializeApp(firebaseConfig);
-// export const db = getFirestore(app);
-// export const auth = getAuth(app);
+export const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
 
 // ==========  Слухачів подій додам коли буде готова розмітка хедеру та модального вікна аутентифікації  ============
+
+const authFormOpen = document.querySelector('[data-auth-open]');
+const authSignOut = document.querySelector('[data-auth-sign-out]');
 
 // refs.authLogin.addEventListener('click', loginEmailPassword);
 // refs.authRegister.addEventListener('click', createAccount);
@@ -97,14 +99,18 @@ function logout(e) {
 
 // ================= Метод для відстеження стану аутентифікації ================
 
-// onAuthStateChanged(auth, user => {
-//   if (user) {
-//     console.log('user logged in: ', user);
-//     //   refs.authSignOut.parentElement.classList.remove('hidden');
-//     //   refs.authOpen.parentElement.classList.add('hidden');
-//   } else {
-//     console.log('user logged out');
-//     //   refs.authSignOut.parentElement.classList.add('hidden');
-//     //   refs.authOpen.parentElement.classList.remove('hidden');
-//   }
-// });
+function monitorAuthState() {
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      console.log('user logged in: ', user);
+      authSignOut.parentElement.classList.remove('visually-hidden');
+      authFormOpen.parentElement.classList.add('visually-hidden');
+    } else {
+      console.log('user logged out');
+      authSignOut.parentElement.classList.add('visually-hidden');
+      authFormOpen.parentElement.classList.remove('visually-hidden');
+    }
+  });
+}
+
+monitorAuthState();

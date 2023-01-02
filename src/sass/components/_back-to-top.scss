@@ -1,21 +1,26 @@
 #back-to-top {
   display: inline-block;
-  background-color: $accent-font-color;
+  background-color: var(--accent-font-color);
   width: 30px;
   height: 30px;
   text-align: center;
   border-radius: 4px;
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 5px;
+  right: 5px;
   transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
   opacity: 0;
   visibility: hidden;
   z-index: 20;
-}
 
-@media screen and (min-width: 768px) {
-  #back-to-top {
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
     width: 50px;
     height: 50px;
     bottom: 30px;
@@ -29,24 +34,34 @@
   font-weight: normal;
   font-style: normal;
   font-size: 1em;
-  line-height: 30px;
-  color: $to-top-after-color;
-}
+  line-height: 28px;
+  color: var(--to-top-after-color);
 
-@media screen and (min-width: 768px) {
-  #back-to-top::after {
+  @media screen and (min-width: 768px) {
     font-size: 2em;
-    line-height: 50px;
+    line-height: 35px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 2em;
+    line-height: 45px;
   }
 }
 
+// @media screen and (min-width: 768px) {
+//   #back-to-top::after {
+//     font-size: 2em;
+//     line-height: 50px;
+//   }
+// }
+
 #back-to-top:hover {
   cursor: pointer;
-  background-color: $to-top-bcg-color;
+  background-color: var(--to-top-bcg-color);
 }
 
 #back-to-top:active {
-  background-color: $to-top-bcg-color;
+  background-color: var(--to-top-bcg-color);
 }
 
 #back-to-top.show {

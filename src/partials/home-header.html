@@ -13,17 +13,32 @@
           >
             <use href="./images/icon/sprite.svg#icon-logo"></use>
           </svg>
+
           <span class="cssanimation lePushReleaseFrom sequence"
             >Filmoteka</span
           ></a
         >
         <div>
+
+        <div class="nav-list">
+
           <ul class="site-nav">
             <li class="site-nav__item">
               <a class="site-nav__link" href="./index.html">home</a>
             </li>
             <li class="site-nav__item">
               <a class="site-nav__link" href="./library.html">my library</a>
+            </li>
+
+            <li class="site-nav__item">
+              <a class="site-nav__link" href="./library.html" data-auth-open
+                >Login</a
+              >
+            </li>
+            <li class="site-nav__item visually-hidden">
+              <a class="site-nav__link" href="./library.html" data-auth-sign-out
+                >Sign out</a
+              >
             </li>
           </ul>
         </div>
@@ -38,7 +53,8 @@
           placeholder="Movie search"
         />
       </form>
-      <div class="choose-genre">
+      
+       <div class="choose-genre">
         <button type="menu" class="choose-genre-btn">CHOOSE GENRE</button>
         <div class="choice-form-wrapper visually-hidden">
           <form class="choice-form-wrapper__element"></form>
@@ -47,6 +63,7 @@
           </div>
         </div>
       </div>
+
       <div class="search-result"></div>
     </div>
   </div>
