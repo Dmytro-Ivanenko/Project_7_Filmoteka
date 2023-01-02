@@ -4,6 +4,7 @@ const API_KEY = '53f2c47317a563cd2628c68ceb6a6673';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const TREND_URL = `${BASE_URL}/trending/movie/week`;
 const SEARCH_URL = `${BASE_URL}/search/movie`;
+const DISCOVER_URL = `${BASE_URL}/discover/movie?api_key=${API_KEY}`;
 const ID_URL = `${BASE_URL}/movie/`;
 const GANRE_LIST_URL = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 
@@ -18,6 +19,12 @@ export class FetchAPI {
   async fetchSearchFilms(searchQuery, page = 1) {
     return await axios.get(
       `${SEARCH_URL}?api_key=${API_KEY}&query=${searchQuery}&page=${page}`
+    );
+  }
+
+  async fetchFilmsWithGenres(genres, page = 1) {
+    return await axios.get(
+      `${DISCOVER_URL}&with_genres=${genres}&page=${page}`
     );
   }
 

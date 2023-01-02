@@ -1,0 +1,67 @@
+.mode-checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  background-color: rgb(123, 88, 229);
+  width: 65px;
+  height: 30px;
+  border-radius: 30%;
+  background-image: linear-gradient(
+    to right,
+    rgb(248, 105, 215) 35%,
+    rgb(93, 25, 156),
+    rgb(52, 16, 82)
+  );
+  outline: none;
+  border: 0px;
+}
+.mode-checkbox:checked {
+  background-image: linear-gradient(
+    to right,
+    rgb(247, 247, 39) 2%,
+    rgb(247, 60, 27),
+    rgb(247, 27, 27)
+  );
+}
+
+.mode-checkbox:checked:before {
+  transform: translate(125%);
+  background-image: url('../images/sun-mode.svg');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mode-checkbox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 45%;
+  background-image: url('../images/moon-mode.svg');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mode-label {
+  position: absolute;
+  top: 20;
+  right: 32;
+}
+.span-mode {
+  position: absolute;
+  top: 3;
+  right: 9;
+  font-size: 10px;
+  color: white;
+  text-align: center;
+}
+
+.span-mode--night {
+  left: -12;
+}

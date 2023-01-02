@@ -1,0 +1,42 @@
+.choice-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  transform: translateY(10%);
+  z-index: 1000;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: var(--modal-card-font-color);
+  opacity: 90%;
+}
+
+.choice-form-wrapper__element {
+  max-height: 50vh;
+  overflow: auto;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.choice-form-wrapper__btn {
+  display: flex;
+  justify-content: center;
+}
+
+.chooseBtn {
+  line-height: 1.5;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  width: 183px;
+  align-content: center;
+
+  &:focus,
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+}
