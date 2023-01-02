@@ -6,27 +6,27 @@
     @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
     screen and (min-resolution: 192dpi) and (max-width: 767px),
     screen and (min-resolution: 2dppx) and (max-width: 767px) {
-        background-image: url(../images/header/background-header-mobile@2x.jpg);
+        background-image: url(../images/header/background-header-library-mobile@2x.jpg);
     }
 
     @media screen and (min-width: 768px) {
-        background-image: url(../images/header/background-header-tablet.jpg);
+        background-image: url(../images/header/background-header-library-tablet.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
     screen and (min-resolution: 192dpi) and (min-width: 768px),
     screen and (min-resolution: 2dppx) and (min-width: 768px) {
-        background-image: url(../images/header/background-header-tablet@2x.jpg);
+        background-image: url(../images/header/background-header-library-tablet@2x.jpg);
     }
 
     @media screen and (min-width: 1280px) {
-        background-image: url(../images/header/background-header-desktop.jpg);
+        background-image: url(../images/header/background-header-library-desktop.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
     screen and (min-resolution: 192dpi) and (min-width: 1280px),
     screen and (min-resolution: 2dppx) and (min-width: 1280px) {
-        background-image: url(../images/header/background-header-desktop@2x.jpg);
+        background-image: url(../images/header/background-header-library-desktop@2x.jpg);
     }
 }
 
