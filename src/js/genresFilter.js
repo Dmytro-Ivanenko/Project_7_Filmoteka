@@ -3,7 +3,7 @@ import { renderGallery } from './renderGallery.js';
 import { addPagination } from './pagination.js';
 
 let filteredFilmsPagination;
-let CheckedGenreNames = [];
+let checkedGenreNames = [];
 
 export async function createGenresFilter() {
   const choiceBtn = document.querySelector('.choose-genre-btn');
@@ -15,40 +15,54 @@ export async function createGenresFilter() {
 
   choiceBtn.addEventListener('click', openChoiceForm);
 
-  function createChoiceElement({ id, name }) {
-    return `<div> <input class="choice-form__item"
-    type="checkbox"
-    id="${id}"
-    name="${name}"
-     />
-    <label for="${id}">${name}</label>
-    </div>`;
-  }
-
   function openChoiceForm() {
     clearFormMurkup();
 
     choiseFormWrapper.classList.remove('visually-hidden');
+
+    choiceBtn.removeEventListener('click', openChoiceForm);
+    choiceBtn.addEventListener('click', closeChoiceForm);
 
     chooseBtn.addEventListener('click', searchFilmsToGenres);
 
     createFormMarkup();
   }
 
-  const searchFilmsToGenres = async () => {
-    createFormMarkup();
-    CheckedGenreNames = findCheckedGenres();
-    const { data } = await fetchApi.fetchFilmsWithGenres(
-      CheckedGenreNames.join(',')
-    );
-    galleryList.innerHTML = '';
-    fetchApi.page = 1;
-    renderGallery(data.results);
-
-    filteredFilmsPagination = addPagination(data);
-    filteredFilmsPagination.on('beforeMove', loadMoreFilms);
-
+  function closeChoiceForm() {
     choiseFormWrapper.classList.add('visually-hidden');
+    choiceBtn.removeEventListener('click', closeChoiceForm);
+    choiceBtn.addEventListener('click', openChoiceForm);
+  }
+
+  window.onclick = function (event) {
+    if (
+      event.target !== choiseFormWrapper &&
+      event.target !== choiceBtn &&
+      event.target.parentElement.parentElement !== choiseFormWrapper &&
+      event.target.parentElement.parentElement.parentElement !==
+        choiseFormWrapper
+    ) {
+      closeChoiceForm();
+    }
+  };
+
+  const searchFilmsToGenres = async () => {
+    checkedGenreNames = findCheckedGenres();
+    if (checkedGenreNames.length == 0) {
+      alert(`Please, choose genre`);
+    } else {
+      const { data } = await fetchApi.fetchFilmsWithGenres(
+        checkedGenreNames.join(',')
+      );
+      galleryList.innerHTML = '';
+      fetchApi.page = 1;
+      renderGallery(data.results);
+
+      filteredFilmsPagination = addPagination(data);
+      filteredFilmsPagination.on('beforeMove', loadMoreFilms);
+
+      closeChoiceForm();
+    }
   };
 
   const getGenreName = async () => {
@@ -59,8 +73,26 @@ export async function createGenresFilter() {
   const createFormMarkup = async () => {
     const genreNames = await getGenreName();
     const markup = genreNames.map(createChoiceElement);
+
     choiceFormWrapperElement.insertAdjacentHTML('beforeend', markup.join(''));
   };
+
+  function createChoiceElement({ id, name }) {
+    let isChecked = '';
+    const idAsString = id.toString();
+    if (checkedGenreNames.includes(idAsString)) {
+      isChecked = 'checked';
+    }
+
+    return `<div> <input class="choice-form__item"
+    ${isChecked}
+    type="checkbox"
+    id="${id}"
+    name="${name}"
+     />
+    <label for="${id}">${name}</label>
+    </div>`;
+  }
 
   function clearFormMurkup() {
     choiceFormWrapperElement.innerHTML = '';
@@ -76,7 +108,7 @@ export async function createGenresFilter() {
   async function loadMoreFilms(e) {
     const currentPage = e.page;
     const { data } = await fetchApi.fetchFilmsWithGenres(
-      CheckedGenreNames.join(','),
+      checkedGenreNames.join(','),
       currentPage
     );
     renderGallery(data.results);

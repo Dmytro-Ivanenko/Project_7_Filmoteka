@@ -21,7 +21,7 @@ export const fetchApi = new FetchAPI();
 // Listeners
 document.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());
+document.addEventListener('DOMContentLoaded', createGenresFilter());
 document.addEventListener('click', getTrailerFilm);
 searchForm.addEventListener('input', debounce(searchFilms, DEBOUNCE_DELAY));
 
-createGenresFilter();

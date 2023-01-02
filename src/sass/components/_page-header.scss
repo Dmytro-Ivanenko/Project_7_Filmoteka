@@ -101,8 +101,12 @@
   border-radius: 5px;
   width: 394px;
   padding: 0.5em 1em 0.5em 2.5em;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   transition: transform $transition-duration;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
 }
 
 .search-form-input::placeholder {
