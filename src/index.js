@@ -7,7 +7,9 @@ import { searchFilms } from './js/searchFilms';
 import { onCardClick } from './js/onCardClick';
 import { getTrailerFilm } from './js/getTrailerFilm';
 import { backToTop } from './js/backToTop';
+import {createGenresFilter} from './js/genresFilter';
 import { switchMode } from './js/mode';
+
 
 // Variables
 const debounce = require('lodash.debounce');
@@ -25,6 +27,8 @@ export const fetchApi = new FetchAPI();
 // Listeners
 document.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());
+document.addEventListener('DOMContentLoaded', createGenresFilter());
 document.addEventListener('click', getTrailerFilm);
 searchForm.addEventListener('input', debounce(searchFilms, DEBOUNCE_DELAY));
 modeCheckbox.addEventListener('click', switchMode);
+
