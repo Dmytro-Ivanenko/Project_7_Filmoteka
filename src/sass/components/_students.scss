@@ -1,83 +1,84 @@
-.modal {
-    display: none;  
-    position: fixed;  
-    z-index: 1;   
-    left: 0;
-    top: 0;
-    width: 100%;    
-    height: 100%;  
-    overflow: auto;   
-    background-color: rgb(0, 0, 0);   
-    background-color: rgba(0, 0, 0, 0.4);   
+.students-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;    
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
+.students-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height: 40%;
+}
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .card-student {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .card {
-    display: block;
+  display: block;
 }
 
-.card-student__description{
-    margin-left: 50px;
+.card-student__description {
+  margin-left: 50px;
 }
 
 .card-student__name {
-    font-size: 32px;
-    font-weight: 900;
-    font-family: 'Roboto';
-    font-style: normal;
+  font-size: 32px;
+  font-weight: 900;
+  font-family: 'Roboto';
+  font-style: normal;
 }
 
 .card-student__profession {
-    font-size: 32px;
-    font-weight: 500;
-    font-family: 'Roboto';
-    font-style: normal;
+  font-size: 32px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  font-style: normal;
 }
 
 img {
-    width: 270px;
-    height: 320px;
+  width: 270px;
+  height: 320px;
 }
 
 .card-student__link:hover,
 .card-student__link:focus {
-    color: #2196F3;
-
+  color: #2196f3;
 }
 
 .card-student__link {
-    color: #757575;
+  color: #757575;
 }
 
 .button {
-    cursor: pointer;
+  cursor: pointer;
 }
