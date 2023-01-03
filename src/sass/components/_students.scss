@@ -7,6 +7,10 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+.button {
+  cursor: pointer;
+}
+
 .is-hidden {
   opacity: 0;
   pointer-events: none;
@@ -18,29 +22,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fefefe;
-  padding: 20px;
+
   border: 1px solid #888;
   width: 40%;
-  height: 40%;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+  height: 85%;
+  overflow: scroll;
 }
 
 .card-student {
+  position: relative;
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
+  padding: 70px 160px;
 }
 
 .card {
@@ -48,9 +41,19 @@
 }
 
 .card-student__description {
-  margin-left: 50px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
+.card-student__icons {
+  position: absolute;
+  right: 120;
+  bottom: 70;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+}
 .card-student__name {
   font-size: 32px;
   font-weight: 900;
@@ -68,6 +71,7 @@
 img {
   width: 270px;
   height: 320px;
+  object-fit: cover;
 }
 
 .card-student__link:hover,
@@ -79,6 +83,45 @@ img {
   color: #757575;
 }
 
-.button {
-  cursor: pointer;
+.student-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  transition-property: transform, opacity;
+}
+
+.student-icon:nth-child(1) {
+  transition-duration: 2000ms;
+  margin-bottom: 25px;
+}
+.student-icon:nth-child(2) {
+  transition-duration: 2500ms;
+  margin-bottom: 25px;
+}
+.student-icon:nth-child(3) {
+  transition-duration: 3000ms;
+}
+
+.student-icon:hover {
+  transform: scale(1.5);
+}
+.close-button {
+  position: absolute;
+  top: 8;
+  right: 8;
+  z-index: 5;
+  border: 0;
+  background-color: transparent;
+}
+
+.icon-close {
+  stroke: black;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: var(--accent-font-color);
 }
