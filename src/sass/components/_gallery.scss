@@ -72,7 +72,7 @@
 
   &:hover::after {
     content: 'Дивитись трейлер';
-    font-family: $primary-font;
+    font-family: var(--primary-font);
     color: white;
     display: inline-block;
     position: relative;
@@ -85,7 +85,7 @@
   width: 32px;
   height: 32px;
   padding: 0;
-  fill: $accent-font-color;
+  fill: var(--accent-font-color);
 }
 
 .info {
@@ -147,7 +147,7 @@
   position: absolute;
   top: 10px;
   right: 5px;
-  background-color: $accent-font-color;
+  background-color: var(--accent-font-color);
   border-radius: 5px;
   padding: 3px;
 }
