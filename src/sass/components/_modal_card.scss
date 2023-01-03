@@ -8,10 +8,11 @@
   opacity: 1;
   transition: opacity $transition-duration, visability $transition-duration;
   z-index: 50;
+  overflow-y: scroll;
 
   &:after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -60,7 +61,6 @@
 .modal-card {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
