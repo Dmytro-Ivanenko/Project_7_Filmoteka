@@ -7,7 +7,6 @@
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
-    // justify-content: space-between;
     padding: 60px 32px;
     gap: 32px;
     padding: 60px 32px;
@@ -59,12 +58,30 @@
 .gallery-item-trailer {
   position: absolute;
   top: 15px;
-  left: 15px;
-  width: 160px;
-  color: $primary-background-color;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 0px 5px 5px 0px;
   font-size: 15px;
-  background-color: $accent-font-color;
   cursor: pointer;
+  padding: 5px;
+
+  &:hover::after {
+    content: 'Дивитись трейлер';
+    font-family: $primary-font;
+    color: white;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+  }
+}
+
+.gallery-item-trailer-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  fill: $accent-font-color;
 }
 
 .info {
@@ -120,4 +137,13 @@
     font-size: 20px;
     line-height: 1.09;
   }
+}
+
+.info-vote-average {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  background-color: $accent-font-color;
+  border-radius: 5px;
+  padding: 3px;
 }
