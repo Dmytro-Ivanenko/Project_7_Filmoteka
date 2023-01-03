@@ -1,14 +1,14 @@
-import { galleryList, fetchApi } from '../index';
+import { refs } from './refs';
 import { renderGallery } from './renderGallery';
 import { addPagination } from './pagination';
 
 let trendPagination;
 
 export async function renderTrendingFilms() {
-  galleryList.innerHTML = '';
-  fetchApi.page = 1;
-  await fetchApi.fillGenreList();
-  const { data } = await fetchApi.fetchTrendingFilms();
+  refs.galleryList.innerHTML = '';
+  refs.fetchApi.page = 1;
+  await refs.fetchApi.fillGenreList();
+  const { data } = await refs.fetchApi.fetchTrendingFilms();
   renderGallery(data.results);
 
   trendPagination = addPagination(data);
@@ -17,6 +17,6 @@ export async function renderTrendingFilms() {
 
 async function loadMoreTrending(e) {
   const currentPage = e.page;
-  const { data } = await fetchApi.fetchTrendingFilms(currentPage);
+  const { data } = await refs.fetchApi.fetchTrendingFilms(currentPage);
   renderGallery(data.results);
 }
