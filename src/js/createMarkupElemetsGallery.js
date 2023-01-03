@@ -1,3 +1,4 @@
+
 export function createMarkupElemetsGallery(
   { id, title, poster_path, release_date, genre_ids },
   fetchApi
@@ -54,3 +55,5 @@ function getGenresForMarkup(genresId, fetchApi) {
     })
     .join(', ');
 }
+
+

@@ -3,7 +3,7 @@
     <div class="header">
       <nav class="main-nav">
         <a
-          class="logo link animate__animated animate__bounceInDown"
+          class="logo link animate__animated animate__bounceInDown "
           href="./index.html"
         >
           <svg
@@ -14,7 +14,7 @@
             <use href="./images/icon/sprite.svg#icon-logo"></use>
           </svg>
 
-          <span class="cssanimation lePushReleaseFrom sequence"
+          <span class="cssanimation lePushReleaseFrom sequence lng-logo"
             >Filmoteka</span
           ></a
         >
@@ -24,14 +24,14 @@
 
           <ul class="site-nav">
             <li class="site-nav__item">
-              <a class="site-nav__link" href="./index.html">home</a>
+              <a class="site-nav__link lng-home" href="./index.html">home</a>
             </li>
             <li class="site-nav__item">
-              <a class="site-nav__link" href="./library.html">my library</a>
+              <a class="site-nav__link lng-library" href="./library.html">my library</a>
             </li>
 
             <li class="site-nav__item">
-              <a class="site-nav__link" href="./library.html" data-auth-open
+              <a class="site-nav__link lng-login" href="./library.html" data-auth-open
                 >Login</a
               >
             </li>
@@ -43,7 +43,12 @@
           </ul>
         </div>
       </nav>
-
+      <div class="container-select">
+        <select class="change-lang">
+          <option value="ua">UA</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
       <form id="search-form" class="search-form">
         <input
           class="search-form-input"
@@ -51,15 +56,15 @@
           name="searchQuery"
           autocomplete="off"
           placeholder="Movie search"
+          style="display:flex"
         />
       </form>
-      
        <div class="choose-genre">
-        <button type="menu" class="choose-genre-btn">CHOOSE GENRE</button>
+        <button type="menu" class="choose-genre-btn lng-genre">CHOOSE GENRE</button>
         <div class="choice-form-wrapper visually-hidden">
           <form class="choice-form-wrapper__element"></form>
           <div class="choice-form-wrapper__btn">
-            <button class="chooseBtn" type="submit">CHOOSE</button>
+            <button class="chooseBtn lng-choose" type="submit">CHOOSE</button>
           </div>
         </div>
       </div>
