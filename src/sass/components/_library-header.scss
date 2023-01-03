@@ -1,4 +1,4 @@
-header {
+.library-page-header {
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0 auto;
@@ -39,11 +39,11 @@ header {
     padding: 40px 20px;
 
     @media screen and (min-width: 768px) {
-        padding: 40px 66px;
+        padding: 40px 32px;
     }
 
     @media screen and (min-width: 1280px) {
-        padding: 40px 66px;
+        padding: 40px 32px;
     }
 }
 
@@ -132,62 +132,10 @@ header {
     }
 }
 
-.search-form {
+.library-button-wrapper {
     display: flex;
     justify-content: center;
     padding-bottom: 10px;
-}
-
-.search-form-input {
-    font-size: 16px;
-    line-height: 1.5;
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='%23FFFFFF' d='M13.22 14.63a8 8 0 1 1 1.41-1.41l4.29 4.29a1 1 0 1 1-1.41 1.41l-4.29-4.29zm-.66-2.07a6 6 0 1 0-8.49-8.49 6 6 0 0 0 8.49 8.49z'></path></svg>");
-    background-repeat: no-repeat;
-    background-position: 10px 10px;
-    background-size: 20px 20px;
-    border-radius: 5px;
-    width: 280px;
-    padding: 0.5em 1em 0.5em 2.5em;
-
-    margin-bottom: 0px;
-    transition: transform var(--transition-duration);
-
-    @media screen and (min-width: 768px) {
-        width: 336px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        width: 394px;
-
-    }
-}
-
-.search-form-input::placeholder {
-    color: var(--primary-background-color);
-}
-
-.search-form-input:active,
-.search-form-input:hover {
-    transform: scale(1.05);
-}
-
-.search-form-input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 100);
-    text-shadow: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='%238C92A0' d='M13.22 14.63a8 8 0 1 1 1.41-1.41l4.29 4.29a1 1 0 1 1-1.41 1.41l-4.29-4.29zm-.66-2.07a6 6 0 1 0-8.49-8.49 6 6 0 0 0 8.49 8.49z'></path></svg>");
-    background-repeat: no-repeat;
-    background-position: 10px 10px;
-    background-size: 20px 20px;
-}
-
-.choose-genre {
-    position: relative;
-    display: flex;
-    justify-content: center;
 }
 
 .choose-genre-btn {
@@ -200,21 +148,3 @@ header {
     align-content: center;
 }
 
-.search-result {
-    display: block;
-    height: 16px;
-    margin: 0 auto;
-    text-align: center;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.142;
-    color: var(--search-result-color);
-    padding-top: 10px;
-    padding-bottom: 60px;
-
-    @media screen and (min-width: 768px) {
-        padding-bottom: 40px;
-    }
-}
