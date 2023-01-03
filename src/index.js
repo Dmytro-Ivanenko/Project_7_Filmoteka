@@ -1,5 +1,5 @@
 //Imports
-import './js/auth';
+// import './js/auth';
 import './js/addToLibrary';
 import { FetchAPI } from './js/api';
 import { renderTrendingFilms } from './js/renderTrendingFilms';

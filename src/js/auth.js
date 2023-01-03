@@ -30,17 +30,17 @@ export const auth = getAuth(app);
 const authFormOpen = document.querySelector('[data-auth-open]');
 const authSignOut = document.querySelector('[data-auth-sign-out]');
 
-// refs.authLogin.addEventListener('click', loginEmailPassword);
-// refs.authRegister.addEventListener('click', createAccount);
-// refs.authSignOut.addEventListener('click', logout);
+refs.authLogin.addEventListener('click', loginEmailPassword);
+refs.authRegister.addEventListener('click', createAccount);
+refs.authSignOut.addEventListener('click', logout);
 
 // ================= Логінізація =====================
 
 async function loginEmailPassword(e) {
   e.preventDefault();
 
-  //   const loginEmail = refs.authForm.elements.email.value;
-  //   const loginPassword = refs.authForm.elements.password.value;
+    const loginEmail = refs.authForm.elements.email.value;
+    const loginPassword = refs.authForm.elements.password.value;
 
   if (!loginEmail || !loginPassword) {
     Notiflix.Notify.failure('Enter email and password');
@@ -50,8 +50,8 @@ async function loginEmailPassword(e) {
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then(
       () => {
-        // refs.authModal.classList.add('is-hidden');
-        // refs.authForm.reset();
+        refs.authModal.classList.add('is-hidden');
+        refs.authForm.reset();
       }
     );
   } catch (error) {
@@ -59,13 +59,13 @@ async function loginEmailPassword(e) {
   }
 }
 
-// ================ Створення аккаунту ===================
+================ Створення аккаунту ===================
 
 async function createAccount(e) {
   e.preventDefault();
 
-  //   const email = refs.authForm.elements.email.value;
-  //   const password = refs.authForm.elements.password.value;
+    const email = refs.authForm.elements.email.value;
+    const password = refs.authForm.elements.password.value;
 
   if (!email || !password) {
     Notiflix.Notify.failure('Enter email and password');
@@ -81,8 +81,8 @@ async function createAccount(e) {
           watchedMovies: [],
           queuedMovies: [],
         });
-        // refs.authModal.classList.add('is-hidden');
-        // refs.authForm.reset();
+        refs.authModal.classList.add('is-hidden');
+        refs.authForm.reset();
       }
     );
   } catch (error) {
@@ -90,14 +90,14 @@ async function createAccount(e) {
   }
 }
 
-// ================== Логаут ===================
+================== Логаут ===================
 
 function logout(e) {
   e.preventDefault();
   signOut(auth).then(location.reload());
 }
 
-// ================= Метод для відстеження стану аутентифікації ================
+================= Метод для відстеження стану аутентифікації ================
 
 function monitorAuthState() {
   onAuthStateChanged(auth, user => {
