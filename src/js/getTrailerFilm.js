@@ -7,7 +7,7 @@ export async function getTrailerFilm(e) {
   const id = e.path[1].dataset.id;
   const { value } = e.target.classList;
 
-  if (value !== 'gallery-item-trailer') {
+  if (value !== 'gallery-item-trailer-icon') {
     return;
   }
   movie = await fetchApi.getTrailer(id);

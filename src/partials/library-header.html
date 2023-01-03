@@ -1,4 +1,4 @@
-<header class="page-header">
+<header class="library-page-header">
     <div class="container">
         <div class="header">
             <nav class="main-nav">
@@ -6,14 +6,28 @@
                     <svg class="logo__icon animate__animated animate__pulse animate__infinite" width="24" height="24">
                         <use href="./images/icon/sprite.svg#icon-logo"></use>
                     </svg>
+
                     <span class="cssanimation lePushReleaseFrom sequence lng-logo">Filmoteka</span></a>
-                <div>
+                
+
+
+                   
+
+                <div class="nav-list">
+
                     <ul class="site-nav">
                         <li class="site-nav__item">
                             <a class="site-nav__link lng-home" href="./index.html">home</a>
                         </li>
                         <li class="site-nav__item">
                             <a class="site-nav__link lng-library" href="./library.html">my library</a>
+                        </li>
+
+                        <li class="site-nav__item">
+                            <a class="site-nav__link" href="./library.html" data-auth-open>Login</a>
+                        </li>
+                        <li class="site-nav__item visually-hidden">
+                            <a class="site-nav__link" href="./library.html" data-auth-sign-out>Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -22,6 +36,12 @@
                     <option value="en">EN</option>
                 </select>
             </nav>
+
+            <div class="library-button-wrapper">
+                <button type="button" class="watched-btn">WATCHED</button>
+                <button type="button" class="queue-btn">QUEUE</button>
+            </div>
+
         </div>
     </div>
 </header>

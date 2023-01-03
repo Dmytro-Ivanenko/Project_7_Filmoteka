@@ -9,6 +9,18 @@
   transition: opacity var(--transition-duration),
     visability var(--transition-duration);
   z-index: 50;
+  overflow-y: scroll;
+
+  &:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000ad;
+    z-index: 51;
+  }
 }
 
 .is-hidden {
@@ -31,28 +43,61 @@
   display: flex;
   background-color: var(--primary-background-color);
   border-radius: 5px;
-  width: 806px;
+  width: 280px;
   height: auto;
-  padding: 40px 12px;
+
+  padding: 48px 20px 40px 20px;
   transition: transform var(--transition-duration);
+  z-index: 52;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    padding: 40px 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    padding: 40px 12px;
+  }
+
 }
 
 .modal-card {
   display: flex;
-  flex: 1 0 100%;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex: 1 0 100%;
+  }
 }
 .modal-card__images {
-  flex: 1 0 50%;
   align-self: center;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex: 1 0 50%;
+    margin-bottom: 0;
+  }
 }
 .modal-card__description {
   flex: 1 0 50%;
 }
 .modal-card__image {
-  width: 375px;
-  height: 478px;
+  width: 240px;
+  height: 357px;
   object-fit: cover;
   border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    height: 373.55px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 375px;
+    height: 478px;
+  }
 }
 .modal-card__title {
   font-family: var(--primary-font);
@@ -82,6 +127,10 @@
   font-size: 12px;
   line-height: 1.33;
   color: var(--primary-font-color);
+
+  @media screen and (max-width: 768px) {
+    width: 50%;
+  }
 
   &--grey {
     color: var(--modal-card-font-color);
@@ -117,32 +166,54 @@
 .modal-card__btn {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+
+  gap: 20px;
   font-family: var(--primary-font);
+
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   align-items: center;
   text-align: center;
+
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+  }
 }
 .modal-card__btn-watched {
-  width: 136px;
+  width: 110px;
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
   color: var(--primary-background-color);
   background-color: var(--accent-font-color);
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+  }
 }
 .modal-card__btn-queue {
-  width: 136px;
+  width: 110px;
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
   color: var(--primary-font-color);
   background-color: transparent;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+  }
 }
 
 .modal__btn-close {
