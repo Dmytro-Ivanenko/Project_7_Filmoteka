@@ -54,19 +54,21 @@
 // const span = document.querySelector('.close');
 
 // btn.addEventListener('click', openModal)
+// const modalCardStudents = document.querySelector('#myBtnCardStudents');
 
-export function openModal() {
-   modal.style.display = "block";
+export function openModalCardStudents() {
+   modalCardStudents.style.display = "block";
 }
 // span.addEventListener('click', closeModal)
 
-export function closeModal() {
-   modal.style.display = "none";
+export function closeModalCardStudents() {
+  modalCardStudents.style.display = "none";
 }
 // window.addEventListener('click', onClick)
 
-export function onClick(event) {
-   if (event.target === modal) {
-    modal.style.display = "none";
+export function onClickStudents(event) {
+  
+   if (event.target === 'modal-students') {
+   modalCardStudents.style.display = "none";
   }
 }

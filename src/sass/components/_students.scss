@@ -1,4 +1,4 @@
-.modal {
+.modal-students {
     display: none;  
     position: fixed;  
     z-index: 1;   
@@ -63,7 +63,7 @@
     font-style: normal;
 }
 
-img {
+.img-card {
     width: 270px;
     height: 320px;
 }
@@ -78,6 +78,6 @@ img {
     color: #757575;
 }
 
-.button {
+.button-students {
     cursor: pointer;
 }
