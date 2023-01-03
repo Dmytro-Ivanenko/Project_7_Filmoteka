@@ -54,6 +54,19 @@ const langArr = {
       "queue": {
     ua: "додати в чергу",
     en: "add to queue",
+  },
+      "sing": {
+    ua: "вийти",
+    en: "sing out",
+  },
+      "watch": {
+    ua: "ДИВИЛИСЯ",
+    en: "WATCHED",
+  },
+          
+      "queue": {
+    ua: "в черзі",
+    en: "QUEUE",
     },
  };
 

@@ -33,6 +33,31 @@
 .library-button-wrapper {
   display: flex;
   justify-content: center;
-  padding-bottom: 10px;
+  padding-bottom: 60px;
   gap: 16px;
+}
+.watched-btn,
+.queue-btn{
+    width: 152px;
+    height: 44px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    color:#FFFFFF;
+    cursor: pointer;
+}
+.watched-btn:hover,
+.queue-btn:hover{
+  background: #FF6B01;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+}
+.change-lang-library{
+  display: flex;
+  justify-content: flex-end;
 }
