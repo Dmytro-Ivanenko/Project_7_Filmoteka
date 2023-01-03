@@ -4,8 +4,8 @@ header {
   margin: 0 auto;
 
   @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-    screen and (min-resolution: 192dpi) and (max-width: 767px),
-    screen and (min-resolution: 2dppx) and (max-width: 767px) {
+  screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px) {
     background-image: url(../images/header/background-header-mobile@2x.jpg);
   }
 
@@ -14,8 +14,8 @@ header {
   }
 
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-    screen and (min-resolution: 192dpi) and (min-width: 768px),
-    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
     background-image: url(../images/header/background-header-tablet@2x.jpg);
   }
 
@@ -24,11 +24,12 @@ header {
   }
 
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
-    screen and (min-resolution: 192dpi) and (min-width: 1280px),
-    screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+  screen and (min-resolution: 192dpi) and (min-width: 1280px),
+  screen and (min-resolution: 2dppx) and (min-width: 1280px) {
     background-image: url(../images/header/background-header-desktop@2x.jpg);
   }
 }
+
 .main-nav {
   display: flex;
   flex-direction: row;
@@ -70,6 +71,7 @@ header {
   stroke: currentColor;
   fill: transparent;
 }
+
 .logo_text {
   display: none;
 
@@ -77,6 +79,7 @@ header {
     display: block;
   }
 }
+
 .site-nav {
   display: flex;
   flex-direction: row;
@@ -87,9 +90,11 @@ header {
     gap: 39px;
   }
 }
+
 .site-nav__item {
   @extend %list;
 }
+
 .site-nav__link {
   @extend %link;
 
@@ -178,11 +183,13 @@ header {
   background-position: 10px 10px;
   background-size: 20px 20px;
 }
+
 .choose-genre {
   position: relative;
   display: flex;
   justify-content: center;
 }
+
 .choose-genre-btn {
   line-height: 1.5;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);

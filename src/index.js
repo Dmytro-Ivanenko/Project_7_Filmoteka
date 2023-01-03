@@ -9,6 +9,10 @@ import { getTrailerFilm } from './js/getTrailerFilm';
 import { backToTop } from './js/backToTop';
 import {createGenresFilter} from './js/genresFilter';
 import { switchMode } from './js/mode';
+import { translate } from './js/translate';
+import { fetchGenreUrl } from './js/api';
+
+
 
 
 // Variables

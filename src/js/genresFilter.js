@@ -86,6 +86,7 @@ export async function createGenresFilter() {
 
     return `<div> <input class="choice-form__item"
     ${isChecked}
+    
     type="checkbox"
     id="${id}"
     name="${name}"
