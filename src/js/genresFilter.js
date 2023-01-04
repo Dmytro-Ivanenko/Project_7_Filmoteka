@@ -1,6 +1,8 @@
 import { galleryList, fetchApi } from '../index.js';
 import { renderGallery } from './renderGallery.js';
 import { addPagination } from './pagination.js';
+import {renderTrendingFilms} from './renderTrendingFilms';
+import Notiflix from 'notiflix';
 
 let filteredFilmsPagination;
 let checkedGenreNames = [];
@@ -49,7 +51,9 @@ export async function createGenresFilter() {
   const searchFilmsToGenres = async () => {
     checkedGenreNames = findCheckedGenres();
     if (checkedGenreNames.length == 0) {
-      alert(`Please, choose genre`);
+      Notiflix.Notify.failure('Please, choose genre');
+      renderTrendingFilms();
+      closeChoiceForm();
     } else {
       const { data } = await fetchApi.fetchFilmsWithGenres(
         checkedGenreNames.join(',')
