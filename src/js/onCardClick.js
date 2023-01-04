@@ -4,7 +4,6 @@ import { getTrailerFilm } from './getTrailerFilm';
 import { renderTrendingFilms } from './renderTrendingFilms';
 import { addToWatched, addToQueue } from './addToLibrary.js';
 
-
 const backdrop = document.querySelector('.backdrop');
 const modal = document.querySelector('[data-modal]');
 let closeModalBtn = document.querySelector('[data-modal-close]');
@@ -32,7 +31,6 @@ export async function onCardClick(e) {
 
     const { data } = await refs.fetchApi.getFilmToId(id);
     currentMovie = data;
-
 
     backdropBackground(data);
     // ========== Поправив щоб контент модалки перезаписувався ============
