@@ -1,73 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
 
-  <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="lng-logo">Filmoteka</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title class="lng-logo">Filmoteka</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/icon/favico-2.png" />
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="./images/icon/favico-2.png" />
+    <!-- Normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
 
-  <!-- Normalize -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" />
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- cssanimation.io -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- cssanimation.io -->
-  <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet" />
+    <!-- FontAwesome, чтобы можно было использовать значок для нашей Back to top button -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
 
-  <!-- FontAwesome, чтобы можно было использовать значок для нашей Back to top button -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- Style basicLightbox -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.4/basicLightbox.min.css"
+    />
 
-  <!-- Style basicLightbox -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.4/basicLightbox.min.css" />
+    <link rel="stylesheet" href="./sass/main.scss" />
+  </head>
 
-  <link rel="stylesheet" href="./sass/main.scss" />
-</head>
+  <body>
+    <!-- ================================================================================================ -->
+    <!-- Header -->
+    <include src="./partials/library-header.html"></include>
 
-<body>
-  <!-- ================================================================================================ -->
-  <!-- Header -->
-  <include src="./partials/library-header.html"></include>
+    <!-- Main -->
+    <main class="main">
+      <div class="container">
+        <!-- Gallery -->
+        <div class="gallery"></div>
+      </div>
+    </main>
 
+    <!-- Footer -->
+    <include src="./partials/footer.html"></include>
 
-  <!-- Main -->
-  <main class="main">
+    <!-- Modal -->
+    <div class="backdrop is-hidden" data-modal></div>
 
-    <div class="container">
-      <!-- Gallery -->
-      <div class="gallery"></div>
-    </div>
+    <!-- Login -->
+    <include src="./partials/signup-modal.html"></include>
 
+    <!-- Back to top button -->
+    <a id="back-to-top"></a>
+    <!-- ======================================================================================================== -->
 
-  </main>
+    <!-- cssanimation.io -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/letteranimation.min.js"
+    ></script>
 
-  <!-- Footer -->
-  <include src="./partials/footer.html"></include>
+    <!-- jQuery бібліотека для Back to top button -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
-  <!-- Modal -->
-  <div class="backdrop is-hidden" data-modal></div>
-
-  <!-- Back to top button -->
-  <a id="back-to-top"></a>
-  <!-- ======================================================================================================== -->
-
-  <!-- cssanimation.io -->
-  <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/letteranimation.min.js"></script>
-
-  <!-- jQuery бібліотека для Back to top button -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-  <script src="library.js" type="module"></script>
-</body>
-
+    <script src="library.js" type="module"></script>
+  </body>
 </html>
