@@ -30,8 +30,11 @@ export async function searchFilms(e) {
     if (data.total_results === 0) {
       refs.searchResult.innerHTML =
         'Search result not successful. Enter the correct movie name and!';
-      renderTrendingFilms();
-      return;
+      if (window.location.hash === '#ua') {
+        refs.searchResult.innerHTML = 'Результат пошуку невдалий. Введіть правильну назву фільму!';
+        renderTrendingFilms();
+        return;
+      }
     }
 
     if (data.total_results > 0) {

@@ -56,12 +56,13 @@
   font-size: 12px;
   line-height: 1.333;
   text-transform: uppercase;
+  cursor: pointer;
   color: var(--primary-background-color);
   border: 1px solid var(--primary-background-color);
   border-radius: 5px;
   background-color: transparent;
   transition: background-color var(--transition-duration),
-    border-color var(--transition-duration);
+  border-color var(--transition-duration);
 
   @media screen and (min-width: 768px) {
     width: 152px;
