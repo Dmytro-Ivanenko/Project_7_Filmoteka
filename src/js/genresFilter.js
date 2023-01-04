@@ -51,7 +51,7 @@ export async function createGenresFilter() {
   const searchFilmsToGenres = async () => {
     checkedGenreNames = findCheckedGenres();
     if (checkedGenreNames.length == 0) {
-      Notiflix.Notify.failure('Please, choose genre');
+      Notiflix.Notify.failure('You have not selected a movie genre');
       renderTrendingFilms();
       closeChoiceForm();
     } else {
