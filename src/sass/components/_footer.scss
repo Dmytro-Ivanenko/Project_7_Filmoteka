@@ -18,15 +18,24 @@
   font-size: 16px;
   line-height: 1.1875;
   color: #545454;
+ 
 
   & a {
     color: #545454;
   }
 }
-.footer-nav__item:not(:last-child)::after {
+.footer-nav__item:not(:nth-child(n+3))::after {
   content: '';
   margin-left: 10px;
   margin-right: 10px;
   border: 1px solid #545454;
   transform: rotate(90deg);
+  
+}
+.footer-nav__item-last{
+  text-decoration: none;
+  margin-left: 10px;
+}
+.footer-nav__item-first{
+  margin-right: 10px;
 }

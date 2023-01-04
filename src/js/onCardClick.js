@@ -1,5 +1,7 @@
-import { fetchApi } from '../index.js';
+import { refs } from './refs';
 import { createModalCardMarkup } from './createModalCardMarkup';
+import { getTrailerFilm } from './getTrailerFilm';
+import { renderTrendingFilms } from './renderTrendingFilms';
 import { addToWatched, addToQueue } from './addToLibrary.js';
 
 const backdrop = document.querySelector('.backdrop');
@@ -13,6 +15,10 @@ export let currentMovie;
 // =======================================================================
 
 modal.addEventListener('click', modalListener);
+document.addEventListener('click', getTrailerFilm);
+document.addEventListener('keydown', closeModalEcs);
+document.addEventListener('click', onCardClick);
+document.addEventListener('DOMContentLoaded', renderTrendingFilms());
 
 export async function onCardClick(e) {
   if (e.path[2].className !== 'photo-card') {
@@ -22,8 +28,8 @@ export async function onCardClick(e) {
   if (e.path[2].className === 'photo-card') {
     modal.classList.remove('is-hidden');
     let id = e.path[2].dataset.id;
-    const { data } = await fetchApi.getFilmToId(id);
 
+    const { data } = await refs.fetchApi.getFilmToId(id);
     currentMovie = data;
 
     backdropBackground(data);
@@ -46,7 +52,7 @@ function modalListener(e) {
   }
 }
 
-export function closeModalEcs(e) {
+function closeModalEcs(e) {
   if (e.code === 'Escape') {
     closeModalBtn = modal.classList.add('is-hidden');
     unloadModalBtns();
