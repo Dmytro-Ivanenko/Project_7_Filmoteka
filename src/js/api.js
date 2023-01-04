@@ -55,9 +55,23 @@ export class FetchAPI {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
       );
+
     } else {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=en-US`
+      );
+    }
+  }
+
+  async getFilmToIdSecondLang(id) {
+    if (window.location.hash === '#ua') {
+      return await axios.get(
+        `${ID_URL}${id}?api_key=${API_KEY}&language=en-US`
+      );
+    } else {
+      return await axios.get(
+        `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
+
       );
     }
   }
@@ -73,6 +87,7 @@ export class FetchAPI {
       );
     }
   }
+
 
   async fetchUpcoming() {
     return await axios.get(`${ID_URL}upcoming?api_key=${API_KEY}`);
