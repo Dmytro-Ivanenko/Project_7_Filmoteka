@@ -2,6 +2,8 @@ import { entryField } from './js/searchFilms';
 import { onCardClick } from './js/onCardClick';
 import { getTrailerFilm } from './js/getTrailerFilm';
 import { backToTop } from './js/backToTop';
+import { renderUpcoming } from './js/renderUpcoming';
+import { onUpcomingClick } from './js/onUpcomingClick';
 
 //Imports
 import './js/auth';
@@ -25,3 +27,5 @@ export const fetchApi = new FetchAPI();
 // document.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', createGenresFilter);
 modeCheckbox.addEventListener('click', switchMode);
+document.addEventListener('click', onUpcomingClick);
+document.addEventListener('DOMContentLoaded', renderUpcoming);
