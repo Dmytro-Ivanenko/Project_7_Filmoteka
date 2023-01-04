@@ -38,7 +38,7 @@ export function createMarkupElemetsGallery(
   <div class="info">
     <p class="info-title">${title}</p>
     <div class="info-other">
-      <span class="info-vote-average">${vote_average}</span>
+      <span class="info-vote-average">${vote_average.toFixed(1)}</span>
       <p class="info-item">${genres}</p>
       <p class="info-item">${dateYear}</p>
     </div>

@@ -1,7 +1,3 @@
-import * as basicLightbox from 'basiclightbox';
-
-// const modalBtnClose = document.querySelector('.modal-btn-close');
-
 export function createModalCardMarkup(data) {
   const {
     title,
