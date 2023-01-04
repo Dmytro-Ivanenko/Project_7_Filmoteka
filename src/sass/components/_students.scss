@@ -45,6 +45,72 @@
   display: block;
 }
 
+.card-student__description {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-student__icons {
+  position: absolute;
+  right: 120;
+  bottom: 70;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 20px;
+}
+.card-student__name {
+  font-size: 32px;
+  font-weight: 900;
+  font-family: 'Roboto';
+  font-style: normal;
+}
+
+.card-student__profession {
+  font-size: 32px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  font-style: normal;
+}
+
+img {
+  width: 270px;
+  height: 320px;
+  object-fit: cover;
+}
+
+.card-student__link:hover,
+.card-student__link:focus {
+  color: #2196f3;
+}
+
+.card-student__link {
+  color: #757575;
+}
+
+.student-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  transition-property: transform, opacity;
+}
+
+.student-icon:nth-child(1) {
+  transition-duration: 2000ms;
+  margin-bottom: 25px;
+}
+.student-icon:nth-child(2) {
+  transition-duration: 2500ms;
+  margin-bottom: 25px;
+}
+.student-icon:nth-child(3) {
+  transition-duration: 3000ms;
+}
+
+.student-icon:hover {
+  transform: scale(1.5);
+}
+
 .close-button {
   position: absolute;
   top: 8;

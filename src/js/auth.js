@@ -59,7 +59,7 @@ async function loginEmailPassword(e) {
   }
 }
 
-================ Створення аккаунту ===================
+// ================ Створення аккаунту ===================
 
 async function createAccount(e) {
   e.preventDefault();
@@ -90,14 +90,14 @@ async function createAccount(e) {
   }
 }
 
-================== Логаут ===================
+// ================== Логаут ===================
 
 function logout(e) {
   e.preventDefault();
   signOut(auth).then(location.reload());
 }
 
-================= Метод для відстеження стану аутентифікації ================
+// ================= Метод для відстеження стану аутентифікації ================
 
 function monitorAuthState() {
   onAuthStateChanged(auth, user => {
