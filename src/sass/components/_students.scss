@@ -1,3 +1,8 @@
+.students-button {
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1px solid var(--footer);
+}
 .students-backdrop {
   position: fixed;
   top: 0;
@@ -130,7 +135,7 @@ img {
 }
 
 .card-student__role {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 500;
   font-family: 'Roboto';
   font-style: normal;
