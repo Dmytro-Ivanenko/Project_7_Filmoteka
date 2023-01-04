@@ -10,7 +10,7 @@ export async function getTrailerFilm(e) {
   if (value !== 'gallery-item-trailer-icon') {
     return;
   }
-  movie = await refs.fetchApi.getTrailer(id);
+  const movie = await refs.fetchApi.getTrailer(id);
   const { key } = movie.data.results[0];
   console.log(key);
   //   yotubeMovie = getTrailerYouTube(key);
