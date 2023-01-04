@@ -55,6 +55,7 @@ export class FetchAPI {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
       );
+
     } else {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=en-US`
@@ -70,6 +71,7 @@ export class FetchAPI {
     } else {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
+
       );
     }
   }
@@ -84,6 +86,11 @@ export class FetchAPI {
         `${ID_URL}/${id}/videos?api_key=${API_KEY}&language=en-US`
       );
     }
+  }
+
+
+  async fetchUpcoming() {
+    return await axios.get(`${ID_URL}upcoming?api_key=${API_KEY}`);
   }
 
   async fillGenreList() {
