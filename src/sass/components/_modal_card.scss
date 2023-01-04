@@ -7,7 +7,7 @@
   background-color: rgba(0, 0, 0, 0.863);
   opacity: 1;
   transition: opacity var(--transition-duration),
-    visability var(--transition-duration);
+  visability var(--transition-duration);
   z-index: 50;
   overflow-y: scroll;
 
@@ -45,7 +45,6 @@
   border-radius: 5px;
   width: 280px;
   height: auto;
-
   padding: 48px 20px 40px 20px;
   transition: transform var(--transition-duration);
   z-index: 52;

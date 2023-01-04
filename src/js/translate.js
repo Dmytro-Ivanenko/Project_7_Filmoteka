@@ -120,3 +120,4 @@ const text_en = 'movie search';
       }
     }
 changeLang();
+
