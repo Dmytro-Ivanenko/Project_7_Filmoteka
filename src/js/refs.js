@@ -5,4 +5,5 @@ export const refs = {
   galleryList: document.querySelector('.gallery'),
   searchResult: document.querySelector('.search-result'),
   fetchApi: new FetchAPI(),
+  upcomingList: document.querySelector('.glide__slides'),
 };
