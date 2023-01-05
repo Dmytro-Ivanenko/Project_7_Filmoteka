@@ -60,7 +60,7 @@ export function createModalCardMarkup(data) {
                 <p class="modal-card__about-description">${overview}</p>
                 <div class="modal-card__btn">
                     <button class="modal-card__btn-watched lng-watched">add to Watched</button>
-                    <button class="modal-card__btn-queue lng-queue">add to queue</button>
+                    <button class="modal-card__btn-queue lng-queued">add to queue</button>
                 </div>
             </div>
         </div>

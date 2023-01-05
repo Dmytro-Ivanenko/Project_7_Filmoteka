@@ -10,6 +10,7 @@ import {
 } from './addToLibrary.js';
 import { auth, db } from './auth.js';
 import { getDoc, doc } from 'firebase/firestore';
+import { changeLanguage } from './translate';
 
 const gallery = document.querySelector('.gallery');
 export const backdrop = document.querySelector('.backdrop');
@@ -67,30 +68,58 @@ function loadModalBtns() {
 }
 
 export function toggleWatched() {
-  if (addToWatchedBtn.textContent === 'add to Watched') {
-    addToWatchedBtn.textContent = 'remove from watched';
-    addToWatchedBtn.removeEventListener('click', addToWatched);
-    addToWatchedBtn.addEventListener('click', removeFromWatched);
-    addToWatchedBtn.classList.add('modal-card__btn-watched_active');
+  if (window.location.hash === '#ua') {
+    if (addToWatchedBtn.textContent === 'додати в Переглянуті') {
+      addToWatchedBtn.textContent = 'прибрати з Переглянутих';
+      addToWatchedBtn.removeEventListener('click', addToWatched);
+      addToWatchedBtn.addEventListener('click', removeFromWatched);
+      addToWatchedBtn.classList.add('modal-card__btn-queue_active');
+    } else {
+      addToWatchedBtn.textContent = 'додати в Переглянуті';
+      addToWatchedBtn.removeEventListener('click', removeFromWatched);
+      addToWatchedBtn.addEventListener('click', addToWatched);
+      addToWatchedBtn.classList.remove('modal-card__btn-queue_active');
+    }
   } else {
-    addToWatchedBtn.textContent = 'add to Watched';
-    addToWatchedBtn.addEventListener('click', addToWatched);
-    addToWatchedBtn.removeEventListener('click', removeFromWatched);
-    addToWatchedBtn.classList.remove('modal-card__btn-watched_active');
+    if (addToWatchedBtn.textContent === 'add to Watched') {
+      addToWatchedBtn.textContent = 'remove from watched';
+      addToWatchedBtn.removeEventListener('click', addToWatched);
+      addToWatchedBtn.addEventListener('click', removeFromWatched);
+      addToWatchedBtn.classList.add('modal-card__btn-watched_active');
+    } else {
+      addToWatchedBtn.textContent = 'add to Watched';
+      addToWatchedBtn.removeEventListener('click', removeFromWatched);
+      addToWatchedBtn.addEventListener('click', addToWatched);
+      addToWatchedBtn.classList.remove('modal-card__btn-watched_active');
+    }
   }
 }
 
 export function toggleQueue() {
-  if (addToQueueBtn.textContent === 'add to queue') {
-    addToQueueBtn.textContent = 'remove from queue';
-    addToQueueBtn.removeEventListener('click', addToQueue);
-    addToQueueBtn.addEventListener('click', removeFromQueue);
-    addToQueueBtn.classList.add('modal-card__btn-queue_active');
+  if (window.location.hash === '#ua') {
+    if (addToQueueBtn.textContent === 'додати в чергу') {
+      addToQueueBtn.textContent = 'прибрати з черги';
+      addToQueueBtn.removeEventListener('click', addToQueue);
+      addToQueueBtn.addEventListener('click', removeFromQueue);
+      addToQueueBtn.classList.add('modal-card__btn-queue_active');
+    } else {
+      addToQueueBtn.textContent = 'додати в чергу';
+      addToQueueBtn.removeEventListener('click', removeFromQueue);
+      addToQueueBtn.addEventListener('click', addToQueue);
+      addToQueueBtn.classList.remove('modal-card__btn-queue_active');
+    }
   } else {
-    addToQueueBtn.textContent = 'add to queue';
-    addToQueueBtn.addEventListener('click', addToQueue);
-    addToQueueBtn.removeEventListener('click', removeFromQueue);
-    addToQueueBtn.classList.remove('modal-card__btn-queue_active');
+    if (addToQueueBtn.textContent === 'add to queue') {
+      addToQueueBtn.textContent = 'remove from queue';
+      addToQueueBtn.removeEventListener('click', addToQueue);
+      addToQueueBtn.addEventListener('click', removeFromQueue);
+      addToQueueBtn.classList.add('modal-card__btn-queue_active');
+    } else {
+      addToQueueBtn.textContent = 'add to queue';
+      addToQueueBtn.removeEventListener('click', removeFromQueue);
+      addToQueueBtn.addEventListener('click', addToQueue);
+      addToQueueBtn.classList.remove('modal-card__btn-queue_active');
+    }
   }
 }
 
@@ -102,6 +131,8 @@ async function toggleBtns() {
       modal.classList.remove('is-hidden');
       return res.data();
     });
+
+    changeLanguage();
 
     if (window.location.hash === '#ua') {
       if (watchedMovies.ua.find(movie => movie.id === currentMovie.id)) {
@@ -119,6 +150,7 @@ async function toggleBtns() {
       }
     }
   } else {
+    changeLanguage();
     modal.classList.remove('is-hidden');
   }
 }
