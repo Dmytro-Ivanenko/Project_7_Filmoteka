@@ -1,5 +1,12 @@
 @import "./glidevar";
-
+.glide {
+  padding-left: 72px;
+  padding-right: 72px;
+  
+}
+.upcoming__image {
+  border-radius: 4px;
+}
 .#{$glide-class} {
   $this: &;
 
@@ -31,7 +38,7 @@
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
-    will-change: transform;
+    // will-change: transform;
 
     &#{$glide-modifier-separator}dragging {
       user-select: none;
