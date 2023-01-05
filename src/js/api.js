@@ -11,11 +11,14 @@ const GANRE_LIST_URL = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 
 export class FetchAPI {
   // trends
-  async fetchTrendingFilms(page = 1) {
+  constructor() {
+    this.page = 1;
+  }
+  async fetchTrendingFilms(page = this.page) {
     return await axios.get(`${TREND_URL}?api_key=${API_KEY}&page=${page}`);
   }
 
-  async fetchSearchFilms(searchQuery, page = 1) {
+  async fetchSearchFilms(searchQuery, page = this.page) {
     return await axios.get(
       `${SEARCH_URL}?api_key=${API_KEY}&query=${searchQuery}&page=${page}`
     );
@@ -43,6 +46,18 @@ export class FetchAPI {
     });
 
     return genre[0].name;
+  }
+
+  numberOfPage() {
+    return (this.page += 1);
+  }
+
+  curPage() {
+    return this.page;
+  }
+
+  updateCurPage(page) {
+    this.page = page;
   }
 }
 
