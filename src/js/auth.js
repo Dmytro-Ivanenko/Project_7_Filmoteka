@@ -114,7 +114,7 @@ function logout(e) {
   signOut(auth).then(location.reload());
 }
 
-async function monitorRedirect() {
+export async function monitorRedirect() {
   await getRedirectResult(auth).then(async cred => {
     if (cred) {
       console.log('redirected');

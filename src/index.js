@@ -36,4 +36,3 @@ loadMoreTrend.addEventListener('click', onLoadMore);
 loadMoreSearchBtn.addEventListener('click', onLoadMoreSearch);
 
 document.addEventListener('DOMContentLoaded', renderUpcoming);
-

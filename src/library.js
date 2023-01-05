@@ -1,4 +1,5 @@
 import './js/signupModal';
+import './js/auth';
 import { translate } from './js/translate';
-import { gallery } from './js/libraryGallery';
+import './js/libraryGallery';
 import { onLibraryClick } from './js/libraryOnCardClick';
