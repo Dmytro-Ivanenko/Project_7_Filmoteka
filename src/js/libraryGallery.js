@@ -14,7 +14,11 @@ queueBtn.addEventListener('click', onQueue);
 
 async function onWatched() {
   if (!auth.currentUser) {
-    Notiflix.Notify.failure('Please sign in');
+    if (window.location.hash === '#ua') {
+      Notiflix.Notify.failure('Будь ласка, авторизуйтесь');
+    } else {
+      Notiflix.Notify.failure('Please sign in');
+    }
     return;
   }
 
@@ -27,7 +31,11 @@ async function onWatched() {
 
 async function onQueue() {
   if (!auth.currentUser) {
-    Notiflix.Notify.failure('Please sign in');
+    if (window.location.hash === '#ua') {
+      Notiflix.Notify.failure('Будь ласка, авторизуйтесь');
+    } else {
+      Notiflix.Notify.failure('Please sign in');
+    }
     return;
   }
 
