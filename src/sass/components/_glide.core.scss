@@ -1,4 +1,4 @@
-@import "./glidevar";
+@import './glidevar';
 
 .#{$glide-class} {
   $this: &;
@@ -68,4 +68,8 @@
   &#{$sm}rtl {
     direction: rtl;
   }
+}
+
+.upcoming__image {
+  height: 250px;
 }
