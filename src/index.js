@@ -6,8 +6,10 @@ import { renderUpcoming } from './js/renderUpcoming';
 
 //Imports
 import './js/auth';
+import './js/home';
 import './js/addToLibrary';
 import './js/signupModal';
+
 import { FetchAPI } from './js/api';
 
 import { createGenresFilter } from './js/genresFilter';

@@ -1,4 +1,3 @@
-import './js/auth';
 import './js/signupModal';
 import { translate } from './js/translate';
 import { gallery } from './js/libraryGallery';

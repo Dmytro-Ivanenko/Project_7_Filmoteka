@@ -74,19 +74,15 @@ function monitorQueueChanges() {
   });
 }
 
-function monitorAuthState() {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      console.log('user logged in: ', user);
-      authSignOut.parentElement.classList.remove('visually-hidden');
-      authFormOpen.parentElement.classList.add('visually-hidden');
-      onWatched();
-    } else {
-      console.log('user logged out');
-      authSignOut.parentElement.classList.add('visually-hidden');
-      authFormOpen.parentElement.classList.remove('visually-hidden');
-    }
-  });
-}
-
-monitorAuthState();
+onAuthStateChanged(auth, user => {
+  if (user) {
+    console.log('user logged in: ', user);
+    authSignOut.parentElement.classList.remove('visually-hidden');
+    authFormOpen.parentElement.classList.add('visually-hidden');
+    onWatched();
+  } else {
+    console.log('user logged out');
+    authSignOut.parentElement.classList.add('visually-hidden');
+    authFormOpen.parentElement.classList.remove('visually-hidden');
+  }
+});
