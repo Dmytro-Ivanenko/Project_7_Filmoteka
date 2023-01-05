@@ -14,6 +14,7 @@ const GANRE_LIST_URL = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 
 export class FetchAPI {
   // trends
+
   async fetchTrendingFilms(page = 1) {
     if (window.location.hash === '#ua') {
       return await axios.get(
@@ -48,6 +49,7 @@ export class FetchAPI {
         `${DISCOVER_URL}&with_genres=${genres}&page=${page}&language=en-US`
       );
     }
+
   }
 
   async getFilmToId(id) {
@@ -117,6 +119,18 @@ export class FetchAPI {
     });
 
     return genre[0].name;
+  }
+
+  numberOfPage() {
+    return (this.page += 1);
+  }
+
+  curPage() {
+    return this.page;
+  }
+
+  updateCurPage(page) {
+    this.page = page;
   }
 }
 
