@@ -1,15 +1,16 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import {
   getAuth,
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithRedirect,
+  getRedirectResult,
 } from 'firebase/auth';
 import Notiflix from 'notiflix';
-
-// =============== Ініціалізація firebase ================
+// import { loginContainer } from './signupModal';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAEEIQrC1FklTDIB6wSl3Lj1Ay7wmlBG7E',
@@ -24,23 +25,37 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+auth.useDeviceLanguage();
+const provider = new GoogleAuthProvider();
 
-// ==========  Слухачів подій додам коли буде готова розмітка хедеру та модального вікна аутентифікації  ============
+export const authFormOpen = document.querySelector('[data-auth-open]');
+export const authSignOut = document.querySelector('[data-auth-sign-out]');
 
-const authFormOpen = document.querySelector('[data-auth-open]');
-const authSignOut = document.querySelector('[data-auth-sign-out]');
+const authGoogle = document.querySelector('.btn-google');
+const loginForm = document.querySelector('.login__form');
+const signUpForm = document.querySelector('.signup__form');
 
-// refs.authLogin.addEventListener('click', loginEmailPassword);
-// refs.authRegister.addEventListener('click', createAccount);
-// refs.authSignOut.addEventListener('click', logout);
+const authBackdrop = document.querySelector('.backdrop-login');
 
-// ================= Логінізація =====================
+authSignOut.addEventListener('click', logout);
+authGoogle.addEventListener('click', onGoogleAuth);
+
+loginForm.addEventListener('submit', loginEmailPassword);
+signUpForm.addEventListener('submit', createAccount);
+
+async function onGoogleAuth() {
+  try {
+    signInWithRedirect(auth, provider);
+  } catch (error) {
+    Notiflix.Notify.failure(error.message);
+  }
+}
 
 async function loginEmailPassword(e) {
   e.preventDefault();
 
-  //   const loginEmail = refs.authForm.elements.email.value;
-  //   const loginPassword = refs.authForm.elements.password.value;
+  const loginEmail = loginForm.elements.email.value;
+  const loginPassword = loginForm.elements.password.value;
 
   if (!loginEmail || !loginPassword) {
     Notiflix.Notify.failure('Enter email and password');
@@ -50,8 +65,8 @@ async function loginEmailPassword(e) {
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then(
       () => {
-        // refs.authModal.classList.add('is-hidden');
-        // refs.authForm.reset();
+        authBackdrop.classList.add('visually-hidden');
+        loginForm.reset();
       }
     );
   } catch (error) {
@@ -59,13 +74,11 @@ async function loginEmailPassword(e) {
   }
 }
 
-// ================ Створення аккаунту ===================
-
 async function createAccount(e) {
   e.preventDefault();
 
-  //   const email = refs.authForm.elements.email.value;
-  //   const password = refs.authForm.elements.password.value;
+  const email = signUpForm.elements.email.value;
+  const password = signUpForm.elements.password.value;
 
   if (!email || !password) {
     Notiflix.Notify.failure('Enter email and password');
@@ -78,11 +91,17 @@ async function createAccount(e) {
         await setDoc(doc(db, 'users', `${cred.user.uid}`), {
           userId: cred.user.uid,
           userEmail: cred.user.email,
-          watchedMovies: [],
-          queuedMovies: [],
+          watchedMovies: {
+            en: [],
+            ua: [],
+          },
+          queuedMovies: {
+            en: [],
+            ua: [],
+          },
         });
-        // refs.authModal.classList.add('is-hidden');
-        // refs.authForm.reset();
+        authBackdrop.classList.add('visually-hidden');
+        signUpForm.reset();
       }
     );
   } catch (error) {
@@ -90,27 +109,37 @@ async function createAccount(e) {
   }
 }
 
-// ================== Логаут ===================
-
 function logout(e) {
   e.preventDefault();
   signOut(auth).then(location.reload());
 }
 
-// ================= Метод для відстеження стану аутентифікації ================
-
-function monitorAuthState() {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      console.log('user logged in: ', user);
-      authSignOut.parentElement.classList.remove('visually-hidden');
-      authFormOpen.parentElement.classList.add('visually-hidden');
-    } else {
-      console.log('user logged out');
-      authSignOut.parentElement.classList.add('visually-hidden');
-      authFormOpen.parentElement.classList.remove('visually-hidden');
+export async function monitorRedirect() {
+  await getRedirectResult(auth).then(async cred => {
+    if (cred) {
+      console.log('redirected');
+      const userData = await getDoc(doc(db, 'users', cred.user.uid)).then(
+        res => {
+          return res.data();
+        }
+      );
+      if (!userData) {
+        console.log('new user');
+        setDoc(doc(db, 'users', `${cred.user.uid}`), {
+          userId: cred.user.uid,
+          userEmail: cred.user.email,
+          watchedMovies: {
+            en: [],
+            ua: [],
+          },
+          queuedMovies: {
+            en: [],
+            ua: [],
+          },
+        });
+      }
     }
   });
 }
 
-monitorAuthState();
+monitorRedirect();

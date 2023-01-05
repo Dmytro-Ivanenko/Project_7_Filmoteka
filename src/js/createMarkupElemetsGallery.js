@@ -1,11 +1,24 @@
-
 export function createMarkupElemetsGallery(
-  { id, title, poster_path, release_date, genre_ids, vote_average },
+  { id, title, poster_path, release_date, genre_ids, vote_average, genres },
   fetchApi
 ) {
   const dateYear = new Date(release_date).getFullYear();
   let images = '';
-  const genres = getGenresForMarkup(genre_ids, fetchApi);
+
+  let formattedGenres;
+
+  if (genre_ids) {
+    formattedGenres = getGenresForMarkup(genre_ids, fetchApi);
+  }
+
+  if (genres) {
+    formattedGenres = genres.map(genre => {
+      return genre.name;
+    });
+    if (formattedGenres.length > 2) {
+      formattedGenres = formattedGenres.slice(0, 2).join(', ') + ', Other';
+    }
+  }
 
   if (!poster_path) {
     images =
@@ -39,7 +52,7 @@ export function createMarkupElemetsGallery(
     <p class="info-title">${title}</p>
     <div class="info-other">
       <span class="info-vote-average">${vote_average.toFixed(1)}</span>
-      <p class="info-item">${genres}</p>
+      <p class="info-item">${formattedGenres}</p>
       <p class="info-item">${dateYear}</p>
     </div>
   </div>
@@ -64,5 +77,3 @@ function getGenresForMarkup(genresId, fetchApi) {
     })
     .join(', ');
 }
-
-

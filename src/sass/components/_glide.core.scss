@@ -1,3 +1,4 @@
+
 @import "./glidevar";
 .glide {
   padding-left: 72px;
@@ -7,6 +8,7 @@
 .upcoming__image {
   border-radius: 4px;
 }
+
 .#{$glide-class} {
   $this: &;
 
@@ -75,4 +77,8 @@
   &#{$sm}rtl {
     direction: rtl;
   }
+}
+
+.upcoming__image {
+  height: 250px;
 }
