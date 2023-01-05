@@ -8,7 +8,6 @@ import {
   GoogleAuthProvider,
   signInWithRedirect,
   getRedirectResult,
-  onAuthStateChanged,
 } from 'firebase/auth';
 import Notiflix from 'notiflix';
 // import { loginContainer } from './signupModal';
@@ -115,46 +114,32 @@ function logout(e) {
   signOut(auth).then(location.reload());
 }
 
-export async function monitorRedirect() {
-  const result = await getRedirectResult(auth);
-  if (result) {
-    const userData = await getDoc(doc(db, 'users', result.user.uid)).then(
-      res => {
-        return res.data();
+async function monitorRedirect() {
+  await getRedirectResult(auth).then(async cred => {
+    if (cred) {
+      console.log('redirected');
+      const userData = await getDoc(doc(db, 'users', cred.user.uid)).then(
+        res => {
+          return res.data();
+        }
+      );
+      if (!userData) {
+        console.log('new user');
+        setDoc(doc(db, 'users', `${cred.user.uid}`), {
+          userId: cred.user.uid,
+          userEmail: cred.user.email,
+          watchedMovies: {
+            en: [],
+            ua: [],
+          },
+          queuedMovies: {
+            en: [],
+            ua: [],
+          },
+        });
       }
-    );
-    if (!userData) {
-      console.log('new user');
-      setDoc(doc(db, 'users', `${result.user.uid}`), {
-        userId: result.user.uid,
-        userEmail: result.user.email,
-        watchedMovies: {
-          en: [],
-          ua: [],
-        },
-        queuedMovies: {
-          en: [],
-          ua: [],
-        },
-      });
-    }
-  }
-}
-
-monitorRedirect();
-
-export function monitorAuthState() {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      console.log('user logged in: ', user);
-      authSignOut.parentElement.classList.remove('visually-hidden');
-      authFormOpen.parentElement.classList.add('visually-hidden');
-    } else {
-      console.log('user logged out');
-      authSignOut.parentElement.classList.add('visually-hidden');
-      authFormOpen.parentElement.classList.remove('visually-hidden');
     }
   });
 }
 
-monitorAuthState();
+monitorRedirect();
