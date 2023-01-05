@@ -1,16 +1,21 @@
-import {
-  galleryList,
-  fetchApi,
-  searchResult,
-  loadMoreSearchBtn,
-  loadMoreTrend,
-} from '../index';
+
+import { refs } from './refs';
+
 import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
 import { addPagination } from './pagination';
 
 export let searchValue = '';
 let searchPagination = null;
+
+const debounce = require('lodash.debounce');
+const DEBOUNCE_DELAY = 300;
+
+export const entryField = refs.searchForm.addEventListener(
+  'input',
+  debounce(searchFilms, DEBOUNCE_DELAY)
+);
+
 export async function searchFilms(e) {
   searchValue = e.target.value;
 
@@ -20,19 +25,22 @@ export async function searchFilms(e) {
       return;
     }
 
-    galleryList.innerHTML = '';
+    refs.galleryList.innerHTML = '';
 
-    const { data } = await fetchApi.fetchSearchFilms(searchValue.trim());
+    const { data } = await refs.fetchApi.fetchSearchFilms(searchValue.trim());
 
     if (data.total_results === 0) {
-      searchResult.innerHTML =
+      refs.searchResult.innerHTML =
         'Search result not successful. Enter the correct movie name and!';
-      renderTrendingFilms();
-      return;
+      if (window.location.hash === '#ua') {
+        refs.searchResult.innerHTML = 'Результат пошуку невдалий. Введіть правильну назву фільму!';
+        renderTrendingFilms();
+        return;
+      }
     }
 
     if (data.total_results > 0) {
-      searchResult.innerHTML = '';
+      refs.searchResult.innerHTML = '';
       renderGallery(data.results);
       loadMoreSearchBtn.classList.remove('visually-hidden');
       loadMoreTrend.classList.add('visually-hidden');
@@ -46,8 +54,8 @@ export async function searchFilms(e) {
 
 async function loadMoreSearch(e) {
   const currentPage = e.page;
-  fetchApi.updateCurPage(currentPage);
-  const { data } = await fetchApi.fetchSearchFilms(
+
+  const { data } = await refs.fetchApi.fetchSearchFilms(
     searchValue.trim(),
     currentPage
   );

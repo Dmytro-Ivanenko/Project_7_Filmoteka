@@ -1,56 +1,56 @@
-import { fetchApi } from '../index.js';
+import { refs } from './refs';
 import { createModalCardMarkup } from './createModalCardMarkup';
-import { addToWatched, addToQueue } from './addToLibrary.js';
+import { getTrailerFilm } from './getTrailerFilm';
+import { renderTrendingFilms } from './renderTrendingFilms';
+import {
+  addToWatched,
+  addToQueue,
+  removeFromWatched,
+  removeFromQueue,
+} from './addToLibrary.js';
+import { auth, db } from './auth.js';
+import { getDoc, doc } from 'firebase/firestore';
 
-const backdrop = document.querySelector('.backdrop');
-const modal = document.querySelector('[data-modal]');
-let closeModalBtn = document.querySelector('[data-modal-close]');
+const gallery = document.querySelector('.gallery');
+export const backdrop = document.querySelector('.backdrop');
+export const modal = document.querySelector('[data-modal]');
+
+let closeModalBtn;
 let addToWatchedBtn;
 let addToQueueBtn;
+
+gallery.addEventListener('click', onCardClick);
 
 // ================= Змінна щоб пушити до firebase фільми ================
 export let currentMovie;
 // =======================================================================
 
-modal.addEventListener('click', modalListener);
+document.addEventListener('click', getTrailerFilm);
+gallery.addEventListener('click', onCardClick);
+document.addEventListener('DOMContentLoaded', renderTrendingFilms());
 
 export async function onCardClick(e) {
-  if (e.path[2].className !== 'photo-card') {
+  if (e.target === e.currentTarget) {
     return;
   }
 
-  if (e.path[2].className === 'photo-card') {
-    modal.classList.remove('is-hidden');
-    let id = e.path[2].dataset.id;
-    const { data } = await fetchApi.getFilmToId(id);
+  const card = e.target.closest('.photo-card');
+  const id = Number(card.dataset.id);
 
-    currentMovie = data;
+  const { data } = await refs.fetchApi.getFilmToId(id);
+  currentMovie = data;
 
-    backdropBackground(data);
-    // ========== Поправив щоб контент модалки перезаписувався ============
-    // modal.insertAdjacentHTML('beforeend', createModalCardMarkup(data));
-    modal.innerHTML = createModalCardMarkup(data);
-    // ====================================================================
-    loadModalBtns();
-  }
-}
+  backdropBackground(data);
+  modal.innerHTML = createModalCardMarkup(data);
 
-function modalListener(e) {
-  if (
-    e.path[0].className === 'modal__btn-close' ||
-    e.target.classList[0] === 'modal__icon-close' ||
-    e.path[0].className === 'backdrop'
-  ) {
-    closeModalBtn = modal.classList.add('is-hidden');
-    unloadModalBtns();
-  }
-}
+  closeModalBtn = document.querySelector('[data-modal-close]');
 
-export function closeModalEcs(e) {
-  if (e.code === 'Escape') {
-    closeModalBtn = modal.classList.add('is-hidden');
-    unloadModalBtns();
-  }
+  closeModalBtn = document.querySelector('[data-modal-close]');
+  closeModalBtn.addEventListener('click', toggleModal);
+  backdrop.addEventListener('click', onBackdropClick);
+  window.addEventListener('keydown', onEscPress);
+  loadModalBtns();
+  toggleBtns();
 }
 
 function backdropBackground(data) {
@@ -66,7 +66,105 @@ function loadModalBtns() {
   addToQueueBtn.addEventListener('click', addToQueue);
 }
 
-function unloadModalBtns() {
+export function toggleWatched() {
+  if (addToWatchedBtn.textContent === 'add to Watched') {
+    addToWatchedBtn.textContent = 'remove from watched';
+    addToWatchedBtn.removeEventListener('click', addToWatched);
+    addToWatchedBtn.addEventListener('click', removeFromWatched);
+    addToWatchedBtn.classList.add('modal-card__btn-watched_active');
+  } else {
+    addToWatchedBtn.textContent = 'add to Watched';
+    addToWatchedBtn.addEventListener('click', addToWatched);
+    addToWatchedBtn.removeEventListener('click', removeFromWatched);
+    addToWatchedBtn.classList.remove('modal-card__btn-watched_active');
+  }
+}
+
+export function toggleQueue() {
+  if (addToQueueBtn.textContent === 'add to queue') {
+    addToQueueBtn.textContent = 'remove from queue';
+    addToQueueBtn.removeEventListener('click', addToQueue);
+    addToQueueBtn.addEventListener('click', removeFromQueue);
+    addToQueueBtn.classList.add('modal-card__btn-queue_active');
+  } else {
+    addToQueueBtn.textContent = 'add to queue';
+    addToQueueBtn.addEventListener('click', addToQueue);
+    addToQueueBtn.removeEventListener('click', removeFromQueue);
+    addToQueueBtn.classList.remove('modal-card__btn-queue_active');
+  }
+}
+
+async function toggleBtns() {
+  if (auth.currentUser) {
+    const { watchedMovies, queuedMovies } = await getDoc(
+      doc(db, 'users', auth.currentUser.uid)
+    ).then(res => {
+      modal.classList.remove('is-hidden');
+      return res.data();
+    });
+
+    if (window.location.hash === '#ua') {
+      if (watchedMovies.ua.find(movie => movie.id === currentMovie.id)) {
+        toggleWatched();
+      }
+      if (queuedMovies.ua.find(movie => movie.id === currentMovie.id)) {
+        toggleQueue();
+      }
+    } else {
+      if (watchedMovies.en.find(movie => movie.id === currentMovie.id)) {
+        toggleWatched();
+      }
+      if (queuedMovies.en.find(movie => movie.id === currentMovie.id)) {
+        toggleQueue();
+      }
+    }
+  } else {
+    modal.classList.remove('is-hidden');
+  }
+}
+
+function toggleModal() {
+  backdrop.classList.add('is-hidden');
+  window.removeEventListener('keydown', onEscPress);
+  closeModalBtn.removeEventListener('click', toggleModal);
+  backdrop.removeEventListener('click', onBackdropClick);
   addToWatchedBtn.removeEventListener('click', addToWatched);
+  addToWatchedBtn.removeEventListener('click', removeFromWatched);
   addToQueueBtn.removeEventListener('click', addToQueue);
+  addToQueueBtn.removeEventListener('click', removeFromQueue);
+}
+
+function onEscPress(e) {
+  if (e.code === 'Escape') {
+    toggleModal();
+  }
+}
+
+function onBackdropClick(e) {
+  if (e.target === e.currentTarget) {
+    toggleModal();
+  }
+}
+
+export async function onUpcomingClick(e) {
+  if (e.target === e.currentTarget) {
+    return;
+  }
+
+  const card = e.target.closest('.upcoming__item');
+  const id = Number(card.dataset.id);
+
+  const { data } = await refs.fetchApi.getFilmToId(id);
+  currentMovie = data;
+
+  backdropBackground(data);
+  modal.innerHTML = createModalCardMarkup(data);
+
+  closeModalBtn = document.querySelector('[data-modal-close]');
+  closeModalBtn.addEventListener('click', toggleModal);
+
+  backdrop.addEventListener('click', onBackdropClick);
+  window.addEventListener('keydown', onEscPress);
+  loadModalBtns();
+  toggleBtns();
 }

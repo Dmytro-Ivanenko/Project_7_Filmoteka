@@ -1,23 +1,61 @@
-<header class="page-header">
-    <div class="container">
-        <div class="header">
-            <nav class="main-nav">
-                <a class="logo link animate__animated animate__bounceInDown" href="./index.html">
-                    <svg class="logo__icon animate__animated animate__pulse animate__infinite" width="24" height="24">
-                        <use href="./images/icon/sprite.svg#icon-logo"></use>
-                    </svg>
-                    <span class="cssanimation lePushReleaseFrom sequence">Filmoteka</span></a>
-                <div>
-                    <ul class="site-nav">
-                        <li class="site-nav__item">
-                            <a class="site-nav__link" href="./index.html">home</a>
-                        </li>
-                        <li class="site-nav__item">
-                            <a class="site-nav__link" href="./library.html">my library</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+<header class="library-page-header">
+  <div class="container">
+    <div class="header">
+      <nav class="main-nav">
+        <a
+          class="logo link animate__animated animate__bounceInDown"
+          href="./index.html"
+        >
+          <svg
+            class="logo__icon animate__animated animate__pulse animate__infinite"
+            width="24"
+            height="24"
+          >
+            <use href="./images/icon/sprite.svg#icon-logo"></use>
+          </svg>
+
+          <span class="cssanimation lePushReleaseFrom sequence"
+            >Filmoteka</span
+          ></a
+        >
+
+        <div class="nav-list">
+          <ul class="site-nav">
+            <li class="site-nav__item">
+              <a class="site-nav__link lng-home" href="./index.html">home</a>
+            </li>
+            <li class="site-nav__item">
+              <a class="site-nav__link lng-library" href="./library.html"
+                >my library</a
+              >
+            </li>
+
+            <li class="site-nav__item">
+              <a class="site-nav__link lng-login" href="#" data-auth-open
+                >Login</a
+              >
+            </li>
+            <li class="site-nav__item visually-hidden">
+              <a class="site-nav__link lng-sing" href="#" data-auth-sign-out
+                >Sign out</a
+              >
+            </li>
+          </ul>
         </div>
+      </nav>
+      <div class="container-select change-lang-library">
+        <select class="change-lang">
+          <option value="ua">UA</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+
+      <div class="library-button-wrapper">
+        <button type="button" class="watched-btn lng-watch watched-btn_current">
+          WATCHED
+        </button>
+        <button type="button" class="queue-btn lng-queue">QUEUE</button>
+      </div>
     </div>
+  </div>
 </header>

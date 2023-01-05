@@ -2,6 +2,8 @@
 @import './utils/placeholders';
 @import './base/common';
 @import './components/page-header';
+@import './components/library-header';
+@import './components/genresFilter';
 @import './components/gallery';
 @import './components/footer';
 @import './components/back-to-top';
@@ -9,3 +11,8 @@
 @import './components/pagination';
 @import './components/mode';
 @import './components/load-more';
+@import './components/signup-modal';
+@import './components/localization';
+@import './components/glide.core';
+@import './components/glide.theme';
+

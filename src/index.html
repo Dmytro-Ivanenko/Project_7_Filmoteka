@@ -8,7 +8,7 @@
   <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filmoteka</title>
+  <title class="lng-logo">Filmoteka</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./images/icon/favico-2.png" />
@@ -30,12 +30,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.4/basicLightbox.min.css" />
 
   <link rel="stylesheet" href="./sass/main.scss" />
+
+  <!-- Boxicons CSS -->
+  <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 </head>
 
 <body>
   <!-- =================================================================================================-->
   <!-- Header -->
   <include src="./partials/home-header.html"></include>
+
+   <!-- Login -->
+  <include src="./partials/signup-modal.html"></include>
 
   <!-- Main -->
   <main class="main">
@@ -45,6 +54,10 @@
         <input type="checkbox" class="mode-checkbox" />
         <span class="span-mode span-mode--day">
       </label>
+
+      <!-- Slider upcoming -->
+  <include src="./partials/slider-upcoming.html"></include>
+
       <!-- Gallery -->
       <div class="gallery"></div>
     </div>
