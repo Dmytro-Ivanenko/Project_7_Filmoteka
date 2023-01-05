@@ -4,6 +4,8 @@ import { getTrailerFilm } from './js/getTrailerFilm';
 import { backToTop } from './js/backToTop';
 import { renderUpcoming } from './js/renderUpcoming';
 import { onUpcomingClick } from './js/onUpcomingClick';
+import { fullscreenToggle } from './js/fullscreen';
+import { fullscreenEscExit } from './js/fullscreen';
 
 //Imports
 import './js/auth';
@@ -16,6 +18,7 @@ import { switchMode } from './js/mode';
 
 import { fetchGenreUrl } from './js/api';
 
+export const fullscreenBtn = document.querySelector('.fullscreen-btn');
 export const body = document.querySelector('body');
 export const galleryList = document.querySelector('.gallery');
 export const modeCheckbox = document.querySelector('.mode-checkbox');
@@ -29,3 +32,5 @@ document.addEventListener('DOMContentLoaded', createGenresFilter);
 modeCheckbox.addEventListener('click', switchMode);
 document.addEventListener('click', onUpcomingClick);
 document.addEventListener('DOMContentLoaded', renderUpcoming);
+fullscreenBtn.addEventListener('click', fullscreenToggle);
+document.addEventListener('keydown', fullscreenEscExit);
