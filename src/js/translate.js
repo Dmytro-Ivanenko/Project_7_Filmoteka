@@ -57,7 +57,7 @@ const langArr = {
   },
   sing: {
     ua: 'вийти',
-    en: 'sing out',
+    en: 'sign out',
   },
   watch: {
     ua: 'ДИВИЛИСЯ',
