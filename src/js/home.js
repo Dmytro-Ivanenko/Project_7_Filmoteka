@@ -1,6 +1,7 @@
 import { auth } from './auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { authSignOut, authFormOpen } from './auth';
+import { refs } from './refs';
 
 onAuthStateChanged(auth, user => {
   if (user) {
@@ -12,4 +13,5 @@ onAuthStateChanged(auth, user => {
     authSignOut.parentElement.classList.add('visually-hidden');
     authFormOpen.parentElement.classList.remove('visually-hidden');
   }
+  refs.siteNav.classList.remove('visually-hidden');
 });
