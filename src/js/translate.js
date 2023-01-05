@@ -106,7 +106,7 @@ const texts_ua = 'пошук фільму';
 const text_en = 'movie search';
 
 function changeLang() {
-  const input = document.querySelector('input');
+  const input = document.querySelector('.search-form-input');
 
   if (!input) {
     return;
