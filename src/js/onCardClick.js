@@ -10,7 +10,6 @@ import {
 } from './addToLibrary.js';
 import { auth, db } from './auth.js';
 import { getDoc, doc } from 'firebase/firestore';
-import { changeLanguage } from './translate';
 
 const gallery = document.querySelector('.gallery');
 export const backdrop = document.querySelector('.backdrop');
@@ -132,8 +131,6 @@ async function toggleBtns() {
       return res.data();
     });
 
-    changeLanguage();
-
     if (window.location.hash === '#ua') {
       if (watchedMovies.ua.find(movie => movie.id === currentMovie.id)) {
         toggleWatched();
@@ -150,7 +147,6 @@ async function toggleBtns() {
       }
     }
   } else {
-    changeLanguage();
     modal.classList.remove('is-hidden');
   }
 }
