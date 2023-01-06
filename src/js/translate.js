@@ -57,7 +57,7 @@ const langArr = {
   },
   sing: {
     ua: 'вийти',
-    en: 'sing out',
+    en: 'sign out',
   },
   watch: {
     ua: 'ДИВИЛИСЯ',
@@ -68,15 +68,31 @@ const langArr = {
     ua: 'в черзі',
     en: 'QUEUE',
   },
+  account: {
+    ua: 'Немає облікового запису?',
+    en: "Don't have an account?",
+  },
+  singup: {
+    ua: 'Реєстрація',
+    en: 'Signup',
+  },
+   google: {
+    ua: 'Увійдіть за допомогою Google',
+    en: 'Sign in with Google',
+  },
+  already: {
+    ua: 'Вже є аккаунт?',
+    en: 'Already have an account?',
+  },
 };
 
 const select = document.querySelector('select');
 const allLang = ['en', 'ua'];
-
 select.addEventListener('change', changeURLLanguage);
 
 function changeURLLanguage() {
   let lang = select.value;
+  localStorage.setItem("language", lang);
   location.href = window.location.pathname + '#' + lang;
   location.reload();
 }
@@ -85,8 +101,8 @@ function changeLanguage() {
   let hash = window.location.hash;
   hash = hash.substr(1);
   console.log(hash);
-  if (!allLang.includes(hash)) {
-    location.href = window.location.pathname + '#en';
+  if (!allLang.includes((hash))) {
+    location.href = window.location.pathname + '#' + localStorage.getItem("language");
     location.reload();
   }
 
@@ -100,22 +116,17 @@ function changeLanguage() {
   }
 }
 changeLanguage();
-
-const texts_ua = 'пошук фільму';
-
-const text_en = 'movie search';
-
 function changeLang() {
-  const input = document.querySelector('input');
+  const input = document.querySelector('.search-form-input');
 
   if (!input) {
     return;
   }
-
   if (window.location.hash === '#ua') {
-    input.placeholder = texts_ua;
+    input.placeholder =  'Пошук фільму';
   } else {
-    input.placeholder = text_en;
+    input.placeholder = 'Movie search';
   }
 }
 changeLang();
+
