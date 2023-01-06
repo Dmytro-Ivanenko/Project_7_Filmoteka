@@ -3,7 +3,6 @@ import * as basicLightbox from 'basiclightbox';
 document.addEventListener('click', getTrailerFilm);
 
 async function getTrailerFilm(e) {
-  debugger;
   const { value } = e.target.classList;
 
   if (
