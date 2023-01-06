@@ -98,7 +98,11 @@ function changeURLLanguage() {
 }
 
 export function changeLanguage() {
+  if (!localStorage.getItem('language')) {
+    window.location.hash = 'en';
+  }
   let hash = window.location.hash;
+
   hash = hash.substr(1);
   console.log(hash);
   if (!allLang.includes(hash)) {
