@@ -5,7 +5,6 @@ import { backToTop } from './js/backToTop';
 import { renderUpcoming } from './js/renderUpcoming';
 import { onUpcomingClick } from './js/onUpcomingClick';
 import { fullscreenToggle } from './js/fullscreen';
-import { fullscreenEscExit } from './js/fullscreen';
 
 //Imports
 import './js/auth';
@@ -33,4 +32,3 @@ modeCheckbox.addEventListener('click', switchMode);
 document.addEventListener('click', onUpcomingClick);
 document.addEventListener('DOMContentLoaded', renderUpcoming);
 fullscreenBtn.addEventListener('click', fullscreenToggle);
-document.addEventListener('keydown', fullscreenEscExit);
