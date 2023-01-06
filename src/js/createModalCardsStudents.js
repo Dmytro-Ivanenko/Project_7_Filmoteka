@@ -5,11 +5,15 @@ const backdrop = document.querySelector('.students-backdrop');
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination],
 
- 
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    
+  },
   speed: 1000,
-  spaceBetween: 1,
+  // spaceBetween: 1,
   
-  slidesPerView: 1,
+  // slidesPerView: 3,
 
   
 
@@ -19,24 +23,20 @@ const swiper = new Swiper('.swiper', {
    // when window width is >= 320px
     320: {
       slidesPerView: 1,
-      spaceBetween: 2
+      // spaceBetween: 2
     },
    // when window width is >= 768px
    768: {
       slidesPerView: 2,
-      spaceBetween: 3
+      // spaceBetween: 3
     },
      // when window width is >= 1280px
     1280: {
       slidesPerView: 3,
-      spaceBetween: 4
+      // spaceBetween: 4
     }
   },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-    enabled: true,
-  },
+ 
 
   pagination: {
     el: '.swiper-pagination',
