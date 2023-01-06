@@ -11,12 +11,13 @@ export async function renderTrendingFilms() {
   const { data } = await refs.fetchApi.fetchTrendingFilms();
   renderGallery(data.results);
 
-  trendPagination = addPagination(data);
+  trendPagination = addPagination(data, 1);
   trendPagination.on('beforeMove', loadMoreTrending);
 }
 
 async function loadMoreTrending(e) {
   const currentPage = e.page;
   const { data } = await refs.fetchApi.fetchTrendingFilms(currentPage);
+
   renderGallery(data.results);
 }

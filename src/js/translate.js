@@ -51,13 +51,13 @@ const langArr = {
     ua: 'додати в Переглянуті',
     en: 'add to Watched',
   },
-  queue: {
+  queued: {
     ua: 'додати в чергу',
     en: 'add to queue',
   },
   sing: {
     ua: 'вийти',
-    en: 'sing out',
+    en: 'sign out',
   },
   watch: {
     ua: 'ДИВИЛИСЯ',
@@ -67,6 +67,16 @@ const langArr = {
   queue: {
     ua: 'в черзі',
     en: 'QUEUE',
+  },
+
+  removequeued: {
+    ua: 'прибрати з черги',
+    en: 'remove from queue',
+  },
+
+  removewatched: {
+    ua: 'прибрати з Переглянутих',
+    en: 'remove from Watched',
   },
 };
 
@@ -81,7 +91,7 @@ function changeURLLanguage() {
   location.reload();
 }
 
-function changeLanguage() {
+export function changeLanguage() {
   let hash = window.location.hash;
   hash = hash.substr(1);
   console.log(hash);
@@ -106,7 +116,7 @@ const texts_ua = 'пошук фільму';
 const text_en = 'movie search';
 
 function changeLang() {
-  const input = document.querySelector('input');
+  const input = document.querySelector('.search-form-input');
 
   if (!input) {
     return;

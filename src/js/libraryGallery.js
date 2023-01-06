@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db, authFormOpen, authSignOut } from './auth';
 import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
+import { refs } from './refs';
 
 const watchedBtn = document.querySelector('.watched-btn');
 const queueBtn = document.querySelector('.queue-btn');
@@ -14,7 +15,11 @@ queueBtn.addEventListener('click', onQueue);
 
 async function onWatched() {
   if (!auth.currentUser) {
-    Notiflix.Notify.failure('Please sign in');
+    if (window.location.hash === '#ua') {
+      Notiflix.Notify.failure('Будь ласка, авторизуйтесь');
+    } else {
+      Notiflix.Notify.failure('Please sign in');
+    }
     return;
   }
 
@@ -27,7 +32,11 @@ async function onWatched() {
 
 async function onQueue() {
   if (!auth.currentUser) {
-    Notiflix.Notify.failure('Please sign in');
+    if (window.location.hash === '#ua') {
+      Notiflix.Notify.failure('Будь ласка, авторизуйтесь');
+    } else {
+      Notiflix.Notify.failure('Please sign in');
+    }
     return;
   }
 
@@ -66,19 +75,16 @@ function monitorQueueChanges() {
   });
 }
 
-function monitorAuthState() {
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      console.log('user logged in: ', user);
-      authSignOut.parentElement.classList.remove('visually-hidden');
-      authFormOpen.parentElement.classList.add('visually-hidden');
-      onWatched();
-    } else {
-      console.log('user logged out');
-      authSignOut.parentElement.classList.add('visually-hidden');
-      authFormOpen.parentElement.classList.remove('visually-hidden');
-    }
-  });
-}
-
-monitorAuthState();
+onAuthStateChanged(auth, user => {
+  if (user) {
+    console.log('user logged in: ', user);
+    authSignOut.parentElement.classList.remove('visually-hidden');
+    authFormOpen.parentElement.classList.add('visually-hidden');
+    onWatched();
+  } else {
+    console.log('user logged out');
+    authSignOut.parentElement.classList.add('visually-hidden');
+    authFormOpen.parentElement.classList.remove('visually-hidden');
+  }
+  refs.siteNav.classList.remove('visually-hidden');
+});

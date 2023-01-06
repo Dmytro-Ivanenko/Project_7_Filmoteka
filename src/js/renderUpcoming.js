@@ -13,11 +13,13 @@
    );
    refs.upcomingList.innerHTML = upcomingElements.join('');
 
-   var glide = new Glide('.glide', {
-     type: 'carousel',
-     startAt: 0,
-     perView: 7,
-     autoplay: 2500,
-   });
-   glide.mount();
- }
+
+  var glide = new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 8,
+    autoplay: 1500,
+  });
+  glide.mount();
+}
+
