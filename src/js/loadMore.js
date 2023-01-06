@@ -47,6 +47,7 @@ export async function onLoadMoreSearch() {
   fetchApi.numberOfPage();
   const pages = fetchApi.curPage();
   const { data } = await fetchApi.fetchSearchFilms(searchValue.trim(), pages);
+  await fetchApi.fillGenreList();
   renderGalleryMore(data.results);
 
   searchPagination = addPagination(data, pages);

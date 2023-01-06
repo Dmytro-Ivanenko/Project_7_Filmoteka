@@ -1,9 +1,9 @@
-
 import { refs } from './refs';
 
 import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
 import { addPagination } from './pagination';
+import { loadMoreTrend, loadMoreSearchBtn } from '../index';
 
 export let searchValue = '';
 let searchPagination = null;
@@ -33,7 +33,8 @@ export async function searchFilms(e) {
       refs.searchResult.innerHTML =
         'Search result not successful. Enter the correct movie name and!';
       if (window.location.hash === '#ua') {
-        refs.searchResult.innerHTML = 'Результат пошуку невдалий. Введіть правильну назву фільму!';
+        refs.searchResult.innerHTML =
+          'Результат пошуку невдалий. Введіть правильну назву фільму!';
         renderTrendingFilms();
         return;
       }

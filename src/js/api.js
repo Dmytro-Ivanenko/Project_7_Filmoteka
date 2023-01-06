@@ -15,7 +15,11 @@ const GANRE_LIST_URL = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
 export class FetchAPI {
   // trends
 
-  async fetchTrendingFilms(page = 1) {
+  constructor() {
+    this.page = 1;
+  }
+
+  async fetchTrendingFilms(page = this.page) {
     if (window.location.hash === '#ua') {
       return await axios.get(
         `${TREND_URL}?api_key=${API_KEY}&page=${page}&language=uk-UA`
@@ -27,7 +31,7 @@ export class FetchAPI {
     }
   }
 
-  async fetchSearchFilms(searchQuery, page = 1) {
+  async fetchSearchFilms(searchQuery, page = this.page) {
     if (window.location.hash === '#ua') {
       return await axios.get(
         `${SEARCH_URL}?api_key=${API_KEY}&query=${searchQuery}&page=${page}&language=uk-UA`
@@ -49,7 +53,6 @@ export class FetchAPI {
         `${DISCOVER_URL}&with_genres=${genres}&page=${page}&language=en-US`
       );
     }
-
   }
 
   async getFilmToId(id) {
@@ -57,7 +60,6 @@ export class FetchAPI {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
       );
-
     } else {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=en-US`
@@ -73,7 +75,6 @@ export class FetchAPI {
     } else {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
-
       );
     }
   }
@@ -89,7 +90,6 @@ export class FetchAPI {
       );
     }
   }
-
 
   async fetchUpcoming() {
     return await axios.get(`${ID_URL}upcoming?api_key=${API_KEY}`);
