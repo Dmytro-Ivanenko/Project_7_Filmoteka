@@ -1,17 +1,18 @@
-import { createElementsUpcoming } from './createElementsUpcoming';
-import { refs } from './refs';
-import Glide from '@glidejs/glide';
+ import { createElementsUpcoming } from './createElementsUpcoming';
+ import { refs } from './refs';
+ import Glide from '@glidejs/glide';
 
-export async function renderUpcoming() {
-  refs.upcomingList.innerHTML = '';
-  const { data } = await refs.fetchApi.fetchUpcoming();
+ export async function renderUpcoming() {
+   refs.upcomingList.innerHTML = '';
+   const { data } = await refs.fetchApi.fetchUpcoming();
 
-  const upcomingEl = data.results;
+   const upcomingEl = data.results;
 
-  const upcomingElements = upcomingEl.map(elem =>
-    createElementsUpcoming(elem, refs.fetchApi)
-  );
-  refs.upcomingList.innerHTML = upcomingElements.join('');
+   const upcomingElements = upcomingEl.map(elem =>
+     createElementsUpcoming(elem, refs.fetchApi)
+   );
+   refs.upcomingList.innerHTML = upcomingElements.join('');
+
 
   var glide = new Glide('.glide', {
     type: 'carousel',
@@ -21,3 +22,4 @@ export async function renderUpcoming() {
   });
   glide.mount();
 }
+
