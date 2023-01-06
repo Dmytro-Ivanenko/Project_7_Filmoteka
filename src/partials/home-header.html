@@ -3,7 +3,7 @@
     <div class="header">
       <nav class="main-nav">
         <a
-          class="logo link animate__animated animate__bounceInDown "
+          class="logo animate__animated animate__bounceInDown"
           href="./index.html"
         >
           <svg
@@ -13,27 +13,26 @@
           >
             <use href="./images/icon/sprite.svg#icon-logo"></use>
           </svg>
-
           <span class="cssanimation lePushReleaseFrom sequence"
             >Filmoteka</span
           ></a
         >
-        <div>
 
         <div class="nav-list">
-
-          <ul class="site-nav">
+          <ul class="site-nav visually-hidden">
             <li class="site-nav__item">
               <a class="site-nav__link lng-home" href="./index.html">home</a>
             </li>
             <li class="site-nav__item">
-              <a class="site-nav__link lng-library" href="./library.html">my library</a>
+              <a class="site-nav__link lng-library" href="./library.html"
+                >my library</a
+              >
             </li>
 
             <li class="site-nav__item">
-
-              <a class="site-nav__link lng-login" href="#" data-auth-open>Login</a>
-
+              <a class="site-nav__link lng-login" href="#" data-auth-open
+                >Login</a
+              >
             </li>
             <li class="site-nav__item visually-hidden">
               <a class="site-nav__link lng-sing" href="#" data-auth-sign-out
@@ -43,12 +42,22 @@
           </ul>
         </div>
       </nav>
+
       <div class="container-select">
         <select class="change-lang">
           <option value="ua">UA</option>
           <option value="en">EN</option>
         </select>
+
+        <!-- Mode -->
+        <label class="mode-label">
+          <input type="checkbox" class="mode-checkbox" />
+          <span class="span-mode span-mode--day">
+        </label>
       </div>
+      <button class="fullscreen-btn">
+        <!-- <svg class="fullscreen-icon"><use href="./images/icon/sprite.svg#icon-fullscreen" icon></use> </svg>  -->
+      </button>
       <form id="search-form" class="search-form">
         <input
           class="search-form-input"
@@ -56,11 +65,16 @@
           name="searchQuery"
           autocomplete="off"
           placeholder="Movie search"
-          style="display:flex"
+          style="display: flex"
         />
       </form>
-       <div class="choose-genre">
-        <button type="menu" class="choose-genre-btn lng-genre">CHOOSE GENRE</button>
+
+
+
+      <div class="choose-genre">
+        <button type="menu" class="choose-genre-btn lng-genre">
+          CHOOSE GENRE
+        </button>
         <div class="choice-form-wrapper visually-hidden">
           <form class="choice-form-wrapper__element"></form>
           <div class="choice-form-wrapper__btn">

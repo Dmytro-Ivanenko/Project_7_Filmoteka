@@ -7,18 +7,24 @@
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 60px 32px;
     gap: 32px;
     padding: 60px 32px;
+    padding: 10px 32px 60px 32px;
   }
 
   @media screen and (min-width: 1280px) {
     column-gap: 16px;
     row-gap: 32px;
-    padding: 60px 32px;
+    padding: 10px 32px 60px 32px;
   }
 }
-
+.gallery-conteiner {
+  padding-top: 10px;
+}
+.main-title {
+  color: var(--main-title-color);
+  margin-left: 32px;
+}
 .photo-card {
   width: 280px;
   border-radius: 5px;
@@ -30,7 +36,7 @@
 
   &:hover,
   &:focus {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   @media screen and (min-width: 768px) {
@@ -93,6 +99,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 6px 2px 2px 2px;
+  border-radius: 0px 0px 5px 5px;
   background-color: var(--primary-background-color);
   @media screen and (min-width: 1280px) {
     row-gap: 4px;

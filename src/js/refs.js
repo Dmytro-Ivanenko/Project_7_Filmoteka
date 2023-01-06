@@ -6,4 +6,7 @@ export const refs = {
   searchResult: document.querySelector('.search-result'),
   fetchApi: new FetchAPI(),
   upcomingList: document.querySelector('.glide__slides'),
+  siteNav: document.querySelector('.site-nav'),
+  loadMoreTrend: document.querySelector('.loadMoreBtn'),
+  loadMoreSearchBtn: document.querySelector('.loadMoreSearchBtn'),
 };

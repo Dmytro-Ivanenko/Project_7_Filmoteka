@@ -127,7 +127,7 @@ export function createLibraryWatchedCardMarkup(data) {
                   <p class="modal-card__about lng-about">About</p>
                   <p class="modal-card__about-description">${overview}</p>
                   <div class="modal-card__btn">
-                    <button class="modal-card__btn-watched lng-watched modal-card__btn-watched_active" data-watched-remove>remove from watched</button>
+                    <button class="modal-card__btn-watched lng-removewatched modal-card__btn-watched_active" data-watched-remove>remove from watched</button>
                 </div>
               </div>
           </div>
@@ -266,7 +266,7 @@ export function createLibraryQueueCardMarkup(data) {
                   <p class="modal-card__about lng-about">About</p>
                   <p class="modal-card__about-description">${overview}</p>
                   <div class="modal-card__btn">
-                    <button class="modal-card__btn-queue lng-queue modal-card__btn-queue_active" data-queue-remove>remove from queue</button>
+                    <button class="modal-card__btn-queue lng-removequeued modal-card__btn-queue_active" data-queue-remove>remove from queue</button>
                 </div>
               </div>
           </div>

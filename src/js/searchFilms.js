@@ -3,7 +3,7 @@ import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
 import { addPagination } from './pagination';
 
-let searchValue = '';
+export let searchValue = '';
 let searchPagination = null;
 
 const debounce = require('lodash.debounce');
@@ -31,7 +31,8 @@ export async function searchFilms(e) {
       refs.searchResult.innerHTML =
         'Search result not successful. Enter the correct movie name and!';
       if (window.location.hash === '#ua') {
-        refs.searchResult.innerHTML = 'Результат пошуку невдалий. Введіть правильну назву фільму!';
+        refs.searchResult.innerHTML =
+          'Результат пошуку невдалий. Введіть правильну назву фільму!';
         renderTrendingFilms();
         return;
       }
@@ -40,8 +41,9 @@ export async function searchFilms(e) {
     if (data.total_results > 0) {
       refs.searchResult.innerHTML = '';
       renderGallery(data.results);
-
-      searchPagination = addPagination(data);
+      refs.loadMoreSearchBtn.classList.remove('visually-hidden');
+      refs.loadMoreTrend.classList.add('visually-hidden');
+      searchPagination = addPagination(data, 1);
       searchPagination.on('beforeMove', loadMoreSearch);
     }
   } catch (error) {
@@ -51,6 +53,7 @@ export async function searchFilms(e) {
 
 async function loadMoreSearch(e) {
   const currentPage = e.page;
+
   const { data } = await refs.fetchApi.fetchSearchFilms(
     searchValue.trim(),
     currentPage

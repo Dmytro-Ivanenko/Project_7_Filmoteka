@@ -11,11 +11,11 @@
     display: block;
     top: 50%;
     z-index: 2;
-    color: white;
+    color: var(--accent-font-color);
     text-transform: uppercase;
-    padding: 9px 12px;
+    padding: 88px 9px;
     background-color: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--accent-font-color);
     border-radius: 4px;
     box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
     text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
@@ -24,16 +24,22 @@
     transition: opacity 150ms ease, border 300ms ease-in-out;
     transform: translateY(-50%);
     line-height: 1;
+    font-weight: 700;
+
+  @media screen and (min-width: 768px)  and (max-width: 1200px) {
+padding: 40px 9px;
+  }
 
     &:focus { outline: none; }
-    &:hover { border-color: white; }
+    &:hover { color: white; border-color: white;}
+
 
     &#{$sm}left {
-      left: 2em;
+      left: 1.6em;
     }
 
     &#{$sm}right {
-      right: 2em;
+      right: 1.6em;
     }
 
     &#{$sm}disabled {

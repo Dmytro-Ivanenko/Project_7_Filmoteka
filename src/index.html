@@ -28,19 +28,11 @@
 
   <!-- Style basicLightbox -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/basicLightbox/5.0.4/basicLightbox.min.css" />
-  
+
   <link rel="stylesheet" href="./sass/main.scss" />
-  
 
   <!-- Boxicons CSS -->
-  <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- подключаем CSS-селекта -->
-    
- 
-    
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -48,24 +40,26 @@
   <!-- Header -->
   <include src="./partials/home-header.html"></include>
 
-   <!-- Login -->
+  <!-- Login -->
   <include src="./partials/signup-modal.html"></include>
 
   <!-- Main -->
   <main class="main">
     <div class="container">
-      <!-- Mode -->
-      <label class="mode-label">
-        <input type="checkbox" class="mode-checkbox" />
-        <span class="span-mode span-mode--day">
-      </label>
-
       <!-- Slider upcoming -->
-  <include src="./partials/slider-upcoming.html"></include>
+      <include src="./partials/slider-upcoming.html"></include>
 
       <!-- Gallery -->
-      <div class="gallery"></div>
+      <div class="gallery-conteiner">
+        <h2 class="main-title">Популярні:</h2>
+        <div class="gallery"></div>
+      </div>
     </div>
+
+    <button class="loadMoreBtn" type="button">Load more</button>
+    <button class="loadMoreSearchBtn visually-hidden" type="button">
+      Load more
+    </button>
 
     <!-- Pagination -->
     <div id="pagination" class="tui-pagination"></div>
@@ -88,8 +82,6 @@
   <!-- jQuery library for "Back to top" button -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="index.js" type="module"></script>
-  
-  
 </body>
 
 </html>

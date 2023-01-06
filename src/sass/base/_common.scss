@@ -1,5 +1,5 @@
 body {
-  background-image: url('../images/background/holiday-christmas-bg.png');
+  background-image: var(--background-image);
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: center;
