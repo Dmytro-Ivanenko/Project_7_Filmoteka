@@ -11,6 +11,7 @@ import './js/auth';
 import './js/home';
 import './js/addToLibrary';
 import './js/signupModal';
+import './js/getTrailerFilm';
 
 import { FetchAPI } from './js/api';
 
