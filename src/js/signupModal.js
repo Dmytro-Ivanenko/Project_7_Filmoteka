@@ -46,6 +46,6 @@ function openLoginModal() {
 function closeModal(e) {
   if (e.key === 'Escape') {
     loginContainer.classList.add('visually-hidden');
-    document.removeEventListener('keydown', closeModal);
+    // document.removeEventListener('keydown', closeModal);
   }
 }
