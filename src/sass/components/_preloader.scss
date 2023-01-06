@@ -1,0 +1,24 @@
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: #ffffff
+    url('https://powping.com/file/9c3a26bb37764d887fcef6646e4f237aa7995a2a21abdfb6e0591d87d063bc65')
+    no-repeat center center;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}

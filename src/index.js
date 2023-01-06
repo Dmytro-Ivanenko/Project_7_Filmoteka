@@ -2,7 +2,7 @@ import { entryField } from './js/searchFilms';
 import { onCardClick, onUpcomingClick } from './js/onCardClick';
 import { backToTop } from './js/backToTop';
 import { renderUpcoming } from './js/renderUpcoming';
-
+import { loadData } from './js/preloader';
 import { onUpcomingClick } from './js/onUpcomingClick';
 import { fullscreenToggle } from './js/fullscreen';
 
