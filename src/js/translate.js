@@ -51,7 +51,7 @@ const langArr = {
     ua: 'додати в Переглянуті',
     en: 'add to Watched',
   },
-  queue: {
+  queued: {
     ua: 'додати в чергу',
     en: 'add to queue',
   },
@@ -68,6 +68,16 @@ const langArr = {
     ua: 'в черзі',
     en: 'QUEUE',
   },
+
+  removequeued: {
+    ua: 'прибрати з черги',
+    en: 'remove from queue',
+  },
+
+  removewatched: {
+    ua: 'прибрати з Переглянутих',
+    en: 'remove from Watched',
+  },
 };
 
 const select = document.querySelector('select');
@@ -81,7 +91,7 @@ function changeURLLanguage() {
   location.reload();
 }
 
-function changeLanguage() {
+export function changeLanguage() {
   let hash = window.location.hash;
   hash = hash.substr(1);
   console.log(hash);
