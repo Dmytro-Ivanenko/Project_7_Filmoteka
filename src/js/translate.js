@@ -117,10 +117,9 @@ export function changeLanguage() {
     }
   }
 }
-changeLanguage();
+// changeLanguage();
 function changeLang() {
   const input = document.querySelector('.search-form-input');
-  
 
   if (!input) {
     return;
@@ -131,4 +130,4 @@ function changeLang() {
     input.placeholder = 'Movie search';
   }
 }
-changeLang();
+// changeLang();
