@@ -24,19 +24,12 @@ export async function createGenresFilter() {
 
     choiceBtn.removeEventListener('click', openChoiceForm);
     choiceBtn.addEventListener('click', closeChoiceForm);
-
     chooseBtn.addEventListener('click', searchFilmsToGenres);
-
+    document.addEventListener('click', closeChoiceForm);
     createFormMarkup();
   }
 
   function closeChoiceForm() {
-    choiseFormWrapper.classList.add('visually-hidden');
-    choiceBtn.removeEventListener('click', closeChoiceForm);
-    choiceBtn.addEventListener('click', openChoiceForm);
-  }
-
-  window.onclick = function (event) {
     if (
       event.target !== choiseFormWrapper &&
       event.target !== choiceBtn &&
@@ -44,9 +37,12 @@ export async function createGenresFilter() {
       event.target.parentElement.parentElement.parentElement !==
         choiseFormWrapper
     ) {
-      closeChoiceForm();
+      choiseFormWrapper.classList.add('visually-hidden');
+      choiceBtn.removeEventListener('click', closeChoiceForm);
+      document.removeEventListener('click', closeChoiceForm);
+      choiceBtn.addEventListener('click', openChoiceForm);
     }
-  };
+  }
 
   const searchFilmsToGenres = async () => {
     checkedGenreNames = findCheckedGenres();
