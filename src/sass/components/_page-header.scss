@@ -1,11 +1,11 @@
 header {
   background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 60px;
 
   // mobile img
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     background-image: url(../images/header/background-header-mobile.jpg);
+    margin-bottom: 20px;
   }
   @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
     screen and (min-resolution: 192dpi) and (max-width: 767px),
@@ -16,6 +16,7 @@ header {
   // tablet img
   @media screen and (min-width: 768px) {
     background-image: url(../images/header/background-header-tablet.jpg);
+    margin-bottom: 60px;
   }
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
     screen and (min-resolution: 192dpi) and (min-width: 768px),
@@ -64,11 +65,6 @@ header {
   line-height: 1.166;
   color: var(--primary-background-color);
   transition: color var(--transition-duration);
-
-  &:hover,
-  &:focus {
-    color: var(--accent-font-color);
-  }
 }
 
 .logo__icon {

@@ -1,9 +1,11 @@
-
-@import "./glidevar";
+@import './glidevar';
 .glide {
   padding-left: 72px;
   padding-right: 72px;
-  
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 }
 .upcoming__image {
   border-radius: 4px;
@@ -80,5 +82,5 @@
 }
 
 .upcoming__image {
-  height: 250px;
+  height: 200px;
 }

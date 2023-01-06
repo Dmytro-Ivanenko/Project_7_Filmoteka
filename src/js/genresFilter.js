@@ -1,7 +1,7 @@
-import { galleryList, fetchApi } from '../index.js';
+import { refs } from './refs';
 import { renderGallery } from './renderGallery.js';
 import { addPagination } from './pagination.js';
-import {renderTrendingFilms} from './renderTrendingFilms';
+import { renderTrendingFilms } from './renderTrendingFilms';
 import Notiflix from 'notiflix';
 
 let filteredFilmsPagination;
@@ -24,19 +24,12 @@ export async function createGenresFilter() {
 
     choiceBtn.removeEventListener('click', openChoiceForm);
     choiceBtn.addEventListener('click', closeChoiceForm);
-
     chooseBtn.addEventListener('click', searchFilmsToGenres);
-
+    document.addEventListener('click', closeChoiceForm);
     createFormMarkup();
   }
 
   function closeChoiceForm() {
-    choiseFormWrapper.classList.add('visually-hidden');
-    choiceBtn.removeEventListener('click', closeChoiceForm);
-    choiceBtn.addEventListener('click', openChoiceForm);
-  }
-
-  window.onclick = function (event) {
     if (
       event.target !== choiseFormWrapper &&
       event.target !== choiceBtn &&
@@ -44,9 +37,12 @@ export async function createGenresFilter() {
       event.target.parentElement.parentElement.parentElement !==
         choiseFormWrapper
     ) {
-      closeChoiceForm();
+      choiseFormWrapper.classList.add('visually-hidden');
+      choiceBtn.removeEventListener('click', closeChoiceForm);
+      document.removeEventListener('click', closeChoiceForm);
+      choiceBtn.addEventListener('click', openChoiceForm);
     }
-  };
+  }
 
   const searchFilmsToGenres = async () => {
     checkedGenreNames = findCheckedGenres();
@@ -55,11 +51,11 @@ export async function createGenresFilter() {
       renderTrendingFilms();
       closeChoiceForm();
     } else {
-      const { data } = await fetchApi.fetchFilmsWithGenres(
+      const { data } = await refs.fetchApi.fetchFilmsWithGenres(
         checkedGenreNames.join(',')
       );
-      galleryList.innerHTML = '';
-      fetchApi.page = 1;
+      refs.galleryList.innerHTML = '';
+      refs.fetchApi.page = 1;
       renderGallery(data.results);
 
       filteredFilmsPagination = addPagination(data);
@@ -70,7 +66,7 @@ export async function createGenresFilter() {
   };
 
   const getGenreName = async () => {
-    const genreNames = await fetchApi.fillGenreList();
+    const genreNames = await refs.fetchApi.fillGenreList();
     return genreNames;
   };
 
@@ -112,7 +108,7 @@ export async function createGenresFilter() {
 
   async function loadMoreFilms(e) {
     const currentPage = e.page;
-    const { data } = await fetchApi.fetchFilmsWithGenres(
+    const { data } = await refs.fetchApi.fetchFilmsWithGenres(
       checkedGenreNames.join(','),
       currentPage
     );
