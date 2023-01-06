@@ -24,7 +24,6 @@ gallery.addEventListener('click', onCardClick);
 export let currentMovie;
 // =======================================================================
 
-document.addEventListener('click', getTrailerFilm);
 gallery.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());
 
