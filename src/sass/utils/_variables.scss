@@ -14,6 +14,14 @@ body {
   //Header
   --primary-background-color: #ffffff;
   --search-result-color: #ff001b;
+  --nav-menu-color: #ffffff;
+
+  //Main
+  --main-title-color: #000000;
+
+  //Footer
+  --footer-background-color: #ffffff;
+  --footer-nav-color: grey;
 
   // Modal-card
   --modal-card-font-color: #8c8c8c;
@@ -21,6 +29,9 @@ body {
   // Back to top
   --to-top-bcg-color: rgba(0, 150, 136, 0.8);
   --to-top-after-color: #ffffff;
+
+  // background-image
+  --background-image: url('https://hdrezka.ag/templates/hdrezka/images/holidays/holiday-christmas-bg.png');
 }
 
 .night {
@@ -37,6 +48,14 @@ body {
   //Header
   --primary-background-color: #000;
   --search-result-color: #ff001b;
+  --nav-menu-color: #ff6b08;
+
+  //Main
+  --main-title-color: #ff6b08;
+
+  //Footer
+  --footer-background-color: #160c0c;
+  --footer-nav-color: #ff6b08;
 
   // Modal-card
   --modal-card-font-color: #8c8c8c;
@@ -44,4 +63,7 @@ body {
   // Back to top
   --to-top-bcg-color: rgba(0, 150, 136, 0.8);
   --to-top-after-color: #000;
+
+  // background-image
+  --background-image: url('https://hdrezka.ag/templates/hdrezka/images/holidays/holiday-christmas-bg-night.png');
 }
