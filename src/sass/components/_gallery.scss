@@ -7,19 +7,24 @@
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
-    // justify-content: space-between;
-    padding: 60px 32px;
     gap: 32px;
     padding: 60px 32px;
+    padding: 10px 32px 60px 32px;
   }
 
   @media screen and (min-width: 1280px) {
     column-gap: 16px;
     row-gap: 32px;
-    padding: 60px 32px;
+    padding: 10px 32px 60px 32px;
   }
 }
-
+.gallery-conteiner {
+  padding-top: 10px;
+}
+.main-title {
+  color: var(--main-title-color);
+  margin-left: 32px;
+}
 .photo-card {
   width: 280px;
   border-radius: 5px;
@@ -31,7 +36,7 @@
 
   &:hover,
   &:focus {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   @media screen and (min-width: 768px) {
@@ -59,13 +64,34 @@
 
 .gallery-item-trailer {
   position: absolute;
+  height: 42px;
   top: 15px;
-  left: 15px;
-  width: 160px;
-  color: var(--primary-background-color);
+
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 0px 5px 5px 0px;
   font-size: 15px;
-  background-color: var(--accent-font-color);
+
   cursor: pointer;
+  padding: 5px;
+
+  &:hover::after {
+    content: 'Дивитись трейлер';
+    font-family: var(--primary-font);
+    color: white;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+  }
+}
+
+.gallery-item-trailer-icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  fill: var(--accent-font-color);
 }
 
 .info {
@@ -73,6 +99,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 6px 2px 2px 2px;
+  border-radius: 0px 0px 5px 5px;
   background-color: var(--primary-background-color);
   @media screen and (min-width: 1280px) {
     row-gap: 4px;
@@ -121,4 +148,13 @@
     font-size: 20px;
     line-height: 1.09;
   }
+}
+
+.info-vote-average {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  background-color: var(--accent-font-color);
+  border-radius: 5px;
+  padding: 3px;
 }
