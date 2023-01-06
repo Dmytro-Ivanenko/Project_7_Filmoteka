@@ -64,11 +64,6 @@ header {
   line-height: 1.166;
   color: var(--primary-background-color);
   transition: color var(--transition-duration);
-
-  &:hover,
-  &:focus {
-    color: var(--accent-font-color);
-  }
 }
 
 .logo__icon {
