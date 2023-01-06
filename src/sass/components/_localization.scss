@@ -1,12 +1,11 @@
-.container-select{
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    border-radius: 5px;
+.container-select {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px;
 }
-.change-lang{
-    border: none;
-    background-color:transparent;
-    color: aliceblue;
-   
+.change-lang {
+  border: none;
+  background-color: transparent;
+  color: var(--nav-menu-color);
 }

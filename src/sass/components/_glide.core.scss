@@ -1,9 +1,13 @@
 @import './glidevar';
 .glide {
-  padding-left: 72px;
-  padding-right: 72px;
+  padding: 10px 72px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1280px) {
+    display: none;
+  }
+}
+.slider-title {
+  @media screen and (max-width: 1280px) {
     display: none;
   }
 }
@@ -42,7 +46,6 @@
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
-    // will-change: transform;
 
     &#{$glide-modifier-separator}dragging {
       user-select: none;
