@@ -7,10 +7,9 @@ import { renderUpcoming } from './js/renderUpcoming';
 import { onUpcomingClick } from './js/onUpcomingClick';
 import { fullscreenToggle } from './js/fullscreen';
 
-
 //Imports
-import './js/auth';
 import './js/home';
+import './js/auth';
 import './js/addToLibrary';
 import './js/signupModal';
 
