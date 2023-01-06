@@ -4,11 +4,34 @@ import 'swiper/swiper-bundle.min.css';
 const backdrop = document.querySelector('.students-backdrop');
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination],
-  speed: 1000,
-  spaceBetween: 100,
-  slidesPerView: 3,
-  spaceBetween: 2,
 
+ 
+  speed: 1000,
+  spaceBetween: 1,
+  
+  slidesPerView: 1,
+
+  
+
+  // slidesPerView: 1,
+  // spaceBetween: 100,
+  breakpoints: {
+   // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 2
+    },
+   // when window width is >= 768px
+   768: {
+      slidesPerView: 2,
+      spaceBetween: 3
+    },
+     // when window width is >= 1280px
+    1280: {
+      slidesPerView: 3,
+      spaceBetween: 4
+    }
+  },
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
