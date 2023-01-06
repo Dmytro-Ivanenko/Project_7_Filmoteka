@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db, authFormOpen, authSignOut } from './auth';
 import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
+import { refs } from './refs';
 
 const watchedBtn = document.querySelector('.watched-btn');
 const queueBtn = document.querySelector('.queue-btn');
@@ -85,4 +86,5 @@ onAuthStateChanged(auth, user => {
     authSignOut.parentElement.classList.add('visually-hidden');
     authFormOpen.parentElement.classList.remove('visually-hidden');
   }
+  refs.siteNav.classList.remove('visually-hidden');
 });
