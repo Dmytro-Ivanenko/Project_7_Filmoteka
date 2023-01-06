@@ -120,7 +120,7 @@ export function changeLanguage() {
 changeLanguage();
 function changeLang() {
   const input = document.querySelector('.search-form-input');
-  const input = document.querySelector('.search-form-input');
+  
 
   if (!input) {
     return;
