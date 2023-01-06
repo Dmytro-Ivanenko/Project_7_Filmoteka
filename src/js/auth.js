@@ -68,8 +68,7 @@ async function loginEmailPassword(e) {
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then(
       () => {
-        authBackdrop.classList.add('visually-hidden');
-        loginForm.reset();
+        location.reload();
       }
     );
   } catch (error) {
@@ -121,8 +120,7 @@ async function createAccount(e) {
             ua: [],
           },
         });
-        authBackdrop.classList.add('visually-hidden');
-        signUpForm.reset();
+        location.reload();
       }
     );
   } catch (error) {
