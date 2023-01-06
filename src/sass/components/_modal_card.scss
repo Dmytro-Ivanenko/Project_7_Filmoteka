@@ -258,3 +258,55 @@
     fill: var(--accent-font-color);
   }
 }
+
+// Trailer Modal
+.lightbox__button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+  outline: none;
+  background-image: url('https://free-png.ru/wp-content/uploads/2021/06/free-png.ru-38-340x340.png');
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  //   transition: all 300ms ease-in;
+}
+
+.lightbox__button:hover,
+.lightbox__button:focus {
+  background-color: #ff6b08;
+}
+
+// @media screen and (min-width: 300px) and (max-width: 692px) {
+//   .lightbox__button {
+//     top: 90px;
+//     right: calc(((100vw - 324px) / 2));
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+//   .lightbox__button {
+//     top: 100px;
+//     right: calc(((100vw - 668px) / 2));
+//   }
+// }
+
+// @media screen and (min-width: 1024px) {
+//   .lightbox__button {
+//     top: 100px;
+//     right: calc(((100vw - 824px) / 2));
+//   }
+// }
