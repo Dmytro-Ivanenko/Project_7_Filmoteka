@@ -70,15 +70,15 @@ function loadModalBtns() {
 export function toggleWatched() {
   if (window.location.hash === '#ua') {
     if (addToWatchedBtn.textContent === 'додати в Переглянуті') {
-      addToWatchedBtn.textContent = 'прибрати з Переглянутих';
+      addToWatchedBtn.textContent = 'видалити з перегляду';
       addToWatchedBtn.removeEventListener('click', addToWatched);
       addToWatchedBtn.addEventListener('click', removeFromWatched);
-      addToWatchedBtn.classList.add('modal-card__btn-queue_active');
+      addToWatchedBtn.classList.add('modal-card__btn-watched_active');
     } else {
       addToWatchedBtn.textContent = 'додати в Переглянуті';
-      addToWatchedBtn.removeEventListener('click', removeFromWatched);
       addToWatchedBtn.addEventListener('click', addToWatched);
-      addToWatchedBtn.classList.remove('modal-card__btn-queue_active');
+      addToWatchedBtn.removeEventListener('click', removeFromWatched);
+      addToWatchedBtn.classList.remove('modal-card__btn-watched_active');
     }
   } else {
     if (addToWatchedBtn.textContent === 'add to Watched') {
@@ -88,8 +88,8 @@ export function toggleWatched() {
       addToWatchedBtn.classList.add('modal-card__btn-watched_active');
     } else {
       addToWatchedBtn.textContent = 'add to Watched';
-      addToWatchedBtn.removeEventListener('click', removeFromWatched);
       addToWatchedBtn.addEventListener('click', addToWatched);
+      addToWatchedBtn.removeEventListener('click', removeFromWatched);
       addToWatchedBtn.classList.remove('modal-card__btn-watched_active');
     }
   }
@@ -98,14 +98,14 @@ export function toggleWatched() {
 export function toggleQueue() {
   if (window.location.hash === '#ua') {
     if (addToQueueBtn.textContent === 'додати в чергу') {
-      addToQueueBtn.textContent = 'прибрати з черги';
+      addToQueueBtn.textContent = 'видалити з черги';
       addToQueueBtn.removeEventListener('click', addToQueue);
       addToQueueBtn.addEventListener('click', removeFromQueue);
       addToQueueBtn.classList.add('modal-card__btn-queue_active');
     } else {
       addToQueueBtn.textContent = 'додати в чергу';
-      addToQueueBtn.removeEventListener('click', removeFromQueue);
       addToQueueBtn.addEventListener('click', addToQueue);
+      addToQueueBtn.removeEventListener('click', removeFromQueue);
       addToQueueBtn.classList.remove('modal-card__btn-queue_active');
     }
   } else {
@@ -116,8 +116,8 @@ export function toggleQueue() {
       addToQueueBtn.classList.add('modal-card__btn-queue_active');
     } else {
       addToQueueBtn.textContent = 'add to queue';
-      addToQueueBtn.removeEventListener('click', removeFromQueue);
       addToQueueBtn.addEventListener('click', addToQueue);
+      addToQueueBtn.removeEventListener('click', removeFromQueue);
       addToQueueBtn.classList.remove('modal-card__btn-queue_active');
     }
   }
