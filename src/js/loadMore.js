@@ -1,52 +1,60 @@
 import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
-import { galleryList, fetchApi } from '../index.js';
+import { refs } from './refs';
 import { addPagination } from './pagination';
 import { renderGallery } from './renderGallery';
 import { searchFilms, searchValue } from './searchFilms';
-import { async } from '@firebase/util';
+// import { async } from '@firebase/util';
+
+refs.loadMoreTrend.addEventListener('click', onLoadMore);
+refs.loadMoreSearchBtn.addEventListener('click', onLoadMoreSearch);
 
 function renderGalleryMore(galleryEl) {
   const galleryElements = galleryEl
-    .map(elem => createMarkupElemetsGallery(elem, fetchApi))
+    .map(elem => createMarkupElemetsGallery(elem, refs.fetchApi))
     .join('');
-  galleryList.insertAdjacentHTML('beforeend', galleryElements);
+  refs.galleryList.insertAdjacentHTML('beforeend', galleryElements);
 }
 
 async function renderTrendingFilms() {
-  fetchApi.numberOfPage();
-  await fetchApi.fillGenreList();
-  const { data } = await fetchApi.fetchTrendingFilms();
+  const page = refs.fetchApi.numberOfPage();
+  const { data } = await refs.fetchApi.fetchTrendingFilms(page);
   renderGalleryMore(data.results);
 }
 
 export async function onLoadMore() {
   renderTrendingFilms();
-  const { data } = await fetchApi.fetchTrendingFilms();
-  const pages = fetchApi.curPage();
+  const { data } = await refs.fetchApi.fetchTrendingFilms();
+  const pages = refs.fetchApi.curPage();
   trendPagination = addPagination(data, pages);
   trendPagination.on('beforeMove', loadMoreTrending);
 }
 
 async function loadMoreTrending(e) {
   const currentPage = e.page;
-  fetchApi.updateCurPage(currentPage);
-  const pages = fetchApi.curPage();
-  const { data } = await fetchApi.fetchTrendingFilms(pages);
+  refs.fetchApi.updateCurPage(currentPage);
+  const pages = refs.fetchApi.curPage();
+  const { data } = await refs.fetchApi.fetchTrendingFilms(pages);
   renderGallery(data.results);
 }
 
 // Search
 async function loadMoreSearch(e) {
   const currentPage = e.page;
-  fetchApi.updateCurPage(currentPage);
-  const pages = fetchApi.curPage();
-  const { data } = await fetchApi.fetchSearchFilms(searchValue.trim(), pages);
+  refs.fetchApi.updateCurPage(currentPage);
+  const pages = refs.fetchApi.curPage();
+  const { data } = await refs.fetchApi.fetchSearchFilms(
+    searchValue.trim(),
+    pages
+  );
   renderGallery(data.results);
 }
 export async function onLoadMoreSearch() {
-  fetchApi.numberOfPage();
-  const pages = fetchApi.curPage();
-  const { data } = await fetchApi.fetchSearchFilms(searchValue.trim(), pages);
+  refs.fetchApi.numberOfPage();
+  const pages = refs.fetchApi.curPage();
+  const { data } = await refs.fetchApi.fetchSearchFilms(
+    searchValue.trim(),
+    pages
+  );
   renderGalleryMore(data.results);
 
   searchPagination = addPagination(data, pages);

@@ -7,4 +7,6 @@ export const refs = {
   fetchApi: new FetchAPI(),
   upcomingList: document.querySelector('.glide__slides'),
   siteNav: document.querySelector('.site-nav'),
+  loadMoreTrend: document.querySelector('.loadMoreBtn'),
+  loadMoreSearchBtn: document.querySelector('.loadMoreSearchBtn'),
 };

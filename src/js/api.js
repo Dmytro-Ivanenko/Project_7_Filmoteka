@@ -49,7 +49,6 @@ export class FetchAPI {
         `${DISCOVER_URL}&with_genres=${genres}&page=${page}&language=en-US`
       );
     }
-
   }
 
   async getFilmToId(id) {
@@ -57,7 +56,6 @@ export class FetchAPI {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
       );
-
     } else {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=en-US`
@@ -73,7 +71,6 @@ export class FetchAPI {
     } else {
       return await axios.get(
         `${ID_URL}${id}?api_key=${API_KEY}&language=uk-UA`
-
       );
     }
   }
@@ -89,7 +86,6 @@ export class FetchAPI {
       );
     }
   }
-
 
   async fetchUpcoming() {
     return await axios.get(`${ID_URL}upcoming?api_key=${API_KEY}`);
@@ -121,6 +117,7 @@ export class FetchAPI {
     return genre[0].name;
   }
 
+  // for load more
   numberOfPage() {
     return (this.page += 1);
   }
@@ -134,6 +131,7 @@ export class FetchAPI {
   }
 }
 
+// for trailers
 const YOUTUBE_URl_BY_ID =
   'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=';
 
