@@ -31,7 +31,7 @@ padding: 40px 9px;
   }
 
     &:focus { outline: none; }
-    &:hover { color: white; border-color: white;}
+    &:hover { color: rgb(255, 255, 255); border-color: white;}
 
 
     &#{$sm}left {
@@ -47,6 +47,9 @@ padding: 40px 9px;
     }
   }
 
+  .glide__arrow {
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
   &#{$se}bullets {
     position: absolute;
     z-index: 2;
