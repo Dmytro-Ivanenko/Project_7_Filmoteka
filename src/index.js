@@ -1,12 +1,10 @@
 import { entryField } from './js/searchFilms';
 import { onCardClick, onUpcomingClick } from './js/onCardClick';
-import { getTrailerFilm } from './js/getTrailerFilm';
 import { backToTop } from './js/backToTop';
 import { renderUpcoming } from './js/renderUpcoming';
 
 import { onUpcomingClick } from './js/onUpcomingClick';
 import { fullscreenToggle } from './js/fullscreen';
-
 
 //Imports
 import './js/auth';
