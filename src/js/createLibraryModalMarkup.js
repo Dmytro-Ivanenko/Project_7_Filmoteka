@@ -1,23 +1,23 @@
 export function createLibraryWatchedCardMarkup(data) {
   if (window.location.hash === '#ua') {
     const {
-    title,
-    poster_path,
-    genres,
-    vote_average,
-    vote_count,
-    popularity,
-    original_title,
-    overview,
-  } = data;
+      title,
+      poster_path,
+      genres,
+      vote_average,
+      vote_count,
+      popularity,
+      original_title,
+      overview,
+    } = data;
 
-  const genresName = genres
-    .map(genreId => {
-      return genreId.name;
-    })
-    .join(', ');
+    const genresName = genres
+      .map(genreId => {
+        return genreId.name;
+      })
+      .join(', ');
 
-  return `
+    return `
       <div class="modal">
           <div class="modal-card">
               <button class="modal__btn-close" data-modal-close>
@@ -68,23 +68,23 @@ export function createLibraryWatchedCardMarkup(data) {
   `;
   } else {
     const {
-    title,
-    poster_path,
-    genres,
-    vote_average,
-    vote_count,
-    popularity,
-    original_title,
-    overview,
-  } = data;
+      title,
+      poster_path,
+      genres,
+      vote_average,
+      vote_count,
+      popularity,
+      original_title,
+      overview,
+    } = data;
 
-  const genresName = genres
-    .map(genreId => {
-      return genreId.name;
-    })
-    .join(', ');
+    const genresName = genres
+      .map(genreId => {
+        return genreId.name;
+      })
+      .join(', ');
 
-  return `
+    return `
       <div class="modal">
           <div class="modal-card">
               <button class="modal__btn-close" data-modal-close>
@@ -134,29 +134,28 @@ export function createLibraryWatchedCardMarkup(data) {
       </div>
   `;
   }
-  
 }
 
 export function createLibraryQueueCardMarkup(data) {
   if (window.location.hash === '#ua') {
     const {
-    title,
-    poster_path,
-    genres,
-    vote_average,
-    vote_count,
-    popularity,
-    original_title,
-    overview,
-  } = data;
+      title,
+      poster_path,
+      genres,
+      vote_average,
+      vote_count,
+      popularity,
+      original_title,
+      overview,
+    } = data;
 
-  const genresName = genres
-    .map(genreId => {
-      return genreId.name;
-    })
-    .join(', ');
+    const genresName = genres
+      .map(genreId => {
+        return genreId.name;
+      })
+      .join(', ');
 
-  return `
+    return `
       <div class="modal">
           <div class="modal-card">
               <button class="modal__btn-close" data-modal-close>
@@ -207,23 +206,23 @@ export function createLibraryQueueCardMarkup(data) {
   `;
   } else {
     const {
-    title,
-    poster_path,
-    genres,
-    vote_average,
-    vote_count,
-    popularity,
-    original_title,
-    overview,
-  } = data;
+      title,
+      poster_path,
+      genres,
+      vote_average,
+      vote_count,
+      popularity,
+      original_title,
+      overview,
+    } = data;
 
-  const genresName = genres
-    .map(genreId => {
-      return genreId.name;
-    })
-    .join(', ');
+    const genresName = genres
+      .map(genreId => {
+        return genreId.name;
+      })
+      .join(', ');
 
-  return `
+    return `
       <div class="modal">
           <div class="modal-card">
               <button class="modal__btn-close" data-modal-close>
@@ -273,5 +272,4 @@ export function createLibraryQueueCardMarkup(data) {
       </div>
   `;
   }
-  
 }
