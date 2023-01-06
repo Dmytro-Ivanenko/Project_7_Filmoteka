@@ -25,7 +25,7 @@ export async function onLoadMore() {
   renderTrendingFilms();
   const { data } = await refs.fetchApi.fetchTrendingFilms();
   const pages = refs.fetchApi.curPage();
-  trendPagination = addPagination(data, pages);
+  const trendPagination = addPagination(data, pages);
   trendPagination.on('beforeMove', loadMoreTrending);
 }
 
