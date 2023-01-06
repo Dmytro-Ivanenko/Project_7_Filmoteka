@@ -1,6 +1,5 @@
 import { refs } from './refs';
 import { createModalCardMarkup } from './createModalCardMarkup';
-import { getTrailerFilm } from './getTrailerFilm';
 import { renderTrendingFilms } from './renderTrendingFilms';
 import {
   addToWatched,
