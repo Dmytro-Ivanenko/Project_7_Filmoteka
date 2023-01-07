@@ -37,3 +37,18 @@
   background-color: rgba(255, 106, 0, 0.841);
   color: black;
 }
+
+.loadMoreGenreBtn {
+  background-color: var(--accent-font-color);
+  display: block;
+  margin: 0 auto 25px auto;
+  border-radius: 5px;
+  border: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: var(--primary-font-color);
+  font-size: 20px;
+  font-weight: 500;
+}
