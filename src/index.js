@@ -11,6 +11,7 @@ import {
   closeModalOnBackdropClick,
 } from './js/createModalCardsStudents';
 
+
 //Imports
 import './js/home';
 import './js/auth';
