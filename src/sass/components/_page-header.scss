@@ -1,4 +1,5 @@
 header {
+  height: 216px;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -40,15 +41,14 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  padding: 51px 20px;
+
+  padding: 50px 20px;
 
   @media screen and (min-width: 768px) {
-    padding: 40px 66px;
+    padding: 40px 20px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 40px 66px;
   }
 }
 
@@ -132,9 +132,26 @@ header {
   }
 }
 
+// user settings wrapper
+.header-ui-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+// search form
+.container-select {
+  display: flex;
+  justify-content: center;
+}
+
 .search-form {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 0px 40px;
   padding-bottom: 10px;
 }
 
@@ -212,9 +229,4 @@ header {
   line-height: 1.142;
   color: var(--search-result-color);
   padding-top: 10px;
-  padding-bottom: 60px;
-
-  @media screen and (min-width: 768px) {
-    padding-bottom: 40px;
-  }
 }
