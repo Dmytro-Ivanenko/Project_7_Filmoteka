@@ -3,5 +3,14 @@
   background-color: transparent;
   color: var(--nav-menu-color);
   -webkit-appearance: appearance;
-  appearance:none;
+  appearance: none;
+
+  cursor: pointer;
+  transition: scale var(--transition-duration);
+
+  &:hover,
+  &:focus {
+    scale: 1.2;
+    color: var(--active-settings-btn-color);
+  }
 }
