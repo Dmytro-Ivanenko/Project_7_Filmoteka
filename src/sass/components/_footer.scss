@@ -16,7 +16,7 @@
   font-weight: 400;
 }
 
-.footer-nav__item--line::after {
+.footer-nav__item--line::after{
   content: '';
   display: inline-block;
   height: 14px;
@@ -25,6 +25,10 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+.footer-nav__item{
+  padding-right: 10px;
+}
+
 
 .students-button {
   background-color: transparent;
