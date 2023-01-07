@@ -7,7 +7,6 @@ import {
   createLibraryQueueCardMarkup,
 } from './createLibraryModalMarkup';
 import { gallery } from './libraryGallery';
-import { changeLanguage } from './translate';
 
 let watchedRemove;
 let queueRemove;
@@ -74,7 +73,6 @@ export async function onLibraryClick(e) {
       Notiflix.Notify.failure(error.message);
     }
   }
-  changeLanguage();
   closeBtn = document.querySelector('[data-modal-close]');
   closeBtn.addEventListener('click', toggleLibraryModal);
   backdrop.addEventListener('click', onBackdropClick);

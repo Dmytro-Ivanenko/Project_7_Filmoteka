@@ -10,7 +10,6 @@ import {
   getRedirectResult,
 } from 'firebase/auth';
 import Notiflix from 'notiflix';
-// import { loginContainer } from './signupModal';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAEEIQrC1FklTDIB6wSl3Lj1Ay7wmlBG7E',
@@ -58,15 +57,18 @@ async function loginEmailPassword(e) {
   const loginPassword = loginForm.elements.password.value;
 
   if (!loginEmail || !loginPassword) {
-    Notiflix.Notify.failure('Enter email and password');
+    if (window.location.hash === 'ua') {
+      Notiflix.Notify.failure('Введіть адресу електронної пошти та пароль');
+    } else {
+      Notiflix.Notify.failure('Enter email and password');
+    }
     return;
   }
 
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then(
       () => {
-        authBackdrop.classList.add('visually-hidden');
-        loginForm.reset();
+        location.reload();
       }
     );
   } catch (error) {
@@ -77,11 +79,29 @@ async function loginEmailPassword(e) {
 async function createAccount(e) {
   e.preventDefault();
 
+  console.log(signUpForm.elements);
+
   const email = signUpForm.elements.email.value;
   const password = signUpForm.elements.password.value;
+  const confirmedPassword = signUpForm.elements.confirm.value;
 
   if (!email || !password) {
-    Notiflix.Notify.failure('Enter email and password');
+    if (window.location.hash === 'ua') {
+      Notiflix.Notify.failure('Введіть адресу електронної пошти та пароль');
+    } else {
+      Notiflix.Notify.failure('Enter email and password');
+    }
+
+    return;
+  }
+
+  if (password !== confirmedPassword) {
+    if (window.location.hash === 'ua') {
+      Notiflix.Notify.failure('Введені паролі не співпадають');
+    } else {
+      Notiflix.Notify.failure('Passwords do not match');
+    }
+
     return;
   }
 
@@ -100,8 +120,7 @@ async function createAccount(e) {
             ua: [],
           },
         });
-        authBackdrop.classList.add('visually-hidden');
-        signUpForm.reset();
+        location.reload();
       }
     );
   } catch (error) {
