@@ -6,6 +6,7 @@ import { loadData } from './js/preloader';
 import { onUpcomingClick } from './js/onUpcomingClick';
 import { fullscreenToggle } from './js/fullscreen';
 
+
 //Imports
 import './js/home';
 import './js/auth';

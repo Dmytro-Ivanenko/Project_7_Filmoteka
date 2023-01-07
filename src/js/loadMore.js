@@ -4,6 +4,7 @@ import { addPagination } from './pagination';
 import { renderGallery } from './renderGallery';
 import { searchFilms, searchValue } from './searchFilms';
 import { checkedGenreNames } from './genresFilter';
+import { loader, loaderRemove } from './loader';
 // import { async } from '@firebase/util';
 
 refs.loadMoreTrend.addEventListener('click', onLoadMore);
@@ -24,7 +25,9 @@ async function renderTrendingFilms() {
 }
 
 export async function onLoadMore() {
+  loader();
   renderTrendingFilms();
+  loaderRemove();
   const { data } = await refs.fetchApi.fetchTrendingFilms();
   const pages = refs.fetchApi.curPage();
   const trendPagination = addPagination(data, pages);
@@ -57,8 +60,9 @@ export async function onLoadMoreSearch() {
     searchValue.trim(),
     pages
   );
+  loader();
   renderGalleryMore(data.results);
-
+  loaderRemove();
   searchPagination = addPagination(data, pages);
   searchPagination.on('beforeMove', loadMoreSearch);
 }
@@ -81,8 +85,9 @@ async function onLoadMoreGenre() {
     checkedGenreNames.join(','),
     pages
   );
+  loader();
   renderGalleryMore(data.results);
-
+  loaderRemove();
   filteredFilmsPagination = addPagination(data, pages);
   filteredFilmsPagination.on('beforeMove', loadMoreFilms);
 }
