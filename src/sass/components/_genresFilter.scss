@@ -46,6 +46,10 @@
   position: relative;
   display: flex;
   justify-content: center;
+
+  // @media screen and(max-width: 767px) {
+  //   transform: translate(1px, 1px);
+  // }
 }
 
 .choose-genre-btn {

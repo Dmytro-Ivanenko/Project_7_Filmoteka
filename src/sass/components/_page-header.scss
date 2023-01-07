@@ -1,12 +1,12 @@
 header {
-  height: 216px;
+  height: 230px;
   background-size: cover;
   background-repeat: no-repeat;
 
   // mobile img
   @media screen and (max-width: 767px) {
     background-image: url(../images/header/background-header-mobile.jpg);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
     screen and (min-resolution: 192dpi) and (max-width: 767px),
@@ -18,6 +18,7 @@ header {
   @media screen and (min-width: 768px) {
     background-image: url(../images/header/background-header-tablet.jpg);
     margin-bottom: 30px;
+    height: 216px;
   }
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
     screen and (min-resolution: 192dpi) and (min-width: 768px),
@@ -72,7 +73,7 @@ header {
   fill: transparent;
 }
 
-.logo_text {
+.logo-text {
   display: none;
 
   @media screen and (min-width: 768px) {
@@ -140,26 +141,46 @@ header {
   align-items: center;
   gap: 20px;
   flex-wrap: nowrap;
+  position: relative;
+  z-index: 1000;
+
+  @media screen and(max-width:767px) {
+    height: 35px;
+    gap: 40px;
+    transform: translateY(70px);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
 }
 
+// settings buttons
 .left-part-settings,
 .right-part-settings {
   display: flex;
   justify-content: center;
   align-items: center;
-
   gap: 20px;
-
   width: 100px;
+
+  @media screen and(max-width:767px) {
+    gap: 40px;
+  }
 }
 
 .left-part-settings {
-  transform: translate(-210px, -35px);
+  // transform: translate(1px, 1px);
+
+  @media screen and (min-width: 768px) {
+    transform: translate(-210px, -35px);
+  }
+
   z-index: 1000;
 }
 
 .right-part-settings {
-  transform: translate(221px, -35px);
+  @media screen and (min-width: 768px) {
+    transform: translate(221px, -35px);
+  }
 }
 
 // search form
@@ -197,28 +218,37 @@ header {
 }
 
 .search-form-input {
+  width: 280px;
+  padding: 0.5em 1em 0.5em 0em;
+
+  border: none;
+  border-bottom: 0.5px solid #fff;
+
   font-size: 16px;
   line-height: 1.5;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  border: none;
-  background: rgba(255, 255, 255, 0.2);
+  color: var(--search-font-color);
+
+  background: transparent;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='%23FFFFFF' d='M13.22 14.63a8 8 0 1 1 1.41-1.41l4.29 4.29a1 1 0 1 1-1.41 1.41l-4.29-4.29zm-.66-2.07a6 6 0 1 0-8.49-8.49 6 6 0 0 0 8.49 8.49z'></path></svg>");
   background-repeat: no-repeat;
-  background-position: 10px 10px;
+  background-position: 374px 10px;
   background-size: 20px 20px;
-  border-radius: 5px;
-  width: 280px;
-  padding: 0.5em 1em 0.5em 2.5em;
 
-  margin-bottom: 0px;
   transition: transform var(--transition-duration);
+
+  @media screen and (max-width: 767px) {
+    background-position: 220px 10px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 336px;
+    background-position: 315px 10px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 394px;
+    background-position: 374px 10px;
   }
 }
 
@@ -233,10 +263,7 @@ header {
 
 .search-form-input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 100);
+
   text-shadow: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='%238C92A0' d='M13.22 14.63a8 8 0 1 1 1.41-1.41l4.29 4.29a1 1 0 1 1-1.41 1.41l-4.29-4.29zm-.66-2.07a6 6 0 1 0-8.49-8.49 6 6 0 0 0 8.49 8.49z'></path></svg>");
-  background-repeat: no-repeat;
-  background-position: 10px 10px;
-  background-size: 20px 20px;
 }
