@@ -3,7 +3,8 @@ const pswShowHide = document.querySelectorAll('.eye-icon');
 const links = document.querySelectorAll('.link');
 const loginLink = document.querySelector('.site-nav__link[data-auth-open]');
 const loginContainer = document.querySelector('[data-action]');
-const modalCloseBtn = document.querySelector('.modal-close-btn');
+const modalLoginCloseBtn = document.querySelector('.modal-close-btn');
+const modalSignCloseBtn = document.querySelector('[data-close-btn]');
 
 // *======= Show password =======*
 
@@ -35,7 +36,8 @@ links.forEach(link => {
 
 loginLink.addEventListener('click', openLoginModal);
 document.addEventListener('keydown', closeModal);
-modalCloseBtn.addEventListener('click', openLoginModal);
+modalLoginCloseBtn.addEventListener('click', openLoginModal);
+modalSignCloseBtn.addEventListener('click', openLoginModal);
 
 function openLoginModal() {
   loginContainer.classList.toggle('visually-hidden');
