@@ -1,6 +1,7 @@
 @import './utils/variables';
 @import './utils/placeholders';
 @import './base/common';
+@import './components/preloader';
 @import './components/page-header';
 @import './components/fullscreen-btn';
 @import './components/library-header';
@@ -16,4 +17,3 @@
 @import './components/localization';
 @import './components/glide.core';
 @import './components/glide.theme';
-

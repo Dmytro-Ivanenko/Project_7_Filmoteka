@@ -16,12 +16,11 @@ export function createMarkupElemetsGallery(
       return genre.name;
     });
     if (formattedGenres.length > 2) {
-      if (window.location.hash === 'ua') {
+      if (window.location.hash === '#ua') {
         formattedGenres = formattedGenres.slice(0, 2).join(', ') + ', Інші';
       } else {
         formattedGenres = formattedGenres.slice(0, 2).join(', ') + ', Other';
       }
-      
     }
   }
 
@@ -67,14 +66,24 @@ export function createMarkupElemetsGallery(
 function getGenresForMarkup(genresId, fetchApi) {
   if (genresId.length > 2) {
     if (window.location.hash === '#ua') {
-      return (genresId.slice(0, 2).map(genreId => {
-          return fetchApi.getGenreById(genreId);
-        }).join(', ') + ', Інші');
+      return (
+        genresId
+          .slice(0, 2)
+          .map(genreId => {
+            return fetchApi.getGenreById(genreId);
+          })
+          .join(', ') + ', Інші'
+      );
     } else {
-      return (genresId.slice(0, 2).map(genreId => {
-          return fetchApi.getGenreById(genreId);
-        }).join(', ') + ', Other');
-  }
+      return (
+        genresId
+          .slice(0, 2)
+          .map(genreId => {
+            return fetchApi.getGenreById(genreId);
+          })
+          .join(', ') + ', Other'
+      );
+    }
   }
 
   return genresId

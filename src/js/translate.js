@@ -58,7 +58,6 @@ const langArr = {
   sing: {
     ua: 'вийти',
     en: 'sign out',
-    en: 'sign out',
   },
   watch: {
     ua: 'ДИВИЛИСЯ',
@@ -99,7 +98,11 @@ function changeURLLanguage() {
 }
 
 export function changeLanguage() {
+  if (!localStorage.getItem('language')) {
+    window.location.hash = 'en';
+  }
   let hash = window.location.hash;
+
   hash = hash.substr(1);
   console.log(hash);
   if (!allLang.includes(hash)) {
@@ -117,7 +120,7 @@ export function changeLanguage() {
     }
   }
 }
-// changeLanguage();
+changeLanguage();
 function changeLang() {
   const input = document.querySelector('.search-form-input');
 
@@ -130,4 +133,4 @@ function changeLang() {
     input.placeholder = 'Movie search';
   }
 }
-// changeLang();
+changeLang();
