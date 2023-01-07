@@ -1,6 +1,6 @@
-// * {
-//   outline: 1px solid green;
-// }
+* {
+  outline: 1px solid green;
+}
 
 header {
   height: 216px;
@@ -185,6 +185,7 @@ header {
 .search-result {
   display: block;
   height: 16px;
+  width: 100%;
 
   padding-top: 10px;
 
@@ -195,6 +196,8 @@ header {
   font-size: 14px;
   line-height: 1.142;
   color: var(--search-result-color);
+
+  transform: translateY(20px);
 }
 
 .search-form-input {
