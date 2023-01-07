@@ -12,11 +12,11 @@
   max-width: 430px;
   width: 100%;
   padding: 30px;
-  border: 1px solid black;
+  border: 1px solid var(--primary-font-color);
   border-radius: 6px;
-  background: #fff;
+  background-image: var(--background-image);
 }
-.form.signup {
+.signup {
   opacity: 0;
   pointer-events: none;
 }
@@ -29,74 +29,6 @@
   pointer-events: none;
 }
 
-form {
-  margin-top: 30px;
-}
-.form .field {
-  position: relative;
-  height: 50px;
-  width: 100%;
-  margin-top: 20px;
-  border-radius: 6px;
-}
-.field input,
-.field button {
-  height: 100%;
-  width: 100%;
-  border: none;
-  font-size: 16px;
-  font-weight: 400;
-  border-radius: 6px;
-}
-.field input {
-  outline: none;
-  padding: 0 15px;
-}
-
-.eye-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  font-size: 18px;
-  color: #8b8b8b;
-  cursor: pointer;
-  padding: 5px;
-}
-.field button {
-  color: #fff;
-  background-color: #0171d3;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.field button:hover {
-  background-color: #016dcb;
-}
-.form-link {
-  text-align: center;
-  margin-top: 10px;
-}
-.form-link span,
-.form-link a {
-  font-size: 14px;
-  font-weight: 400;
-  color: #232836;
-}
-.form a {
-  color: #0171d3;
-  text-decoration: none;
-}
-.form-content a:hover {
-  text-decoration: underline;
-}
-
-@media screen and (max-width: 400px) {
-  .form {
-    padding: 20px 10px;
-  }
-}
-
-// ******
 .backdrop-login {
   position: fixed;
   top: 0;
@@ -111,8 +43,8 @@ form {
 }
 
 .line {
-  border-bottom: 1px solid #cacaca;
-  margin: 10px 0px;
+  border-bottom: 1px solid var(--line-color);
+  margin: 15px 0px;
 }
 
 .login-title {
@@ -131,10 +63,150 @@ form {
 }
 
 .input-field {
-  box-shadow: 2px 2px 6px 0px rgba(142, 142, 142, 1);
+  box-shadow: 2px 2px 6px 0px var(--box-shadow-color-primary);
+}
+
+.field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 6px;
 }
 
 ::placeholder {
+  font-family: var(--primary-font);
   color: var(--primary-font-color);
   opacity: 0.7;
+}
+
+.modal-close-btn {
+  color: var(--primary-font-color);
+  width: 27px;
+  height: 27px;
+  border: 1px solid var(--primary-font-color);
+  cursor: pointer;
+  transition: var(--transition-duration);
+  border-radius: 50%;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    border-color: var(--accent-font-color);
+    fill: var(--accent-font-color);
+  }
+}
+
+input {
+  height: 100%;
+  width: 100%;
+  border-style: hidden;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+  transition: var(--transition-duration);
+  outline: none;
+  padding: 0 15px;
+  &:focus,
+  &:hover {
+    box-shadow: 4px 4px 6px 0px var(--box-shadow-color-accent);
+    transform: scale(1.05);
+  }
+}
+
+form {
+  margin-top: 30px;
+}
+
+.submit-btn {
+  height: 100%;
+  width: 100%;
+
+  border-style: hidden;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+
+  font-family: var(--primary-font);
+  color: var(--primary-font-color);
+  box-shadow: 2px 2px 6px 0px var(--box-shadow-color-primary);
+
+  transition: var(--transition-duration);
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    box-shadow: 4px 4px 6px 0px var(--box-shadow-color-accent);
+    transform: scale(1.05);
+    color: var(--accent-font-color);
+  }
+}
+
+.form-text {
+  font-family: var(--primary-font);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primary-font-color);
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--link-color);
+  text-decoration: none;
+  transition: var(--transition-duration);
+
+  &:hover {
+    color: var(--accent-font-color);
+  }
+}
+
+.fa-google {
+  padding-right: 5px;
+}
+
+.signup-link {
+  color: var(--link-color);
+  transition: var(--transition-duration);
+
+  &:hover {
+    transform: scale(1.05);
+    color: var(--accent-font-color);
+  }
+}
+.login-link {
+  color: var(--link-color);
+  transition: var(--transition-duration);
+  &:hover {
+    color: var(--accent-font-color);
+  }
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #8b8b8b;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.google-icon {
+  padding-right: 5px;
 }
