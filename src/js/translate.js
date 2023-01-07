@@ -25,11 +25,11 @@ const langArr = {
   },
   developer: {
     ua: 'Розроблено спільно',
-    en: 'Developed with by',
+    en: 'Developed with',
   },
   students: {
     ua: 'GoIT Студенти',
-    en: ' GoIT Students',
+    en: 'GoIT Students',
   },
   genre: {
     ua: 'ОБЕРІТЬ ЖАНР',
@@ -84,6 +84,38 @@ const langArr = {
     ua: 'Вже є аккаунт?',
     en: 'Already have an account?',
   },
+    popular: {
+    ua: 'Популярні',
+    en: 'Popular',
+  },
+    load: {
+    ua: 'Завантажити ще',
+    en: 'Load more',
+  },
+    new: {
+    ua: 'Новинки',
+    en: 'Novelty',
+  },
+    lo: {
+    ua: 'Логін',
+    en: 'Login',
+  },
+    log: {
+    ua: 'Логін',
+    en: 'Login',
+  },
+    si: {
+    ua: 'Реєстрація',
+    en: 'Signup',
+  },
+    sig: {
+    ua: 'Реєстрація',
+    en: 'Signup',
+  },
+    logi: {
+    ua: 'Логін',
+    en: 'Login',
+  },
 };
 
 const select = document.querySelector('select');
@@ -134,3 +166,37 @@ function changeLang() {
   }
 }
 changeLang();
+function changeLangSing() {
+  const title = document.querySelector('.login-title');
+  if (window.location.hash === '#ua') {
+    title === 'логін';
+  } else {
+    title === 'Login';
+  }
+}
+changeLangSing();
+function changeLangInputSingUp() {
+  const input = document.querySelector('.input-form');
+  const inputPass = document.querySelector('.password')
+  const inputsingUp = document.querySelector('.input-form-singup');
+  const inputsingUpEmail = document.querySelector('.input-email');
+  const inputsingUpEmailConf = document.querySelector('.form-conf-pass');
+  if (!input) {
+    return;
+  }
+  if (window.location.hash === '#ua') {
+    input.placeholder = 'Електронна пошта';
+    inputPass.placeholder = 'Пароль';
+    inputsingUp.placeholder = 'Пароль';
+    inputsingUpEmail.placeholder = 'Електронна пошта';
+    inputsingUpEmailConf.placeholder = 'Підтвердьте пароль';
+
+  } else {
+    input.placeholder = 'Email';
+    inputPass.placeholder = 'Password';
+    inputsingUp.placeholder = 'password';
+    inputsingUpEmail.placeholder = 'Email';
+    inputsingUpEmailConf.placeholder = 'Confirm password';
+  }
+}
+changeLangInputSingUp();

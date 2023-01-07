@@ -17,7 +17,7 @@
         </svg>
       </button>
       <div class="form-content">
-        <h1 class="login-title lng-login">Login</h1>
+        <h1 class="login-title lng-lo">Login</h1>
         <form class="login__form">
           <div class="field input-field">
             <input
@@ -39,14 +39,13 @@
           </div>
 
           <div class="field button-field">
-            <button class="submit-btn">Login</button>
+            <button class="submit-btn lng-log">Login</button>
           </div>
         </form>
 
         <div class="form-link">
 
-          <span class="form-text"
-            >Don't have an account?
+          <span class="form-text"><span class="lng-account">Don't have an account?</span>
             <a href="#" class="link signup-link lng-singup">Signup</a></span
 
           >
@@ -54,12 +53,11 @@
 
         <div class="line"></div>
 
-        <a href="#" class="btn-social btn-google"
-          ><svg class="google-icon" width="24" height="24">
-            <use href="./images/icon/sprite.svg#icon-google"></use>
-          </svg>
-          Sign in with Google</a
-        >
+        <a href="#" class="btn-social btn-google">
+            <svg class="google-icon" width="24" height="24">
+              <use href="./images/icon/sprite.svg#icon-google"></use>
+            </svg>
+          <span class="lng-google">Sign in with Google</span></a>
       </div>
     </div>
 
@@ -67,7 +65,7 @@
 
     <div class="form signup">
       <div class="form-content">
-        <h1 class="login-title">Signup</h1>
+        <h1 class="login-title lng-si">Signup</h1>
         <form class="signup__form">
           <button class="modal-close-btn" data-close-btn>
             <svg
@@ -88,7 +86,7 @@
             <input
               type="email"
               placeholder="Email"
-              class="input input-form"
+              class="input input-form input-email"
               name="email"
             />
           </div>
@@ -97,7 +95,7 @@
             <input
               type="password"
               placeholder="Create password"
-              class="password input-form"
+              class="password input-form input-form-singup"
               name="password"
             />
           </div>
@@ -106,8 +104,7 @@
             <input
               type="password"
               placeholder="Confirm password"
-
-              class="password input-form"
+              class="password input-form form-conf-pass"
               name="password-confirm"
 
             />
@@ -115,17 +112,14 @@
           </div>
 
           <div class="field button-field">
-            <button type="submit" class="lng-singup submit-btn">Signup</button>
+            <button type="submit" class="lng-singup submit-btn lng-sig">Signup</button>
           </div>
         </form>
 
         <div class="form-link">
 
-          <span class="form-text"
-            >Already have an account?
-            <a href="#" class="link login-link  lng-login">Login</a></span
-
-          >
+          <span class="form-text"><span class="lng-already">Already have an account?</span>
+            <a href="#" class="link login-link lng-logi">Login</a></spap>
         </div>
       </div>
     </div>
