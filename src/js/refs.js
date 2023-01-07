@@ -9,4 +9,5 @@ export const refs = {
   siteNav: document.querySelector('.site-nav'),
   loadMoreTrend: document.querySelector('.loadMoreBtn'),
   loadMoreSearchBtn: document.querySelector('.loadMoreSearchBtn'),
+  loadMoreGenreBtn: document.querySelector('.loadMoreGenreBtn'),
 };

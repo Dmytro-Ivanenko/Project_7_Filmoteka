@@ -3,10 +3,12 @@ import { refs } from './refs';
 import { addPagination } from './pagination';
 import { renderGallery } from './renderGallery';
 import { searchFilms, searchValue } from './searchFilms';
+import { checkedGenreNames } from './genresFilter';
 // import { async } from '@firebase/util';
 
 refs.loadMoreTrend.addEventListener('click', onLoadMore);
 refs.loadMoreSearchBtn.addEventListener('click', onLoadMoreSearch);
+refs.loadMoreGenreBtn.addEventListener('click', onLoadMoreGenre);
 
 function renderGalleryMore(galleryEl) {
   const galleryElements = galleryEl
@@ -59,4 +61,28 @@ export async function onLoadMoreSearch() {
 
   searchPagination = addPagination(data, pages);
   searchPagination.on('beforeMove', loadMoreSearch);
+}
+
+// Genre
+
+async function loadMoreFilms(e) {
+  const currentPage = e.page;
+  const { data } = await refs.fetchApi.fetchFilmsWithGenres(
+    checkedGenreNames.join(','),
+    currentPage
+  );
+  renderGallery(data.results);
+}
+
+async function onLoadMoreGenre() {
+  refs.fetchApi.numberOfPage();
+  const pages = refs.fetchApi.curPage();
+  const { data } = await refs.fetchApi.fetchFilmsWithGenres(
+    checkedGenreNames.join(','),
+    pages
+  );
+  renderGalleryMore(data.results);
+
+  filteredFilmsPagination = addPagination(data, pages);
+  filteredFilmsPagination.on('beforeMove', loadMoreFilms);
 }
