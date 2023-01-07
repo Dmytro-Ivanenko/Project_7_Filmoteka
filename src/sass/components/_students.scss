@@ -1,8 +1,9 @@
-.students-button {
-  background-color: transparent;
-  border: 0px;
-  border-bottom: 1px solid var(--footer);
+.scroll-ban{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
+
 .students-backdrop {
   position: fixed;
   top: 0;
@@ -12,10 +13,7 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.button {
-  cursor: pointer;
-}
-
+// on backdrop
 .is-hidden {
   opacity: 0;
   pointer-events: none;
@@ -68,7 +66,6 @@
       padding-top: 15px;
       padding-bottom: 15px;
 }
-
 
 
 @media (max-width:767px){
@@ -147,8 +144,12 @@
 }
 .card-student__name {
   width: auto;
-  font-size: 28px;
-  font-weight: 900; 
+  font-size: 26px;
+  font-weight: 700; 
+}
+
+.student-big-surname{
+  font-size: 25px;
 }
 
 .card-student__role {
@@ -215,17 +216,13 @@
 
 .swiper .swiper-wrapper {
   margin-bottom: 70px;
-//   display: flex;
-// flex-basis: 390px;
 }
 
 .swiper-button-prev:after,
 .swiper-button-next:after {
   color: var(--accent-font-color);
 }
-// .swiper-button-prev{
-//   height: 10px;
-// }
+
 .swiper .swiper-pagination{
   margin-bottom: 15px;
 }

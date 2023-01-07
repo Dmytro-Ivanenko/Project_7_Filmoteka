@@ -44,11 +44,15 @@ export function toggleModal() {
 
   if (!backdrop.classList.contains('is-hidden')) {
     swiper.update();
+    body.classList.add('scroll-ban')
+  } else{
+    body.classList.remove('scroll-ban')
   }
 }
 
 export function closeModalOnBackdropClick(event) {
   if (event.target === backdrop) {
     backdrop.classList.add('is-hidden');
+    body.classList.remove('scroll-ban')
   }
 }

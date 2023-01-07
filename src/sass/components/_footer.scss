@@ -1,34 +1,54 @@
 .footer {
   background-color: #f7f7f7;
+  color: var(--footer);
 }
-.footer-nav {
-  @extend %list;
 
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
+.footer-container{
   padding-top: 30px;
   padding-bottom: 28px;
 }
-.footer-nav__item {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.1875;
-  color: #545454;
-
-  & a {
-    color: #545454;
-  }
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  color: currentColor;
+font-size: 16px;
+line-height: 1.2;
+font-weight: 400;
 }
-.footer-nav__item:not(:last-child)::after {
+
+
+.footer-nav__item--line::after{
   content: '';
+  display: inline-block;
+  height: 14px;
+  width: 1px;
+  background-color: currentColor;
   margin-left: 10px;
   margin-right: 10px;
-  border: 1px solid #545454;
-  transform: rotate(90deg);
 }
 
 
+.students-button {
+  background-color: transparent;
+  border: 0px;
+  color: currentColor;
+  padding-top: 1px
+}
+.footer-link{
+  display: inline-block;
+  border-bottom: 1px solid currentColor;
+}
+
+@media (max-width:767px){
+  .footer-nav__item--line::after{
+    height: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+.footer-nav {
+  font-size: 14px;
+  flex-direction: column;
+  text-align: center;
+}
+}
