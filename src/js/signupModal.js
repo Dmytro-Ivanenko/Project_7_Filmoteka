@@ -3,7 +3,7 @@ const pswShowHide = document.querySelectorAll('.eye-icon');
 const links = document.querySelectorAll('.link');
 const loginLink = document.querySelector('.site-nav__link[data-auth-open]');
 const loginContainer = document.querySelector('[data-action]');
-const modalCloseBtn = document.querySelector('.modal-login-btn');
+const modalCloseBtn = document.querySelector('.modal-close-btn');
 
 // *======= Show password =======*
 
