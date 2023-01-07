@@ -1,6 +1,6 @@
-* {
-  outline: 1px solid green;
-}
+// * {
+//   outline: 1px solid green;
+// }
 
 header {
   height: 216px;
@@ -159,10 +159,11 @@ header {
 
 .left-part-settings {
   transform: translate(-210px, -35px);
+  z-index: 1000;
 }
 
 .right-part-settings {
-  transform: translate(210px, -35px);
+  transform: translate(221px, -35px);
 }
 
 // search form
@@ -239,36 +240,4 @@ header {
   background-repeat: no-repeat;
   background-position: 10px 10px;
   background-size: 20px 20px;
-}
-
-// genre
-.choose-genre {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.choose-genre-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  padding: 0px;
-
-  border: none;
-  border-radius: 5px;
-
-  background: rgba(255, 255, 255, 0.2);
-  fill: var(--nav-menu-color);
-
-  align-content: center;
-
-  &:hover {
-    fill: var(--active-btn-color);
-  }
-}
-
-.choose-genre-icon {
-  cursor: pointer;
 }

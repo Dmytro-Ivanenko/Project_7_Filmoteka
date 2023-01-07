@@ -43,4 +43,36 @@
 .choose-genre {
   width: 30px;
   height: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.choose-genre-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+
+  border: none;
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.2);
+  fill: var(--nav-menu-color);
+
+  align-content: center;
+
+  transition: fill var(--transition-duration), scale var(--transition-duration);
+
+  &:hover,
+  &:active {
+    fill: var(--active-settings-btn-color);
+    scale: 1.2;
+  }
+}
+
+.choose-genre-icon {
+  cursor: pointer;
 }
