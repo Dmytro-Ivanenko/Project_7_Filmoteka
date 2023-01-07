@@ -1,13 +1,15 @@
-import { galleryList, fetchApi } from '../index.js';
+import { refs } from './refs';
 import { renderGallery } from './renderGallery.js';
 import { addPagination } from './pagination.js';
+import { renderTrendingFilms } from './renderTrendingFilms';
+import Notiflix from 'notiflix';
 
 let filteredFilmsPagination;
-let checkedGenreNames = [];
+export let checkedGenreNames = [];
 
 export async function createGenresFilter() {
-  const choiceBtn = document.querySelector('.choose-genre-btn');
-  const choiseFormWrapper = document.querySelector('.choice-form-wrapper');
+  const choiceBtn = document.querySelector('.choose-genre-icon');
+  const choiceFormWrapper = document.querySelector('.choice-form-wrapper');
   const choiceFormWrapperElement = document.querySelector(
     '.choice-form-wrapper__element'
   );
@@ -15,50 +17,52 @@ export async function createGenresFilter() {
 
   choiceBtn.addEventListener('click', openChoiceForm);
 
-  function openChoiceForm() {
+  // open filter
+  async function openChoiceForm() {
     clearFormMurkup();
 
-    choiseFormWrapper.classList.remove('visually-hidden');
+    choiceFormWrapper.classList.remove('visually-hidden');
 
+    await createFormMarkup();
     choiceBtn.removeEventListener('click', openChoiceForm);
     choiceBtn.addEventListener('click', closeChoiceForm);
-
     chooseBtn.addEventListener('click', searchFilmsToGenres);
-
-    createFormMarkup();
+    document.addEventListener('click', closeChoiceForm);
   }
 
-  function closeChoiceForm() {
-    choiseFormWrapper.classList.add('visually-hidden');
-    choiceBtn.removeEventListener('click', closeChoiceForm);
-    choiceBtn.addEventListener('click', openChoiceForm);
-  }
-
-  window.onclick = function (event) {
+  // close filter
+  function closeChoiceForm(event) {
     if (
-      event.target !== choiseFormWrapper &&
+      event.target !== choiceFormWrapper &&
       event.target !== choiceBtn &&
-      event.target.parentElement.parentElement !== choiseFormWrapper &&
+      event.target.parentElement.parentElement !== choiceFormWrapper &&
       event.target.parentElement.parentElement.parentElement !==
-        choiseFormWrapper
+        choiceFormWrapper
     ) {
-      closeChoiceForm();
+      choiceFormWrapper.classList.add('visually-hidden');
+      choiceBtn.removeEventListener('click', closeChoiceForm);
+      document.removeEventListener('click', closeChoiceForm);
+      choiceBtn.addEventListener('click', openChoiceForm);
     }
-  };
+  }
 
   const searchFilmsToGenres = async () => {
+    refs.loadMoreGenreBtn.classList.remove('visually-hidden');
+    refs.loadMoreTrend.classList.add('visually-hidden');
     checkedGenreNames = findCheckedGenres();
     if (checkedGenreNames.length == 0) {
-      alert(`Please, choose genre`);
+      Notiflix.Notify.failure('You have not selected a movie genre');
+      renderTrendingFilms();
+      closeChoiceForm();
     } else {
-      const { data } = await fetchApi.fetchFilmsWithGenres(
+      const { data } = await refs.fetchApi.fetchFilmsWithGenres(
         checkedGenreNames.join(',')
       );
-      galleryList.innerHTML = '';
-      fetchApi.page = 1;
+      refs.galleryList.innerHTML = '';
+      refs.fetchApi.page = 1;
       renderGallery(data.results);
 
-      filteredFilmsPagination = addPagination(data);
+      filteredFilmsPagination = addPagination(data, 1);
       filteredFilmsPagination.on('beforeMove', loadMoreFilms);
 
       closeChoiceForm();
@@ -66,7 +70,7 @@ export async function createGenresFilter() {
   };
 
   const getGenreName = async () => {
-    const genreNames = await fetchApi.fillGenreList();
+    const genreNames = await refs.fetchApi.fillGenreList();
     return genreNames;
   };
 
@@ -86,6 +90,7 @@ export async function createGenresFilter() {
 
     return `<div> <input class="choice-form__item"
     ${isChecked}
+    
     type="checkbox"
     id="${id}"
     name="${name}"
@@ -107,7 +112,7 @@ export async function createGenresFilter() {
 
   async function loadMoreFilms(e) {
     const currentPage = e.page;
-    const { data } = await fetchApi.fetchFilmsWithGenres(
+    const { data } = await refs.fetchApi.fetchFilmsWithGenres(
       checkedGenreNames.join(','),
       currentPage
     );

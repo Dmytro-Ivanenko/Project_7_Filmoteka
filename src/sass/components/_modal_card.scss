@@ -9,6 +9,18 @@
   transition: opacity var(--transition-duration),
     visability var(--transition-duration);
   z-index: 50;
+  overflow-y: scroll;
+
+  &:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000ad;
+    z-index: 51;
+  }
 }
 
 .is-hidden {
@@ -31,28 +43,59 @@
   display: flex;
   background-color: var(--primary-background-color);
   border-radius: 5px;
-  width: 806px;
+  width: 280px;
   height: auto;
-  padding: 40px 12px;
+  padding: 48px 20px 40px 20px;
   transition: transform var(--transition-duration);
+  z-index: 52;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    padding: 40px 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    padding: 40px 12px;
+  }
 }
 
 .modal-card {
   display: flex;
-  flex: 1 0 100%;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex: 1 0 100%;
+  }
 }
 .modal-card__images {
-  flex: 1 0 50%;
   align-self: center;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex: 1 0 50%;
+    margin-bottom: 0;
+  }
 }
 .modal-card__description {
   flex: 1 0 50%;
 }
 .modal-card__image {
-  width: 375px;
-  height: 478px;
+  width: 240px;
+  height: 357px;
   object-fit: cover;
   border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    height: 373.55px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 375px;
+    height: 478px;
+  }
 }
 .modal-card__title {
   font-family: var(--primary-font);
@@ -82,6 +125,10 @@
   font-size: 12px;
   line-height: 1.33;
   color: var(--primary-font-color);
+
+  @media screen and (max-width: 768px) {
+    width: 50%;
+  }
 
   &--grey {
     color: var(--modal-card-font-color);
@@ -117,32 +164,91 @@
 .modal-card__btn {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+
+  gap: 20px;
   font-family: var(--primary-font);
+
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   align-items: center;
   text-align: center;
+
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+  }
 }
 .modal-card__btn-watched {
-  width: 136px;
+  width: 110px;
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
-  color: var(--primary-background-color);
-  background-color: var(--accent-font-color);
+
+  color: var(--primary-font-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-font-color);
   cursor: pointer;
+
+  transition: color var(--transition-duration),
+    background-color var(--transition-duration),
+    border-color var(--transition-duration);
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+  }
+
+  &:hover {
+    background-color: var(--accent-font-color);
+    color: var(--active-btn-color);
+    border-color: var(--accent-font-color);
+  }
+
+  &_active {
+    background-color: var(--accent-font-color);
+    color: var(--active-btn-color);
+    border-color: var(--accent-font-color);
+  }
 }
 .modal-card__btn-queue {
-  width: 136px;
+  width: 110px;
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
+
   color: var(--primary-font-color);
   background-color: transparent;
   cursor: pointer;
+
+  border: 1px solid var(--primary-font-color);
+
+  transition: color var(--transition-duration),
+    background-color var(--transition-duration),
+    border-color var(--transition-duration);
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+  }
+
+  &:hover {
+    background-color: var(--accent-font-color);
+    color: var(--active-btn-color);
+    border-color: var(--accent-font-color);
+  }
+
+  &_active {
+    background-color: var(--accent-font-color);
+    color: var(--active-btn-color);
+    border-color: var(--accent-font-color);
+  }
 }
 
 .modal__btn-close {
@@ -160,7 +266,8 @@
   background-color: transparent;
   cursor: pointer;
   outline: none;
-  transition: var(--transition-duration);
+  transition: color var(--transition-duration),
+    border-color var(--transition-duration);
 
   &:active {
     opacity: 0.8;
@@ -170,10 +277,62 @@
   &:focus,
   &:hover {
     border-color: var(--accent-font-color);
-  }
-
-  &:focus .modal__icon-close,
-  &:hover .modal__icon-close {
-    fill: var(--accent-font-color);
+    color: var(--accent-font-color);
   }
 }
+
+.modal__icon-close {
+  fill: currentColor;
+}
+
+// Trailer Modal
+.lightbox__button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+  outline: none;
+  background-image: url('https://free-png.ru/wp-content/uploads/2021/06/free-png.ru-38-340x340.png');
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  //   transition: all 300ms ease-in;
+}
+
+.lightbox__button:hover,
+.lightbox__button:focus {
+  background-color: #ff6b08;
+}
+
+// @media screen and (min-width: 300px) and (max-width: 692px) {
+//   .lightbox__button {
+//     top: 90px;
+//     right: calc(((100vw - 324px) / 2));
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+//   .lightbox__button {
+//     top: 100px;
+//     right: calc(((100vw - 668px) / 2));
+//   }
+// }
+
+// @media screen and (min-width: 1024px) {
+//   .lightbox__button {
+//     top: 100px;
+//     right: calc(((100vw - 824px) / 2));
+//   }
+// }

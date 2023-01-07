@@ -1,12 +1,12 @@
 import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 
-export function addPagination({ total_results }) {
+export function addPagination({ total_results }, page) {
   const options = {
     totalItems: total_results,
     itemsPerPage: 20,
     visiblePages: 5,
-    page: 1,
+    page: page,
     centerAlign: true,
     firstItemClassName: 'tui-first-child',
     lastItemClassName: 'tui-last-child',

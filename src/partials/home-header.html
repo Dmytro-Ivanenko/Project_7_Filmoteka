@@ -2,69 +2,88 @@
   <div class="container">
     <div class="header">
       <nav class="main-nav">
-        <a
-          class="logo link animate__animated animate__bounceInDown"
-          href="./index.html"
-        >
-          <svg
-            class="logo__icon animate__animated animate__pulse animate__infinite"
-            width="24"
-            height="24"
-          >
+        <a class="logo animate__animated animate__bounceInDown" href="./index.html">
+          <svg class="logo__icon animate__animated animate__pulse animate__infinite" width="24" height="24">
             <use href="./images/icon/sprite.svg#icon-logo"></use>
           </svg>
-
-          <span class="cssanimation lePushReleaseFrom sequence"
-            >Filmoteka</span
-          ></a
-        >
-        <div>
+          <span class="cssanimation lePushReleaseFrom sequence">Filmoteka</span></a>
 
         <div class="nav-list">
-
-          <ul class="site-nav">
+          <ul class="site-nav visually-hidden">
             <li class="site-nav__item">
-              <a class="site-nav__link" href="./index.html">home</a>
+              <a class="site-nav__link lng-home" href="./index.html">home</a>
             </li>
             <li class="site-nav__item">
-              <a class="site-nav__link" href="./library.html">my library</a>
+              <a class="site-nav__link lng-library" href="./library.html">my library</a>
             </li>
 
             <li class="site-nav__item">
-              <a class="site-nav__link" href="./library.html" data-auth-open
-                >Login</a
-              >
+              <a class="site-nav__link lng-login" href="#" data-auth-open>Login</a>
             </li>
             <li class="site-nav__item visually-hidden">
-              <a class="site-nav__link" href="./library.html" data-auth-sign-out
-                >Sign out</a
-              >
+              <a class="site-nav__link lng-sing" href="#" data-auth-sign-out>Sign out</a>
             </li>
           </ul>
         </div>
       </nav>
 
+
+
+
+
+      <!-- search form -->
       <form id="search-form" class="search-form">
-        <input
-          class="search-form-input"
-          type="text"
-          name="searchQuery"
-          autocomplete="off"
-          placeholder="Movie search"
-        />
+        <input class="search-form-input" type="text" name="searchQuery" autocomplete="off" placeholder="Movie search"
+          style="display: flex" />
       </form>
-      
-       <div class="choose-genre">
-        <button type="menu" class="choose-genre-btn">CHOOSE GENRE</button>
-        <div class="choice-form-wrapper visually-hidden">
-          <form class="choice-form-wrapper__element"></form>
-          <div class="choice-form-wrapper__btn">
-            <button class="chooseBtn" type="submit">CHOOSE</button>
+
+
+      <div class="header-ui-wrapper">
+
+        <div class="left-part-settings">
+          <!-- fullscreen mode -->
+          <button class="fullscreen-btn">
+          </button>
+
+          <!-- genres filter -->
+          <div class="choose-genre">
+            <button type="menu" class="choose-genre-btn">
+              <svg class="choose-genre-icon" width="30px" height="30px">
+                <use href="./images/icon/sprite.svg#icon-filter-list"></use>
+              </svg>
+            </button>
+            <div class="choice-form-wrapper visually-hidden">
+              <form class="choice-form-wrapper__element"></form>
+              <div class="choice-form-wrapper__btn">
+                <button class="chooseBtn lng-choose" type="submit">CHOOSE</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="search-result"></div>
+
+        <div class="right-part-settings">
+          <!-- lang settings -->
+          <select class="change-lang">
+            <option value="ua">UA</option>
+            <option value="en">EN</option>
+          </select>
+
+          <!-- day-night mode -->
+          <label class="mode-label">
+            <input type="checkbox" class="mode-checkbox" />
+          </label>
+
+        </div>
+
+      </div>
+      <span class="search-result"></span>
+
+
+
+
+
+
     </div>
   </div>
 </header>

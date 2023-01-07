@@ -1,9 +1,9 @@
 import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
-import { galleryList, fetchApi } from '../index.js';
+import { refs } from './refs';
 
 export function renderGallery(galleryEl) {
   const galleryElements = galleryEl.map(elem =>
-    createMarkupElemetsGallery(elem, fetchApi)
+    createMarkupElemetsGallery(elem, refs.fetchApi)
   );
-  galleryList.innerHTML = galleryElements.join('');
+  refs.galleryList.innerHTML = galleryElements.join('');
 }

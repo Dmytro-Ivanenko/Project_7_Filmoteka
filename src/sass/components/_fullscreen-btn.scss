@@ -1,0 +1,24 @@
+.fullscreen-btn {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 2px;
+  background-color: transparent;
+  width: 25px;
+  height: 25px;
+  background-image: url('../images/fullscreen.svg');
+  background-size: 100%;
+  background-position: center;
+
+  cursor: pointer;
+
+  transition: scale var(--transition-duration);
+
+  &:hover,
+  &:active {
+    scale: 1.2;
+  }
+}
+.fullscreen-exit-btn {
+  background-image: url('../images/fullscreen-exit.svg');
+}
