@@ -142,7 +142,7 @@ header {
   gap: 20px;
   flex-wrap: nowrap;
   position: relative;
-  z-index: 1000;
+  z-index: 50;
 
   @media screen and(max-width:767px) {
     height: 35px;
@@ -168,13 +168,11 @@ header {
 }
 
 .left-part-settings {
-  // transform: translate(1px, 1px);
-
   @media screen and (min-width: 768px) {
     transform: translate(-210px, -35px);
   }
 
-  z-index: 1000;
+  z-index: 50;
 }
 
 .right-part-settings {
