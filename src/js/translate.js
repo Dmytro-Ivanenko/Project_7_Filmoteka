@@ -84,6 +84,18 @@ const langArr = {
     ua: 'Вже є аккаунт?',
     en: 'Already have an account?',
   },
+  loadmore: {
+    ua: 'Завантажити ще',
+    en: 'Load more',
+  },
+   popular: {
+    ua: 'Популярні',
+    en: 'Popular',
+  },
+    new: {
+    ua: 'Новинки',
+    en: 'Novelty',
+  },
 };
 
 const select = document.querySelector('select');
