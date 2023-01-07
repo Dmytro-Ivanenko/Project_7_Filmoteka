@@ -10,7 +10,6 @@
   border-radius: 5px;
   padding: 5px;
   background-color: var(--modal-card-font-color);
-  opacity: 90%;
 }
 
 .choice-form-wrapper__element {
@@ -39,4 +38,9 @@
   &:hover {
     background: rgba(255, 255, 255, 1);
   }
+}
+
+.choose-genre {
+  width: 30px;
+  height: 30px;
 }

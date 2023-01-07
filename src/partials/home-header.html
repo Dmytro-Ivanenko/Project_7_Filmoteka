@@ -29,45 +29,55 @@
 
 
 
+
+
+      <!-- search form -->
+      <form id="search-form" class="search-form">
+        <input class="search-form-input" type="text" name="searchQuery" autocomplete="off" placeholder="Movie search"
+          style="display: flex" />
+
+        <span class="search-result"></span>
+      </form>
+
+
       <div class="header-ui-wrapper">
 
-        <!-- genres filter -->
-        <div class="choose-genre">
-          <button type="menu" class="choose-genre-btn lng-genre">
-            CHOOSE GENRE
+        <div class="left-part-settings">
+          <!-- fullscreen mode -->
+          <button class="fullscreen-btn">
           </button>
-          <div class="choice-form-wrapper visually-hidden">
-            <form class="choice-form-wrapper__element"></form>
-            <div class="choice-form-wrapper__btn">
-              <button class="chooseBtn lng-choose" type="submit">CHOOSE</button>
+
+          <!-- genres filter -->
+          <div class="choose-genre">
+            <button type="menu" class="choose-genre-btn">
+              <svg class="choose-genre-icon" width="30px" height="30px">
+                <use href="./images/icon/sprite.svg#icon-filter-list"></use>
+              </svg>
+            </button>
+            <div class="choice-form-wrapper visually-hidden">
+              <form class="choice-form-wrapper__element"></form>
+              <div class="choice-form-wrapper__btn">
+                <button class="chooseBtn lng-choose" type="submit">CHOOSE</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- search form -->
-        <form id="search-form" class="search-form">
-          <input class="search-form-input" type="text" name="searchQuery" autocomplete="off" placeholder="Movie search"
-            style="display: flex" />
 
-          <span class="search-result"></span>
-        </form>
+        <div class="right-part-settings">
+          <!-- lang settings -->
+          <select class="change-lang">
+            <option value="ua">UA</option>
+            <option value="en">EN</option>
+          </select>
 
+          <!-- day-night mode -->
+          <label class="mode-label">
+            <input type="checkbox" class="mode-checkbox" />
+          </label>
 
-        <!-- lang settings -->
-        <select class="change-lang">
-          <option value="ua">UA</option>
-          <option value="en">EN</option>
-        </select>
+        </div>
 
-        <!-- day-night mode -->
-        <label class="mode-label">
-          <input type="checkbox" class="mode-checkbox" />
-          <span class="span-mode span-mode--day">
-        </label>
-
-        <!-- fullscreen mode -->
-        <button class="fullscreen-btn">
-        </button>
       </div>
 
 
