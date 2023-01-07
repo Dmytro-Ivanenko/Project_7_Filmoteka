@@ -5,7 +5,7 @@ import { renderTrendingFilms } from './renderTrendingFilms';
 import Notiflix from 'notiflix';
 
 let filteredFilmsPagination;
-let checkedGenreNames = [];
+export let checkedGenreNames = [];
 
 export async function createGenresFilter() {
   const choiceBtn = document.querySelector('.choose-genre-icon');
@@ -47,6 +47,8 @@ export async function createGenresFilter() {
   }
 
   const searchFilmsToGenres = async () => {
+    refs.loadMoreGenreBtn.classList.remove('visually-hidden');
+    refs.loadMoreTrend.classList.add('visually-hidden');
     checkedGenreNames = findCheckedGenres();
     if (checkedGenreNames.length == 0) {
       Notiflix.Notify.failure('You have not selected a movie genre');
@@ -60,7 +62,7 @@ export async function createGenresFilter() {
       refs.fetchApi.page = 1;
       renderGallery(data.results);
 
-      filteredFilmsPagination = addPagination(data);
+      filteredFilmsPagination = addPagination(data, 1);
       filteredFilmsPagination.on('beforeMove', loadMoreFilms);
 
       closeChoiceForm();
