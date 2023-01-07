@@ -33,11 +33,14 @@ body {
   --active-btn-color: #ffffff;
 
   // Back to top
-  --to-top-bcg-color: rgba(0, 150, 136, 0.8);
+  --to-top-bcg-color: rgba(255, 0, 0, 0.8);
   --to-top-after-color: #ffffff;
 
   // background-image
   --background-image: url('https://hdrezka.ag/templates/hdrezka/images/holidays/holiday-christmas-bg.png');
+
+  // Genres button
+  --active-settings-btn-color: #ff6b08;
 }
 
 .night {
@@ -68,9 +71,12 @@ body {
   --active-btn-color: #ffffff;
 
   // Back to top
-  --to-top-bcg-color: rgba(0, 150, 136, 0.8);
+  --to-top-bcg-color: rgba(255, 0, 0, 0.8);
   --to-top-after-color: #000;
 
   // background-image
   --background-image: url('https://hdrezka.ag/templates/hdrezka/images/holidays/holiday-christmas-bg-night.png');
+
+  // Genres button
+  --active-settings-btn-color: #fff;
 }

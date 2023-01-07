@@ -1,4 +1,9 @@
+// * {
+//   outline: 1px solid green;
+// }
+
 header {
+  height: 216px;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -40,15 +45,14 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  padding: 51px 20px;
+
+  padding: 50px 20px;
 
   @media screen and (min-width: 768px) {
-    padding: 40px 66px;
+    padding: 40px 20px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 40px 66px;
   }
 }
 
@@ -132,10 +136,65 @@ header {
   }
 }
 
+// user settings wrapper
+.header-ui-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.left-part-settings,
+.right-part-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  width: 100px;
+}
+
+.left-part-settings {
+  transform: translate(-210px, -35px);
+  z-index: 1000;
+}
+
+.right-part-settings {
+  transform: translate(221px, -35px);
+}
+
+// search form
+.container-select {
+  display: flex;
+  justify-content: center;
+}
+
 .search-form {
   display: flex;
   justify-content: center;
-  padding-bottom: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin: 0px 40px;
+
+  position: relative;
+}
+
+.search-result {
+  display: block;
+  height: 16px;
+
+  padding-top: 10px;
+
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.142;
+  color: var(--search-result-color);
 }
 
 .search-form-input {
@@ -181,40 +240,4 @@ header {
   background-repeat: no-repeat;
   background-position: 10px 10px;
   background-size: 20px 20px;
-}
-
-.choose-genre {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.choose-genre-btn {
-  line-height: 1.5;
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  border: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--nav-menu-color);
-  border-radius: 5px;
-  width: 197px;
-  align-content: center;
-}
-
-.search-result {
-  display: block;
-  height: 16px;
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.142;
-  color: var(--search-result-color);
-  padding-top: 10px;
-  padding-bottom: 60px;
-
-  @media screen and (min-width: 768px) {
-    padding-bottom: 40px;
-  }
 }

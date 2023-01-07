@@ -9,6 +9,15 @@
   background-image: url('../images/fullscreen.svg');
   background-size: 100%;
   background-position: center;
+
+  cursor: pointer;
+
+  transition: scale var(--transition-duration);
+
+  &:hover,
+  &:active {
+    scale: 1.2;
+  }
 }
 .fullscreen-exit-btn {
   background-image: url('../images/fullscreen-exit.svg');

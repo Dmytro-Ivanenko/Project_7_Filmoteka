@@ -1,9 +1,8 @@
 .library-page-header {
   background-size: cover;
   background-repeat: no-repeat;
-  margin: 0 auto;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     background-image: url(../images/header/background-header-library-mobile.jpg);
   }
 
@@ -15,6 +14,7 @@
 
   @media screen and (min-width: 768px) {
     background-image: url(../images/header/background-header-library-tablet.jpg);
+    margin-bottom: 60px;
   }
 
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
@@ -37,11 +37,10 @@
 .library-button-wrapper {
   display: flex;
   justify-content: center;
+  width: 100%;
 
   padding-bottom: 10px;
   gap: 20px;
-  padding-bottom: 60px;
-  padding-top: 28px;
 
   @media screen and (min-width: 768px) {
     gap: 32px;

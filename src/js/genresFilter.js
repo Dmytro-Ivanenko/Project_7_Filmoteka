@@ -8,8 +8,8 @@ let filteredFilmsPagination;
 export let checkedGenreNames = [];
 
 export async function createGenresFilter() {
-  const choiceBtn = document.querySelector('.choose-genre-btn');
-  const choiseFormWrapper = document.querySelector('.choice-form-wrapper');
+  const choiceBtn = document.querySelector('.choose-genre-icon');
+  const choiceFormWrapper = document.querySelector('.choice-form-wrapper');
   const choiceFormWrapperElement = document.querySelector(
     '.choice-form-wrapper__element'
   );
@@ -17,27 +17,29 @@ export async function createGenresFilter() {
 
   choiceBtn.addEventListener('click', openChoiceForm);
 
-  function openChoiceForm() {
+  // open filter
+  async function openChoiceForm() {
     clearFormMurkup();
 
-    choiseFormWrapper.classList.remove('visually-hidden');
+    choiceFormWrapper.classList.remove('visually-hidden');
 
+    await createFormMarkup();
     choiceBtn.removeEventListener('click', openChoiceForm);
     choiceBtn.addEventListener('click', closeChoiceForm);
     chooseBtn.addEventListener('click', searchFilmsToGenres);
     document.addEventListener('click', closeChoiceForm);
-    createFormMarkup();
   }
 
-  function closeChoiceForm() {
+  // close filter
+  function closeChoiceForm(event) {
     if (
-      event.target !== choiseFormWrapper &&
+      event.target !== choiceFormWrapper &&
       event.target !== choiceBtn &&
-      event.target.parentElement.parentElement !== choiseFormWrapper &&
+      event.target.parentElement.parentElement !== choiceFormWrapper &&
       event.target.parentElement.parentElement.parentElement !==
-        choiseFormWrapper
+        choiceFormWrapper
     ) {
-      choiseFormWrapper.classList.add('visually-hidden');
+      choiceFormWrapper.classList.add('visually-hidden');
       choiceBtn.removeEventListener('click', closeChoiceForm);
       document.removeEventListener('click', closeChoiceForm);
       choiceBtn.addEventListener('click', openChoiceForm);
