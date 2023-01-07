@@ -176,8 +176,6 @@ header {
   margin: 0px 40px;
 
   position: relative;
-
-  transform: translateY(-26px);
 }
 
 .search-result {
@@ -195,7 +193,7 @@ header {
   line-height: 1.142;
   color: var(--search-result-color);
 
-  transform: translateY(20px);
+  transform: translateY(-26px);
 }
 
 .search-form-input {
