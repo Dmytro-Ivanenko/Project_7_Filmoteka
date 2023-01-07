@@ -6,6 +6,10 @@ import { renderUpcoming } from './js/renderUpcoming';
 import { loadData } from './js/preloader';
 import { onUpcomingClick } from './js/onUpcomingClick';
 import { fullscreenToggle } from './js/fullscreen';
+import {
+  toggleModal,
+  closeModalOnBackdropClick,
+} from './js/createModalCardsStudents';
 
 //Imports
 import './js/home';
@@ -42,7 +46,4 @@ fullscreenBtn.addEventListener('click', fullscreenToggle);
 studentsBtn.addEventListener('click', toggleModal);
 closeBtn.addEventListener('click', toggleModal);
 window.addEventListener('click', closeModalOnBackdropClick);
-import {
-  toggleModal,
-  closeModalOnBackdropClick,
-} from './js/createModalCardsStudents';
+
