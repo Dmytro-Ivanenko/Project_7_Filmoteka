@@ -1,3 +1,4 @@
+
 header {
   height: 216px;
   background-size: cover;
@@ -176,6 +177,8 @@ header {
   margin: 0px 40px;
 
   position: relative;
+
+  transform: translateY(-26px);
 }
 
 .search-result {
