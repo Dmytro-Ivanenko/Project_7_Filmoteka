@@ -12,8 +12,6 @@ const swiper = new Swiper('.swiper', {
   },
   speed: 1000,
   
-
-  
   breakpoints: {
    // when window width is >= 320px
     767: {
