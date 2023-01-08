@@ -12,10 +12,17 @@
   }
 }
 .upcoming__image {
-  border-radius: 4px;
+  height: 200px;
   cursor: pointer;
   transition: transform var(--transition-duration);
-  
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    transform: scale(0.9);
+
+    box-shadow: 0px 0px 5px 5px #ff6b08;
+  }
 }
 
 .#{$glide-class} {
@@ -34,6 +41,7 @@
 
   &#{$se}track {
     overflow: hidden;
+    padding-right: 10px;
   }
 
   &#{$se}slides {
@@ -49,6 +57,7 @@
     white-space: nowrap;
     display: flex;
     flex-wrap: nowrap;
+    padding: 10px 0px;
 
     &#{$glide-modifier-separator}dragging {
       user-select: none;
@@ -85,8 +94,4 @@
   &#{$sm}rtl {
     direction: rtl;
   }
-}
-
-.upcoming__image {
-  height: 200px;
 }
