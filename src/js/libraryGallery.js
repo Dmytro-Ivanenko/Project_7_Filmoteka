@@ -28,6 +28,7 @@ async function onWatched() {
   }
 
   gallerySection = 'watched';
+  localStorage.setItem('section', gallerySection);
   watchedBtn.classList.add('watched-btn_current');
   queueBtn.classList.remove('queue-btn_current');
   gallery.innerHTML = '';
@@ -45,6 +46,7 @@ async function onQueue() {
   }
 
   gallerySection = 'queue';
+  localStorage.setItem('section', gallerySection);
   watchedBtn.classList.remove('watched-btn_current');
   queueBtn.classList.add('queue-btn_current');
   gallery.innerHTML = '';
@@ -104,7 +106,11 @@ onAuthStateChanged(auth, user => {
     console.log('user logged in: ', user);
     authSignOut.parentElement.classList.remove('visually-hidden');
     authFormOpen.parentElement.classList.add('visually-hidden');
-    onWatched();
+    if (localStorage.getItem('section') === 'queue') {
+      onQueue();
+    } else {
+      onWatched();
+    }
   } else {
     console.log('user logged out');
     authSignOut.parentElement.classList.add('visually-hidden');

@@ -9,7 +9,8 @@
   transition: opacity var(--transition-duration),
     visability var(--transition-duration);
   z-index: 50;
-  overflow-y: scroll;
+  padding: 20px 20px 40px;
+  overflow: scroll;
 
   &:after {
     content: '';
@@ -36,10 +37,9 @@
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
+  position: relative;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   display: flex;
   background-color: var(--primary-background-color);
   border-radius: 5px;
@@ -50,6 +50,10 @@
   z-index: 52;
 
   @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 704px;
     padding: 40px 36px;
   }

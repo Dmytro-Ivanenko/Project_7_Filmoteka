@@ -1,6 +1,6 @@
 .footer {
-  background-color: #f7f7f7;
-  color: var(--footer);
+  background-color: var(--footer-bcg-color);
+  color: var(--footer-font-color);
 }
 
 .footer-container {
@@ -16,7 +16,7 @@
   font-weight: 400;
 }
 
-.footer-nav__item--line::after{
+.footer-nav__item--line::after {
   content: '';
   display: inline-block;
   height: 14px;
@@ -25,10 +25,9 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-.footer-nav__item{
+.footer-nav__item {
   padding-right: 10px;
 }
-
 
 .students-button {
   background-color: transparent;

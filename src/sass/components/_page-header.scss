@@ -28,12 +28,12 @@ header {
 
   // desktop img
   @media screen and (min-width: 1280px) {
-    background-image: url(../images/header/background-header-desktop.jpg);
+    background-image: url(../images/header/background-header-desktop.svg);
   }
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
     screen and (min-resolution: 192dpi) and (min-width: 1280px),
     screen and (min-resolution: 2dppx) and (min-width: 1280px) {
-    background-image: url(../images/header/background-header-desktop@2x.jpg);
+    background-image: url(../images/header/background-header-desktop@2x.svg);
   }
 }
 
@@ -148,7 +148,7 @@ header {
   @media screen and(max-width:767px) {
     height: 35px;
     gap: 40px;
-    transform: translateY(70px);
+    transform: translateY(62px);
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
   }
