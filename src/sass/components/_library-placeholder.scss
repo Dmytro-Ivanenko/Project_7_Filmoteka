@@ -9,6 +9,7 @@
 .placeholder__text {
   font-size: 15px;
   line-height: 20px;
+  color: var(--primary-font-color);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
