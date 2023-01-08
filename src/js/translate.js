@@ -97,11 +97,11 @@ const langArr = {
     en: 'Novelty',
   },
     lo: {
-    ua: 'Логін',
+    ua: 'Вхід',
     en: 'Login',
   },
     log: {
-    ua: 'Логін',
+    ua: 'Увійти',
     en: 'Login',
   },
     si: {
@@ -113,7 +113,7 @@ const langArr = {
     en: 'Signup',
   },
     logi: {
-    ua: 'Логін',
+    ua: 'Увійти',
     en: 'Login',
   },
 };

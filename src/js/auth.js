@@ -57,7 +57,7 @@ async function loginEmailPassword(e) {
   const loginPassword = loginForm.elements.password.value;
 
   if (!loginEmail || !loginPassword) {
-    if (window.location.hash === 'ua') {
+    if (window.location.hash === '#ua') {
       Notiflix.Notify.failure('Введіть адресу електронної пошти та пароль');
     } else {
       Notiflix.Notify.failure('Enter email and password');
@@ -68,7 +68,14 @@ async function loginEmailPassword(e) {
   try {
     await signInWithEmailAndPassword(auth, loginEmail, loginPassword).then(
       () => {
-        location.reload();
+        const userName = loginEmail.split('@').shift();
+        if (window.location.hash === '#ua') {
+          Notiflix.Notify.success(`Вітаємо, ${userName}`);
+        } else {
+          Notiflix.Notify.success(`Welcome, ${userName}`);
+        }
+        authBackdrop.classList.add('is-hidden');
+        loginForm.reset();
       }
     );
   } catch (error) {
@@ -79,14 +86,12 @@ async function loginEmailPassword(e) {
 async function createAccount(e) {
   e.preventDefault();
 
-  console.log(signUpForm.elements);
-
   const email = signUpForm.elements.email.value;
   const password = signUpForm.elements.password.value;
   const confirmedPassword = signUpForm.elements.confirm.value;
 
   if (!email || !password) {
-    if (window.location.hash === 'ua') {
+    if (window.location.hash === '#ua') {
       Notiflix.Notify.failure('Введіть адресу електронної пошти та пароль');
     } else {
       Notiflix.Notify.failure('Enter email and password');
@@ -96,7 +101,7 @@ async function createAccount(e) {
   }
 
   if (password !== confirmedPassword) {
-    if (window.location.hash === 'ua') {
+    if (window.location.hash === '#ua') {
       Notiflix.Notify.failure('Введені паролі не співпадають');
     } else {
       Notiflix.Notify.failure('Passwords do not match');
@@ -120,7 +125,15 @@ async function createAccount(e) {
             ua: [],
           },
         });
-        location.reload();
+        const userName = email.split('@').shift();
+        console.log(userName);
+        if (window.location.hash === '#ua') {
+          Notiflix.Notify.success(`Вітаємо, ${userName}`);
+        } else {
+          Notiflix.Notify.success(`Welcome, ${userName}`);
+        }
+        authBackdrop.classList.add('is-hidden');
+        signUpForm.reset();
       }
     );
   } catch (error) {
@@ -136,7 +149,12 @@ function logout(e) {
 export async function monitorRedirect() {
   await getRedirectResult(auth).then(async cred => {
     if (cred) {
-      console.log('redirected');
+      const userName = cred.user.email.split('@').shift();
+      if (window.location.hash === '#ua') {
+        Notiflix.Notify.success(`Вітаємо, ${userName}`);
+      } else {
+        Notiflix.Notify.success(`Welcome, ${userName}`);
+      }
       const userData = await getDoc(doc(db, 'users', cred.user.uid)).then(
         res => {
           return res.data();
