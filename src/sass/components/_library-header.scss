@@ -1,6 +1,6 @@
-// * {
-//   outline: 1px solid green;
-// }
+* {
+  outline: 1px solid green;
+}
 
 .library-page-header {
   background-size: cover;
@@ -107,6 +107,7 @@
 }
 
 .right-part-settings--library {
+  transform: translateX(-38px);
   @media screen and (min-width: 768px) {
     transform: translate(207px, -37px);
   }
