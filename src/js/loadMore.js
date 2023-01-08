@@ -88,6 +88,6 @@ async function onLoadMoreGenre() {
   loader();
   renderGalleryMore(data.results);
   loaderRemove();
-  filteredFilmsPagination = addPagination(data, pages);
+  const filteredFilmsPagination = addPagination(data, pages);
   filteredFilmsPagination.on('beforeMove', loadMoreFilms);
 }
