@@ -6,7 +6,7 @@
   appearance: none;
 
   cursor: pointer;
-  transition: scale var(--transition-duration);
+  transition: color var(--transition-duration), scale var(--transition-duration);
 
   &:hover,
   &:focus {
