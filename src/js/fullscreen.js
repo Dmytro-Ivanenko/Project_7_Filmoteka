@@ -1,4 +1,4 @@
-import { fullscreenBtn } from '../index';
+export const fullscreenBtn = document.querySelector('.fullscreen-btn');
 
 const getFullscreenEl = () => {
   return (
@@ -26,3 +26,5 @@ export const fullscreenToggle = () => {
     });
   }
 };
+
+fullscreenBtn.addEventListener('click', fullscreenToggle);
