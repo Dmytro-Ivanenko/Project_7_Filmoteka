@@ -19,8 +19,3 @@ import { createGenresFilter } from './js/genresFilter';
 import { switchMode, loadMode } from './js/mode';
 import { onLoadMore, onLoadMoreSearch } from './js/loadMore';
 import { fetchGenreUrl } from './js/api';
-
-
-
-
-

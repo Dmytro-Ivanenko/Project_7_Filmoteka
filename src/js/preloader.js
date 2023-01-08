@@ -9,4 +9,3 @@ loadData().then(() => {
   preloaderEl.classList.add('hidden');
   preloaderEl.classList.remove('visible');
 });
-
