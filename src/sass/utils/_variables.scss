@@ -25,13 +25,12 @@ body {
   //Main
   --main-title-color: #ff6b08;
 
-  //Footer
-  --footer-background-color: #ffffff;
-  --footer-nav-color: grey;
-
   // Modal-card
   --modal-card-font-color: #8c8c8c;
   --active-btn-color: #ffffff;
+
+  // Modal login
+  --login-modal-font-color: #000000;
 
   // Back to top
   --to-top-bcg-color: rgba(255, 0, 0, 0.8);
@@ -43,10 +42,11 @@ body {
   // Genres button
   --active-settings-btn-color: #ff6b08;
 
-  // footer
+  //Footer
+  --footer-background-color: #ffffff;
+  --footer-nav-color: grey;
   --footer-font-color: #545454;
   --footer-bcg-color: #f7f7f7;
-  --student-font-color: #000:
 }
 
 .night {
@@ -69,13 +69,12 @@ body {
   //Main
   --main-title-color: #ff6b08;
 
-  //Footer
-  --footer-background-color: #160c0c;
-  --footer-nav-color: #ff6b08;
-
   // Modal-card
   --modal-card-font-color: #8c8c8c;
   --active-btn-color: #ffffff;
+
+  // Modal login
+  --login-modal-font-color: #ff6b08;
 
   // Back to top
   --to-top-bcg-color: rgba(255, 0, 0, 0.8);
@@ -90,5 +89,6 @@ body {
   // footer
   --footer-bcg-color: rgba(247, 247, 247, 0.286);
   --footer-font-color: rgb(241, 189, 189);
-  --student-font-color: #000:
+  --footer-background-color: #160c0c;
+  --footer-nav-color: #ff6b08;
 }

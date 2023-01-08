@@ -12,7 +12,7 @@
   max-width: 430px;
   width: 100%;
   padding: 30px;
-  border: 1px solid var(--primary-font-color);
+  border: 1px solid var(--login-modal-font-color);
   border-radius: 6px;
   background-image: var(--background-image);
 }
@@ -51,7 +51,7 @@
   text-align: center;
 
   font-family: var(--primary-font);
-  color: var(--primary-font-color);
+  color: var(--login-modal-font-color);
 }
 
 .visually-hidden {
@@ -76,15 +76,15 @@
 
 ::placeholder {
   font-family: var(--primary-font);
-  color: var(--primary-font-color);
+  color: var(--login-modal-font-color);
   opacity: 0.7;
 }
 
 .modal-close-btn {
-  color: var(--primary-font-color);
+  color: var(--login-modal-font-color);
   width: 27px;
   height: 27px;
-  border: 1px solid var(--primary-font-color);
+  border: 1px solid var(--login-modal-font-color);
   cursor: pointer;
   transition: var(--transition-duration);
   border-radius: 50%;
@@ -109,7 +109,7 @@
   width: 100%;
   border-style: hidden;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   border-radius: 6px;
   transition: var(--transition-duration);
   outline: none;
@@ -139,7 +139,7 @@
   font-weight: 400;
 
   font-family: var(--primary-font);
-  color: var(--primary-font-color);
+  color: var(--login-modal-font-color);
   box-shadow: 2px 2px 6px 0px var(--box-shadow-color-primary);
 
   transition: var(--transition-duration);
@@ -157,7 +157,7 @@
   font-family: var(--primary-font);
   font-size: 14px;
   font-weight: 400;
-  color: var(--primary-font-color);
+  color: var(--login-modal-font-color);
 }
 
 .form-link {
