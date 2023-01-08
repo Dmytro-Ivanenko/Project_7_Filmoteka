@@ -69,7 +69,7 @@ export function createModalCardMarkup(data) {
                     <button class="modal-card__btn-queue">Додати в Чергу</button>
                 </div>
                 <div class="modal-card-company">
-                <img class="modal-card-company-logo"src="https://www.themoviedb.org/t/p/w500${logoCompany}" alt="Logo" class="company__img">
+                <img class="modal-card-company-logo"src="https://www.themoviedb.org/t/p/w500${logoCompany}" alt="Studio logo" class="company__img">
                 </div>
             </div>
         </div>
