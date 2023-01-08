@@ -8,6 +8,11 @@ export async function renderUpcoming() {
   refs.upcomingList.innerHTML = '';
   const { data } = await refs.fetchApi.fetchUpcoming();
 
+  export async function renderUpcoming() {
+    refs.upcomingList.innerHTML = '';
+    const { data } = await refs.fetchApi.fetchUpcoming();
+
+
   const upcomingEl = data.results;
   const upcomingElements = upcomingEl.map(elem =>
     createElementsUpcoming(elem, refs.fetchApi)

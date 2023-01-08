@@ -1,5 +1,6 @@
 import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
 import { refs } from './refs';
+import { changeLanguage } from './translate';
 import { loader, loaderRemove } from './loader';
 
 export function renderGallery(galleryEl) {
