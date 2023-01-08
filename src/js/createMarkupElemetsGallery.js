@@ -28,7 +28,7 @@ export function createMarkupElemetsGallery(
     images =
       'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
   } else {
-    images = `https://image.tmdb.org/t/p/w1280${poster_path}`;
+    images = `https://image.tmdb.org/t/p/w500${poster_path}`;
   }
 
   return `<div class="photo-card"
@@ -42,7 +42,7 @@ export function createMarkupElemetsGallery(
       alt="${title}"
     />
   </a>
-  <button class="gallery-item-trailer">
+  <button class="gallery-item-trailer" aria-label="trailer">
   <svg class="gallery-item-trailer-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
   class="modal__icon-close"
   viewBox="0 0 32 32">
