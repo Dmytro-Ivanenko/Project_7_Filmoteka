@@ -49,6 +49,8 @@ export async function createGenresFilter() {
   const searchFilmsToGenres = async () => {
     refs.loadMoreGenreBtn.classList.remove('visually-hidden');
     refs.loadMoreTrend.classList.add('visually-hidden');
+    refs.loadMoreSearchBtn.classList.add('visually-hidden');
+
     checkedGenreNames = findCheckedGenres();
     if (checkedGenreNames.length == 0) {
       Notiflix.Notify.failure('You have not selected a movie genre');
