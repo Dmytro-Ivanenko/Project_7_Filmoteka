@@ -9,3 +9,5 @@ import {
   toggleModal,
   closeModalOnBackdropClick,
 } from './js/createModalCardsStudents';
+import './js/getTrailerFilm';
+
