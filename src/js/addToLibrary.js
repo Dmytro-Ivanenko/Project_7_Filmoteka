@@ -3,7 +3,7 @@ import { getDoc, doc, updateDoc } from 'firebase/firestore';
 import Notiflix from 'notiflix';
 import { currentMovie } from './onCardClick';
 import { toggleWatched, toggleQueue } from './onCardClick';
-import { fetchApi } from '../index.js';
+import { refs } from './refs';
 
 export async function addToWatched() {
   if (!auth.currentUser) {
@@ -22,13 +22,13 @@ export async function addToWatched() {
     });
 
     if (window.location.hash === '#ua') {
-      const { data: enVersion } = await fetchApi.getFilmToIdSecondLang(
+      const { data: enVersion } = await refs.fetchApi.getFilmToIdSecondLang(
         currentMovie.id
       );
       watchedMovies.ua.push(currentMovie);
       watchedMovies.en.push(enVersion);
     } else {
-      const { data: uaVersion } = await fetchApi.getFilmToIdSecondLang(
+      const { data: uaVersion } = await refs.fetchApi.getFilmToIdSecondLang(
         currentMovie.id
       );
       watchedMovies.en.push(currentMovie);
@@ -96,13 +96,13 @@ export async function addToQueue() {
     });
 
     if (window.location.hash === '#ua') {
-      const { data: enVersion } = await fetchApi.getFilmToIdSecondLang(
+      const { data: enVersion } = await refs.fetchApi.getFilmToIdSecondLang(
         currentMovie.id
       );
       queuedMovies.ua.push(currentMovie);
       queuedMovies.en.push(enVersion);
     } else {
-      const { data: uaVersion } = await fetchApi.getFilmToIdSecondLang(
+      const { data: uaVersion } = await refs.fetchApi.getFilmToIdSecondLang(
         currentMovie.id
       );
       queuedMovies.en.push(currentMovie);
