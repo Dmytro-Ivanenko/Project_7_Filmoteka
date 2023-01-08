@@ -1,4 +1,4 @@
-.scroll-ban{
+.scroll-ban {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -11,12 +11,6 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-}
-
-// on backdrop
-.is-hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .students-modal {
@@ -38,7 +32,7 @@
   );
 }
 
-@media (min-width:550px) and (max-width:767px) {
+@media (min-width: 550px) and (max-width: 767px) {
   .students-modal {
     max-width: 75%;
   }
@@ -47,8 +41,7 @@
 .card-student {
   display: flex;
   flex-direction: column;
- max-width: 360px;
-
+  max-width: 360px;
 }
 
 .img-and-icons-container {
@@ -56,22 +49,19 @@
   max-width: 270px;
   height: 320px;
   margin: 0px 45px;
-
 }
-.img-and-icons-container:hover .students-list__cards-descr{
-   display: inline-block;
-      opacity: 1;
-      transform: translateY(0%);
-      height: auto;
-      padding-top: 15px;
-      padding-bottom: 15px;
+.img-and-icons-container:hover .students-list__cards-descr {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0%);
+  height: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-
-@media (max-width:767px){
+@media (max-width: 767px) {
   .card-student {
-     max-width: 100%;
-   
+    max-width: 100%;
   }
 
   .img-and-icons-container {
@@ -79,23 +69,22 @@
   }
 }
 
-@media(min-width:768px) and (max-width:1023px){
+@media (min-width: 768px) and (max-width: 1023px) {
   .card-student {
-     max-width: 50%;
-   
-  }}
+    max-width: 50%;
+  }
+}
 
-  @media  (min-width:1024px) and (max-width:1500px){
-    .card-student {
-       max-width: 33.3333%;
-     
-    }}
-    @media  (min-width:1501px){
-      .card-student {
-         max-width: 25%;
-       
-      }}
-
+@media (min-width: 1024px) and (max-width: 1500px) {
+  .card-student {
+    max-width: 33.3333%;
+  }
+}
+@media (min-width: 1501px) {
+  .card-student {
+    max-width: 25%;
+  }
+}
 
 .card-student__link:hover,
 .card-student__link:focus {
@@ -134,7 +123,6 @@
   height: 30px;
 }
 
-
 // name and role
 
 .card-student__description {
@@ -145,10 +133,10 @@
 .card-student__name {
   width: auto;
   font-size: 26px;
-  font-weight: 700; 
+  font-weight: 700;
 }
 
-.student-big-surname{
+.student-big-surname {
   font-size: 25px;
 }
 
@@ -158,18 +146,19 @@
   font-weight: 500;
 }
 
-
 .student-photo {
   display: block;
-  width: 100%; 
+  width: 100%;
   height: 320px;
   object-fit: cover;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;}
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
 
-.students-list__cards-descr{
+.students-list__cards-descr {
   position: absolute;
-      bottom: 0;
-      left: 0;
+  bottom: 0;
+  left: 0;
   padding-top: 0px;
   padding-bottom: 0px;
   padding-right: 55px;
@@ -179,16 +168,20 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(100%);
-  transition: opacity 1000ms linear, transform 1000ms linear, height 1000ms linear, padding-top 1000ms linear, padding-bottom 1000ms linear;
+  transition: opacity 1000ms linear, transform 1000ms linear,
+    height 1000ms linear, padding-top 1000ms linear,
+    padding-bottom 1000ms linear;
   font-size: 13px;
   line-height: 1.56;
   letter-spacing: 0.03em;
   font-weight: 400;
   color: #000000;
-  background-image: linear-gradient(to bottom,
-          rgba(248, 248, 194, 0.496),
-          rgb(198, 175, 133) 30%,
-          rgb(187, 187, 186)); 
+  background-image: linear-gradient(
+    to bottom,
+    rgba(248, 248, 194, 0.496),
+    rgb(198, 175, 133) 30%,
+    rgb(187, 187, 186)
+  );
 }
 
 .card-student__icons {
@@ -206,11 +199,9 @@
   transition-duration: 1000ms;
 }
 
-
 .student-icon:hover {
   transform: scale(1.5);
 }
-
 
 // Swiper
 
@@ -223,7 +214,7 @@
   color: var(--accent-font-color);
 }
 
-.swiper .swiper-pagination{
+.swiper .swiper-pagination {
   margin-bottom: 15px;
 }
 .swiper .swiper-pagination-bullet {
@@ -234,35 +225,35 @@
 
 // ----------------------------------------------
 
-@media (max-width: 455px){
-
+@media (max-width: 455px) {
   .card-student__name {
-    font-size: 24px;}
+    font-size: 24px;
+  }
 
-    .card-student__role {
-      font-size: 20px;}
+  .card-student__role {
+    font-size: 20px;
+  }
 
   .card-student__icons {
- bottom: -40;
- right: 29%;
- flex-direction: row;
-    
-}
-.student-icon {
-  width: 25px;
-  height: 25px;
-}
-.swiper .swiper-wrapper {
-  margin-bottom: 90px;
-}
+    bottom: -40;
+    right: 29%;
+    flex-direction: row;
+  }
+  .student-icon {
+    width: 25px;
+    height: 25px;
+  }
+  .swiper .swiper-wrapper {
+    margin-bottom: 90px;
+  }
 
-.swiper .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-}
+  .swiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
 
-.swiper .swiper-button-prev,
-.swiper .swiper-button-next{
-top: 90%;
-}
+  .swiper .swiper-button-prev,
+  .swiper .swiper-button-next {
+    top: 90%;
+  }
 }
