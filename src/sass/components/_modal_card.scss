@@ -295,11 +295,11 @@
   display: none;
 
   @media screen and (min-width: 1280px) {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    height: 140px;
   }
 }
 .modal-card-company-logo {
@@ -308,6 +308,7 @@
   @media screen and (min-width: 1280px) {
     display: block;
     max-height: 100px;
+    background-color: white;
   }
 }
 
