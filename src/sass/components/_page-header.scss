@@ -108,6 +108,7 @@ header {
   color: var(--nav-menu-color);
   transition: color var(--transition-duration);
   position: relative;
+  cursor: pointer;
 
   &::after {
     content: '';
