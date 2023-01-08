@@ -44,7 +44,8 @@ body {
   --active-settings-btn-color: #ff6b08;
 
   // footer
-  --footer: #545454;
+  --footer-font-color: #545454;
+  --footer-bcg-color: #f7f7f7;
 }
 
 .night {
@@ -84,4 +85,8 @@ body {
 
   // Genres button
   --active-settings-btn-color: #fff;
+
+  // footer
+  --footer-bcg-color: rgba(247, 247, 247, 0.286);
+  --footer-font-color: rgb(241, 189, 189);
 }
