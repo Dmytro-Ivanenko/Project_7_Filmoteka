@@ -129,6 +129,8 @@
   margin-bottom: 20px;
   text-align: center;
   color: #000;
+
+  max-width: 320px;
 }
 .card-student__name {
   width: auto;
@@ -153,6 +155,8 @@
   object-fit: cover;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  cursor: pointer;
 }
 
 .students-list__cards-descr {
@@ -163,7 +167,7 @@
   padding-bottom: 0px;
   padding-right: 55px;
   padding-left: 15px;
-  width: 120%;
+  width: 100%;
   height: 0px;
   overflow: hidden;
   opacity: 0;
@@ -171,7 +175,7 @@
   transition: opacity 1000ms linear, transform 1000ms linear,
     height 1000ms linear, padding-top 1000ms linear,
     padding-bottom 1000ms linear;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.56;
   letter-spacing: 0.03em;
   font-weight: 400;
