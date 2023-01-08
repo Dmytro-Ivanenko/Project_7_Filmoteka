@@ -3,6 +3,9 @@ import 'swiper/swiper-bundle.min.css';
 
 const body = document.querySelector('body');
 const backdrop = document.querySelector('.students-backdrop');
+const studentsBtn = document.querySelector('.students-button');
+const closeBtn = document.querySelector('.close-button');
+
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination],
 
@@ -11,23 +14,21 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
   speed: 1000,
-  
+
   breakpoints: {
-   // when window width is >= 320px
+    // when window width is >= 320px
     767: {
       slidesPerView: 1,
     },
-   // when window width is >= 768px
-   1023: {
+    // when window width is >= 768px
+    1023: {
       slidesPerView: 2,
-
     },
-     // when window width is >= 1280px
+    // when window width is >= 1280px
     1300: {
       slidesPerView: 3,
-    }
+    },
   },
-
 
   pagination: {
     el: '.swiper-pagination',
@@ -37,20 +38,23 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
+studentsBtn.addEventListener('click', toggleModal);
+closeBtn.addEventListener('click', toggleModal);
+
 export function toggleModal() {
   backdrop.classList.toggle('is-hidden');
 
   if (!backdrop.classList.contains('is-hidden')) {
     swiper.update();
-    body.classList.add('scroll-ban')
-  } else{
-    body.classList.remove('scroll-ban')
+    body.classList.add('scroll-ban');
+  } else {
+    body.classList.remove('scroll-ban');
   }
 }
 
 export function closeModalOnBackdropClick(event) {
   if (event.target === backdrop) {
     backdrop.classList.add('is-hidden');
-    body.classList.remove('scroll-ban')
+    body.classList.remove('scroll-ban');
   }
 }

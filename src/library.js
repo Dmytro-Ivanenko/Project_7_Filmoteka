@@ -5,4 +5,9 @@ import './js/libraryGallery';
 import { onLibraryClick } from './js/libraryOnCardClick';
 import { switchMode } from './js/mode';
 import { fullscreenToggle } from './js/fullscreen';
+import {
+  toggleModal,
+  closeModalOnBackdropClick,
+} from './js/createModalCardsStudents';
 import './js/getTrailerFilm';
+
