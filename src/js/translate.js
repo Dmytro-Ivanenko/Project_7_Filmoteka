@@ -84,35 +84,35 @@ const langArr = {
     ua: 'Вже є аккаунт?',
     en: 'Already have an account?',
   },
-    popular: {
+  popular: {
     ua: 'Популярні',
     en: 'Popular',
   },
-    load: {
+  load: {
     ua: 'Завантажити ще',
     en: 'Load more',
   },
-    new: {
+  new: {
     ua: 'Новинки',
     en: 'Novelty',
   },
-    lo: {
+  lo: {
     ua: 'Вхід',
     en: 'Login',
   },
-    log: {
+  log: {
     ua: 'Увійти',
     en: 'Login',
   },
-    si: {
+  si: {
     ua: 'Реєстрація',
     en: 'Signup',
   },
-    sig: {
+  sig: {
     ua: 'Реєстрація',
     en: 'Signup',
   },
-    logi: {
+  logi: {
     ua: 'Увійти',
     en: 'Login',
   },
@@ -136,7 +136,7 @@ export function changeLanguage() {
   let hash = window.location.hash;
 
   hash = hash.substr(1);
-  console.log(hash);
+
   if (!allLang.includes(hash)) {
     location.href =
       window.location.pathname + '#' + localStorage.getItem('language');
@@ -153,6 +153,7 @@ export function changeLanguage() {
   }
 }
 changeLanguage();
+
 function changeLang() {
   const input = document.querySelector('.search-form-input');
 
@@ -166,6 +167,7 @@ function changeLang() {
   }
 }
 changeLang();
+
 function changeLangSing() {
   const title = document.querySelector('.login-title');
   if (window.location.hash === '#ua') {
@@ -175,9 +177,21 @@ function changeLangSing() {
   }
 }
 changeLangSing();
+
+function changeTrailerBtnLang() {
+  const gallery = document.querySelector('.gallery');
+
+  if (window.location.hash === '#ua') {
+    gallery.classList.remove('eng-gallery');
+  } else {
+    gallery.classList.add('eng-gallery');
+  }
+}
+changeTrailerBtnLang();
+
 function changeLangInputSingUp() {
   const input = document.querySelector('.input-form');
-  const inputPass = document.querySelector('.password')
+  const inputPass = document.querySelector('.password');
   const inputsingUp = document.querySelector('.input-form-singup');
   const inputsingUpEmail = document.querySelector('.input-email');
   const inputsingUpEmailConf = document.querySelector('.form-conf-pass');
@@ -190,7 +204,6 @@ function changeLangInputSingUp() {
     inputsingUp.placeholder = 'Пароль';
     inputsingUpEmail.placeholder = 'Електронна пошта';
     inputsingUpEmailConf.placeholder = 'Підтвердьте пароль';
-
   } else {
     input.placeholder = 'Email';
     inputPass.placeholder = 'Password';
