@@ -29,9 +29,6 @@ import { slides } from './js/onUpcomingClick';
 export const body = document.querySelector('body');
 export const galleryList = document.querySelector('.gallery');
 
-const studentsBtn = document.querySelector('.students-button');
-const closeBtn = document.querySelector('.close-button');
-
 // Classes
 export const fetchApi = new FetchAPI();
 
@@ -39,6 +36,4 @@ export const fetchApi = new FetchAPI();
 document.addEventListener('DOMContentLoaded', createGenresFilter);
 document.addEventListener('DOMContentLoaded', renderUpcoming);
 
-studentsBtn.addEventListener('click', toggleModal);
-closeBtn.addEventListener('click', toggleModal);
 window.addEventListener('click', closeModalOnBackdropClick);
