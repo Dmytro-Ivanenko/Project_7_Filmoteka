@@ -20,7 +20,7 @@ import './js/getTrailerFilm';
 import { FetchAPI } from './js/api';
 
 import { createGenresFilter } from './js/genresFilter';
-import { switchMode } from './js/mode';
+import { switchMode, loadMode } from './js/mode';
 import { onLoadMore, onLoadMoreSearch } from './js/loadMore';
 
 import { fetchGenreUrl } from './js/api';
