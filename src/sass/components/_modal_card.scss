@@ -83,6 +83,7 @@
   }
 }
 .modal-card__description {
+  position: relative;
   flex: 1 0 50%;
 }
 .modal-card__image {
@@ -287,6 +288,21 @@
 
 .modal__icon-close {
   fill: currentColor;
+}
+
+// Company logo
+.modal-card-company {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  // display: flex;
+  // height: 120px;
+  // align-items: center;
+  // align-content: center;
+  // justify-content: center;
+}
+.modal-card-company-logo {
+  max-height: 100px;
 }
 
 // Trailer Modal

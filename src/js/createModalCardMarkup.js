@@ -1,3 +1,5 @@
+import { url } from 'inspector';
+
 export function createModalCardMarkup(data) {
   if (window.location.hash === '#ua') {
     const {
@@ -9,7 +11,10 @@ export function createModalCardMarkup(data) {
       popularity,
       original_title,
       overview,
+      production_companies,
     } = data;
+
+    const logoCompany = production_companies[0].logo_path;
 
     const genresName = genres
       .map(genreId => {
@@ -63,6 +68,9 @@ export function createModalCardMarkup(data) {
                     <button class="modal-card__btn-watched">Додати в Переглянуті</button>
                     <button class="modal-card__btn-queue">Додати в Чергу</button>
                 </div>
+                <div class="modal-card-company">
+                <img class="modal-card-company-logo"src="https://www.themoviedb.org/t/p/w500${logoCompany}" alt="Logo" class="company__img">
+                </div>
             </div>
         </div>
     </div>
@@ -77,7 +85,10 @@ export function createModalCardMarkup(data) {
       popularity,
       original_title,
       overview,
+      production_companies,
     } = data;
+
+    const logoCompany = production_companies[0].logo_path;
 
     const genresName = genres
       .map(genreId => {
@@ -130,6 +141,9 @@ export function createModalCardMarkup(data) {
                 <div class="modal-card__btn">
                     <button class="modal-card__btn-watched">Add to Watched</button>
                     <button class="modal-card__btn-queue">Add to Queue</button>
+                </div>
+                <div class="modal-card-company">
+                <img class="modal-card-company-logo"src="https://www.themoviedb.org/t/p/w500${logoCompany}" alt="Logo" class="company__img">
                 </div>
             </div>
         </div>
