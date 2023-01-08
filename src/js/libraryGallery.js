@@ -4,6 +4,10 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db, authFormOpen, authSignOut } from './auth';
 import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
 import { refs } from './refs';
+import {
+  getEmptyColPlaceholder,
+  getUnauthorizedLibraryPlaceholder,
+} from './emptyColPlaceholder';
 
 const watchedBtn = document.querySelector('.watched-btn');
 const queueBtn = document.querySelector('.queue-btn');
@@ -53,9 +57,21 @@ function monitorWatchedChanges() {
     let watchedMarkup;
     console.log(watchedMovies);
     if (window.location.hash === '#ua') {
-      watchedMarkup = watchedMovies.ua.map(createMarkupElemetsGallery).join('');
+      if (watchedMovies.ua.length === 0) {
+        watchedMarkup = getEmptyColPlaceholder();
+      } else {
+        watchedMarkup = watchedMovies.ua
+          .map(createMarkupElemetsGallery)
+          .join('');
+      }
     } else {
-      watchedMarkup = watchedMovies.en.map(createMarkupElemetsGallery).join('');
+      if (watchedMovies.en.length === 0) {
+        watchedMarkup = getEmptyColPlaceholder();
+      } else {
+        watchedMarkup = watchedMovies.en
+          .map(createMarkupElemetsGallery)
+          .join('');
+      }
     }
     gallery.innerHTML = watchedMarkup;
   });
@@ -67,9 +83,17 @@ function monitorQueueChanges() {
     let queueMarkup;
     console.log(queuedMovies);
     if (window.location.hash === '#ua') {
-      queueMarkup = queuedMovies.ua.map(createMarkupElemetsGallery).join('');
+      if (queuedMovies.ua.length === 0) {
+        queueMarkup = getEmptyColPlaceholder();
+      } else {
+        queueMarkup = queuedMovies.ua.map(createMarkupElemetsGallery).join('');
+      }
     } else {
-      queueMarkup = queuedMovies.en.map(createMarkupElemetsGallery).join('');
+      if (queuedMovies.en.length === 0) {
+        queueMarkup = getEmptyColPlaceholder();
+      } else {
+        queueMarkup = queuedMovies.en.map(createMarkupElemetsGallery).join('');
+      }
     }
     gallery.innerHTML = queueMarkup;
   });
@@ -85,6 +109,7 @@ onAuthStateChanged(auth, user => {
     console.log('user logged out');
     authSignOut.parentElement.classList.add('visually-hidden');
     authFormOpen.parentElement.classList.remove('visually-hidden');
+    gallery.innerHTML = getUnauthorizedLibraryPlaceholder();
   }
   refs.siteNav.classList.remove('visually-hidden');
 });
