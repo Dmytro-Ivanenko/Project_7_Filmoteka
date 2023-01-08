@@ -7,8 +7,6 @@ import Notiflix from 'notiflix';
 let filteredFilmsPagination;
 export let checkedGenreNames = [];
 
-// document.addEventListener('DOMContentLoaded', createGenresFilter);
-
 export async function createGenresFilter() {
   const choiceBtn = document.querySelector('.choose-genre-icon');
   const choiceFormWrapper = document.querySelector('.choice-form-wrapper');
@@ -123,5 +121,3 @@ export async function createGenresFilter() {
     renderGallery(data.results);
   }
 }
-
-createGenresFilter();

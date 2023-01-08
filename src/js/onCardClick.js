@@ -20,7 +20,9 @@ let addToQueueBtn;
 
 gallery.addEventListener('click', onCardClick);
 
+// ================= Змінна щоб пушити до firebase фільми ================
 export let currentMovie;
+// =======================================================================
 
 gallery.addEventListener('click', onCardClick);
 document.addEventListener('DOMContentLoaded', renderTrendingFilms());

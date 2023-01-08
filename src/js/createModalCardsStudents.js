@@ -58,5 +58,3 @@ export function closeModalOnBackdropClick(event) {
     body.classList.remove('scroll-ban');
   }
 }
-
-window.addEventListener('click', closeModalOnBackdropClick);

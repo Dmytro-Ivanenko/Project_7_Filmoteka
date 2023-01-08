@@ -2,7 +2,7 @@ import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
 import { refs } from './refs';
 import { addPagination } from './pagination';
 import { renderGallery } from './renderGallery';
-import { searchValue } from './searchFilms';
+import { searchFilms, searchValue } from './searchFilms';
 import { checkedGenreNames } from './genresFilter';
 import { loader, loaderRemove } from './loader';
 // import { async } from '@firebase/util';
