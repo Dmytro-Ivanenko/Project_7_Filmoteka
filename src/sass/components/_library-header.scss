@@ -1,7 +1,4 @@
 .library-page-header {
-  background-size: cover;
-  background-repeat: no-repeat;
-
   @media screen and (max-width: 767px) {
     background-image: url(../images/header/background-header-library-mobile.jpg);
   }
@@ -92,7 +89,7 @@
 
 .header-ui-wrapper--library {
   @media screen and(max-width:767px) {
-    transform: translateY(48px);
+    transform: translateY(75px);
   }
 }
 
