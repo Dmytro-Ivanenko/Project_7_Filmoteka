@@ -47,10 +47,42 @@
         <button type="button" class="queue-btn lng-queue">QUEUE</button>
       </div>
 
-      <select class="change-lang">
-        <option value="ua">UA</option>
-        <option value="en">EN</option>
-      </select>
+      <div class="header-ui-wrapper">
+        <div class="left-part-settings">
+          <!-- fullscreen mode -->
+          <button class="fullscreen-btn"></button>
+
+          <!-- genres filter -->
+          <div class="choose-genre">
+            <button type="menu" class="choose-genre-btn">
+              <svg class="choose-genre-icon" width="30px" height="30px">
+                <use href="./images/icon/sprite.svg#icon-filter-list"></use>
+              </svg>
+            </button>
+            <div class="choice-form-wrapper visually-hidden">
+              <form class="choice-form-wrapper__element"></form>
+              <div class="choice-form-wrapper__btn">
+                <button class="chooseBtn lng-choose" type="submit">
+                  CHOOSE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-part-settings">
+          <!-- lang settings -->
+          <select class="change-lang">
+            <option value="ua">UA</option>
+            <option value="en">EN</option>
+          </select>
+
+          <!-- day-night mode -->
+          <label class="mode-label">
+            <input type="checkbox" class="mode-checkbox" />
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 </header>
