@@ -14,6 +14,7 @@
 
 .choice-form-wrapper__element {
   max-height: 50vh;
+  min-width: max-content;
   overflow: auto;
   margin-bottom: 20px;
   margin-right: auto;
