@@ -86,6 +86,12 @@
   }
 }
 
+.eng-gallery .gallery-item-trailer {
+  &:hover::after {
+    content: 'Watch the trailer';
+  }
+}
+
 .gallery-item-trailer-icon {
   display: inline-block;
   width: 32px;
