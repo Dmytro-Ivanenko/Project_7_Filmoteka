@@ -1,6 +1,6 @@
 import { createMarkupElemetsGallery } from './createMarkupElemetsGallery';
 import { refs } from './refs';
-import { addPagination } from './pagination';
+import { addPagination, toTopScroll } from './pagination';
 import { renderGallery } from './renderGallery';
 import { searchFilms, searchValue } from './searchFilms';
 import { checkedGenreNames } from './genresFilter';
@@ -40,6 +40,8 @@ async function loadMoreTrending(e) {
   const pages = refs.fetchApi.curPage();
   const { data } = await refs.fetchApi.fetchTrendingFilms(pages);
   renderGallery(data.results);
+
+  toTopScroll();
 }
 
 // Search
@@ -52,6 +54,7 @@ async function loadMoreSearch(e) {
     pages
   );
   renderGallery(data.results);
+  toTopScroll();
 }
 export async function onLoadMoreSearch() {
   refs.fetchApi.numberOfPage();
@@ -76,6 +79,7 @@ async function loadMoreFilms(e) {
     currentPage
   );
   renderGallery(data.results);
+  toTopScroll();
 }
 
 async function onLoadMoreGenre() {
