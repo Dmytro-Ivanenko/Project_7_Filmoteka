@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import { renderGallery } from './renderGallery.js';
-import { addPagination } from './pagination.js';
+import { addPagination, toTopScroll } from './pagination.js';
 import { renderTrendingFilms } from './renderTrendingFilms';
 import Notiflix from 'notiflix';
 
@@ -8,6 +8,7 @@ let filteredFilmsPagination;
 export let checkedGenreNames = [];
 
 export async function createGenresFilter() {
+  debugger;
   const choiceBtn = document.querySelector('.choose-genre-icon');
   const choiceFormWrapper = document.querySelector('.choice-form-wrapper');
   const choiceFormWrapperElement = document.querySelector(
@@ -19,6 +20,7 @@ export async function createGenresFilter() {
 
   // open filter
   async function openChoiceForm() {
+    debugger;
     clearFormMurkup();
 
     choiceFormWrapper.classList.remove('visually-hidden');
@@ -119,5 +121,7 @@ export async function createGenresFilter() {
       currentPage
     );
     renderGallery(data.results);
+    toTopScroll();
   }
 }
+createGenresFilter();

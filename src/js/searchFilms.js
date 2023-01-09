@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
-import { addPagination } from './pagination';
+import { addPagination, toTopScroll } from './pagination';
 
 export let searchValue = '';
 let searchPagination = null;
@@ -59,4 +59,6 @@ async function loadMoreSearch(e) {
     currentPage
   );
   renderGallery(data.results);
+
+  toTopScroll();
 }

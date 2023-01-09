@@ -31,3 +31,10 @@ export function addPagination({ total_results }, page) {
 
   return new Pagination('pagination', options);
 }
+
+export function toTopScroll() {
+  window.scrollTo({
+    top: 0,
+    // behavior: 'smooth',
+  });
+}

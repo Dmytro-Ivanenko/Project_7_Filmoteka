@@ -1,6 +1,6 @@
 import { refs } from './refs';
 import { renderGallery } from './renderGallery';
-import { addPagination } from './pagination';
+import { addPagination, toTopScroll } from './pagination';
 
 let trendPagination;
 
@@ -20,4 +20,5 @@ async function loadMoreTrending(e) {
   const { data } = await refs.fetchApi.fetchTrendingFilms(currentPage);
 
   renderGallery(data.results);
+  toTopScroll();
 }
