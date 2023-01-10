@@ -138,7 +138,6 @@ const YOUTUBE_URl_BY_ID =
 const YOUTUBE_API_KEY = 'AIzaSyB6GdMv8RD8xISEFufgs3lbWAFN0Q-xs-Q';
 
 export async function getTrailerYouTube(key) {
-  // console.log(key);
   if (window.location.hash === '#ua') {
     return await axios.get(
       `${YOUTUBE_URl_BY_ID}${key}&key=${YOUTUBE_API_KEY}&language=uk-UA`
