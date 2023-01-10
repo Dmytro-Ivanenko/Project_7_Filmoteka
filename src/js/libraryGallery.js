@@ -57,7 +57,6 @@ function monitorWatchedChanges() {
   onSnapshot(doc(db, 'users', auth.currentUser.uid), snapshot => {
     const { watchedMovies } = snapshot.data();
     let watchedMarkup;
-    console.log(watchedMovies);
     if (window.location.hash === '#ua') {
       if (watchedMovies.ua.length === 0) {
         watchedMarkup = getEmptyColPlaceholder();
@@ -83,7 +82,6 @@ function monitorQueueChanges() {
   onSnapshot(doc(db, 'users', auth.currentUser.uid), snapshot => {
     const { queuedMovies } = snapshot.data();
     let queueMarkup;
-    console.log(queuedMovies);
     if (window.location.hash === '#ua') {
       if (queuedMovies.ua.length === 0) {
         queueMarkup = getEmptyColPlaceholder();
@@ -103,7 +101,6 @@ function monitorQueueChanges() {
 
 onAuthStateChanged(auth, user => {
   if (user) {
-    console.log('user logged in: ', user);
     authSignOut.parentElement.classList.remove('visually-hidden');
     authFormOpen.parentElement.classList.add('visually-hidden');
     if (localStorage.getItem('section') === 'queue') {
@@ -112,7 +109,6 @@ onAuthStateChanged(auth, user => {
       onWatched();
     }
   } else {
-    console.log('user logged out');
     authSignOut.parentElement.classList.add('visually-hidden');
     authFormOpen.parentElement.classList.remove('visually-hidden');
     gallery.innerHTML = getUnauthorizedLibraryPlaceholder();
