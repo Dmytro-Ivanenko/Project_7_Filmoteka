@@ -2,7 +2,6 @@ import { refs } from './refs';
 import { renderTrendingFilms } from './renderTrendingFilms';
 import { renderGallery } from './renderGallery';
 import { addPagination, toTopScroll } from './pagination';
-import Notiflix from 'notiflix';
 
 export let searchValue = '';
 let searchPagination = null;
@@ -48,7 +47,7 @@ export async function searchFilms(e) {
       searchPagination.on('beforeMove', loadMoreSearch);
     }
   } catch (error) {
-    Notiflix.Notify.failure(error.message);
+    console.log(error);
   }
 }
 

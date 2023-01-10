@@ -2,6 +2,8 @@ import { createElementsUpcoming } from './createElementsUpcoming';
 import { refs } from './refs';
 import Glide from '@glidejs/glide';
 
+// document.addEventListener('DOMContentLoaded', renderUpcoming);
+
 export async function renderUpcoming() {
   refs.upcomingList.innerHTML = '';
   const { data } = await refs.fetchApi.fetchUpcoming();

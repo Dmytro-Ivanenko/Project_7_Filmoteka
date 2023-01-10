@@ -40,6 +40,8 @@ export async function onLibraryClick(e) {
         currentMovie = watchedMovies.en.find(movie => movie.id === id);
       }
 
+      console.log(currentMovie);
+
       backdropBackground(currentMovie);
       modal.innerHTML = createLibraryWatchedCardMarkup(currentMovie);
 
@@ -60,6 +62,8 @@ export async function onLibraryClick(e) {
       } else {
         currentMovie = queuedMovies.en.find(movie => movie.id === id);
       }
+
+      console.log(currentMovie);
 
       backdropBackground(currentMovie);
       modal.innerHTML = createLibraryQueueCardMarkup(currentMovie);

@@ -126,6 +126,7 @@ async function createAccount(e) {
           },
         });
         const userName = email.split('@').shift();
+        console.log(userName);
         if (window.location.hash === '#ua') {
           Notiflix.Notify.success(`Вітаємо, ${userName}`);
         } else {
@@ -160,6 +161,7 @@ export async function monitorRedirect() {
         }
       );
       if (!userData) {
+        console.log('new user');
         setDoc(doc(db, 'users', `${cred.user.uid}`), {
           userId: cred.user.uid,
           userEmail: cred.user.email,
