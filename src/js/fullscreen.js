@@ -15,15 +15,11 @@ document.addEventListener('fullscreenchange', () => {
 
 export const fullscreenToggle = () => {
   if (!getFullscreenEl()) {
-    document.documentElement.requestFullscreen().catch(e => {
-      console.log(e);
-    });
+    document.documentElement.requestFullscreen();
   }
 
   if (getFullscreenEl()) {
-    document.exitFullscreen().catch(e => {
-      console.log(e);
-    });
+    document.exitFullscreen();
   }
 };
 
